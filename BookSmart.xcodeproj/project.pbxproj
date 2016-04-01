@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F32CF681CACC5F200E61E39 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F32CF671CACC5F200E61E39 /* SWRevealViewController.m */; };
+		3F32CF6B1CACC7A900E61E39 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32CF6A1CACC7A900E61E39 /* HomeViewController.swift */; };
+		3F32CF6D1CACCABC00E61E39 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32CF6C1CACCABC00E61E39 /* SideMenuViewController.swift */; };
 		3F6DC80C1CAB67FE00278937 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DC80B1CAB67FE00278937 /* AppDelegate.swift */; };
-		3F6DC80E1CAB67FE00278937 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DC80D1CAB67FE00278937 /* ViewController.swift */; };
+		3F6DC80E1CAB67FE00278937 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DC80D1CAB67FE00278937 /* LogInViewController.swift */; };
 		3F6DC8111CAB67FE00278937 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6DC80F1CAB67FE00278937 /* Main.storyboard */; };
 		3F6DC8131CAB67FE00278937 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F6DC8121CAB67FE00278937 /* Assets.xcassets */; };
 		3F6DC8161CAB67FE00278937 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6DC8141CAB67FE00278937 /* LaunchScreen.storyboard */; };
@@ -30,6 +33,8 @@
 		3F6DC8551CAB68B000278937 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6DC8541CAB68AF00278937 /* SystemConfiguration.framework */; };
 		3F6DC8571CAB68B900278937 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6DC8561CAB68B900278937 /* libz.tbd */; };
 		3F6DC8591CAB68C900278937 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6DC8581CAB68C900278937 /* libsqlite3.tbd */; };
+		3F9CB92D1CADDB7F00CA0CED /* HomeViewFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CB92C1CADDB7F00CA0CED /* HomeViewFeedCell.swift */; };
+		3F9CB92F1CADDF4F00CA0CED /* HomeViewTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CB92E1CADDF4F00CA0CED /* HomeViewTableController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,9 +55,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F32CF651CACC5F200E61E39 /* BookSmart-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BookSmart-Bridging-Header.h"; sourceTree = "<group>"; };
+		3F32CF661CACC5F200E61E39 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		3F32CF671CACC5F200E61E39 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		3F32CF6A1CACC7A900E61E39 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		3F32CF6C1CACCABC00E61E39 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		3F6DC8081CAB67FE00278937 /* BookSmart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookSmart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6DC80B1CAB67FE00278937 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3F6DC80D1CAB67FE00278937 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3F6DC80D1CAB67FE00278937 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		3F6DC8101CAB67FE00278937 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F6DC8121CAB67FE00278937 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F6DC8151CAB67FE00278937 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,6 +89,8 @@
 		3F6DC8541CAB68AF00278937 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3F6DC8561CAB68B900278937 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		3F6DC8581CAB68C900278937 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		3F9CB92C1CADDB7F00CA0CED /* HomeViewFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewFeedCell.swift; sourceTree = "<group>"; };
+		3F9CB92E1CADDF4F00CA0CED /* HomeViewTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewTableController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +134,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F32CF691CACC60700E61E39 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F32CF661CACC5F200E61E39 /* SWRevealViewController.h */,
+				3F32CF671CACC5F200E61E39 /* SWRevealViewController.m */,
+				3F32CF651CACC5F200E61E39 /* BookSmart-Bridging-Header.h */,
+			);
+			name = "Supporting Files";
+			path = ..;
+			sourceTree = "<group>";
+		};
 		3F6DC7FF1CAB67FE00278937 = {
 			isa = PBXGroup;
 			children = (
@@ -147,11 +170,13 @@
 			isa = PBXGroup;
 			children = (
 				3F6DC80B1CAB67FE00278937 /* AppDelegate.swift */,
-				3F6DC80D1CAB67FE00278937 /* ViewController.swift */,
+				3F6DC80D1CAB67FE00278937 /* LogInViewController.swift */,
 				3F6DC80F1CAB67FE00278937 /* Main.storyboard */,
+				3F9CB9301CADED7E00CA0CED /* HomeView */,
 				3F6DC8121CAB67FE00278937 /* Assets.xcassets */,
 				3F6DC8141CAB67FE00278937 /* LaunchScreen.storyboard */,
 				3F6DC8171CAB67FE00278937 /* Info.plist */,
+				3F32CF691CACC60700E61E39 /* Supporting Files */,
 			);
 			path = BookSmart;
 			sourceTree = "<group>";
@@ -203,6 +228,17 @@
 				3F6DC8461CAB687300278937 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F9CB9301CADED7E00CA0CED /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				3F32CF6C1CACCABC00E61E39 /* SideMenuViewController.swift */,
+				3F9CB92C1CADDB7F00CA0CED /* HomeViewFeedCell.swift */,
+				3F9CB92E1CADDF4F00CA0CED /* HomeViewTableController.swift */,
+				3F32CF6A1CACC7A900E61E39 /* HomeViewController.swift */,
+			);
+			name = HomeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,8 +375,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F6DC80E1CAB67FE00278937 /* ViewController.swift in Sources */,
+				3F9CB92F1CADDF4F00CA0CED /* HomeViewTableController.swift in Sources */,
+				3F6DC80E1CAB67FE00278937 /* LogInViewController.swift in Sources */,
 				3F6DC80C1CAB67FE00278937 /* AppDelegate.swift in Sources */,
+				3F32CF681CACC5F200E61E39 /* SWRevealViewController.m in Sources */,
+				3F32CF6D1CACCABC00E61E39 /* SideMenuViewController.swift in Sources */,
+				3F32CF6B1CACC7A900E61E39 /* HomeViewController.swift in Sources */,
+				3F9CB92D1CADDB7F00CA0CED /* HomeViewFeedCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +521,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -488,6 +530,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AlecBrownlie.BookSmart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BookSmart-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -495,6 +539,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -503,6 +548,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.AlecBrownlie.BookSmart;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BookSmart-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -573,6 +619,7 @@
 				3F6DC8321CAB67FE00278937 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F6DC8331CAB67FE00278937 /* Build configuration list for PBXNativeTarget "BookSmartTests" */ = {
 			isa = XCConfigurationList;
@@ -581,6 +628,7 @@
 				3F6DC8351CAB67FE00278937 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F6DC8361CAB67FE00278937 /* Build configuration list for PBXNativeTarget "BookSmartUITests" */ = {
 			isa = XCConfigurationList;
@@ -589,6 +637,7 @@
 				3F6DC8381CAB67FE00278937 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
