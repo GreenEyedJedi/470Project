@@ -9,7 +9,7 @@
 import UIKit
 
 class Post: NSObject {
-    
+     
     private var postID:Int?
     private var postTitle:String?
     private var postPhoto:UIImage?

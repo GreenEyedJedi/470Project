@@ -3,7 +3,7 @@
 //  BookSmart
 //
 //  Created by Alec Brownlie on 3/31/16.
-//  Copyright © 2016 Alec Brownlie. All rights reserved.
+//  Copyright © 2016 Alec Brownlie. All rights reserve.
 //
 
 import UIKit
