@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1B4AAD1CB45FD30068FC01 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1B4AAC1CB45FD30068FC01 /* Post.swift */; };
 		3F32CF681CACC5F200E61E39 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F32CF671CACC5F200E61E39 /* SWRevealViewController.m */; };
 		3F32CF6B1CACC7A900E61E39 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32CF6A1CACC7A900E61E39 /* HomeViewController.swift */; };
 		3F32CF6D1CACCABC00E61E39 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32CF6C1CACCABC00E61E39 /* SideMenuViewController.swift */; };
@@ -35,6 +36,7 @@
 		3F6DC8591CAB68C900278937 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6DC8581CAB68C900278937 /* libsqlite3.tbd */; };
 		3F9CB92D1CADDB7F00CA0CED /* HomeViewFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CB92C1CADDB7F00CA0CED /* HomeViewFeedCell.swift */; };
 		3F9CB92F1CADDF4F00CA0CED /* HomeViewTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CB92E1CADDF4F00CA0CED /* HomeViewTableController.swift */; };
+		3F9CB9321CAE02A900CA0CED /* FindBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CB9311CAE02A900CA0CED /* FindBooksViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F1B4AAC1CB45FD30068FC01 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		3F32CF651CACC5F200E61E39 /* BookSmart-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BookSmart-Bridging-Header.h"; sourceTree = "<group>"; };
 		3F32CF661CACC5F200E61E39 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		3F32CF671CACC5F200E61E39 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -91,6 +94,7 @@
 		3F6DC8581CAB68C900278937 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		3F9CB92C1CADDB7F00CA0CED /* HomeViewFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewFeedCell.swift; sourceTree = "<group>"; };
 		3F9CB92E1CADDF4F00CA0CED /* HomeViewTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewTableController.swift; sourceTree = "<group>"; };
+		3F9CB9311CAE02A900CA0CED /* FindBooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindBooksViewController.swift; path = ../FindBooksViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,9 +173,11 @@
 		3F6DC80A1CAB67FE00278937 /* BookSmart */ = {
 			isa = PBXGroup;
 			children = (
+				3F9CB9311CAE02A900CA0CED /* FindBooksViewController.swift */,
 				3F6DC80B1CAB67FE00278937 /* AppDelegate.swift */,
 				3F6DC80D1CAB67FE00278937 /* LogInViewController.swift */,
 				3F6DC80F1CAB67FE00278937 /* Main.storyboard */,
+				3F1B4AAC1CB45FD30068FC01 /* Post.swift */,
 				3F9CB9301CADED7E00CA0CED /* HomeView */,
 				3F6DC8121CAB67FE00278937 /* Assets.xcassets */,
 				3F6DC8141CAB67FE00278937 /* LaunchScreen.storyboard */,
@@ -375,12 +381,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F1B4AAD1CB45FD30068FC01 /* Post.swift in Sources */,
 				3F9CB92F1CADDF4F00CA0CED /* HomeViewTableController.swift in Sources */,
 				3F6DC80E1CAB67FE00278937 /* LogInViewController.swift in Sources */,
 				3F6DC80C1CAB67FE00278937 /* AppDelegate.swift in Sources */,
 				3F32CF681CACC5F200E61E39 /* SWRevealViewController.m in Sources */,
 				3F32CF6D1CACCABC00E61E39 /* SideMenuViewController.swift in Sources */,
 				3F32CF6B1CACC7A900E61E39 /* HomeViewController.swift in Sources */,
+				3F9CB9321CAE02A900CA0CED /* FindBooksViewController.swift in Sources */,
 				3F9CB92D1CADDB7F00CA0CED /* HomeViewFeedCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

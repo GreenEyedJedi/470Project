@@ -40,6 +40,13 @@ class SideMenuViewController: UITableViewController {
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         NSLog("You selected: \(MenuArray[indexPath.row])!")
         
+        if indexPath.row == 1
+        {
+            var Storyboard = UIStoryboard(name: "Main", bundle: nil)
+            var FindBooksVC : UIViewController = Storyboard.instantiateViewControllerWithIdentifier("FindBooksVC")
+            self.presentViewController(FindBooksVC, animated: true, completion: nil)
+        }
+        
         if indexPath.row == 3
         {
             loggedOutPressed()

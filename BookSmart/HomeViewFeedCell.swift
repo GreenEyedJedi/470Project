@@ -12,45 +12,58 @@ import Parse
 
 class HomeViewFeedCell: UITableViewCell
 {
-    @IBOutlet weak var UserPostTitleLabel: UILabel!
-    @IBOutlet weak var BookTitleLabel: UILabel!
-    @IBOutlet weak var BookDescripLabel: UILabel!
-    @IBOutlet weak var BookImageView: UIImageView!
-    @IBOutlet weak var FeedView: UIView!
+    @IBOutlet weak var bookImageView: UIImageView!
+    @IBOutlet weak var bookDescripLabel: UILabel!
+    @IBOutlet weak var bookTitleLabel: UILabel!
+    @IBOutlet weak var userPostTitleLabel: UILabel!
+    @IBOutlet weak var feedView: UIView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        print("I'm awake!")
+    }
     
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
     @IBAction func SaveForLaterButton(sender: AnyObject)
     {
-        
+        print("SaveForLaterButton pressed.")
     }
     
     
     @IBAction func ViewBookButton(sender: AnyObject)
     {
-        
+        print("ViewBookButton pressed.")
     }
+    
+//    override func layoutSubviews() {
+//        homePageFeedViewSetup()
+//        bookImageSetup()
+//        print("")
+//    }
     
     func homePageFeedViewSetup()
     {
         
-        FeedView.alpha = 1
-        FeedView.layer.masksToBounds = false
+        feedView.alpha = 1
+        feedView.layer.masksToBounds = false
         
-        let path = UIBezierPath(rect: FeedView.bounds)
+        let path = UIBezierPath(rect:                feedView.bounds)
         
-        FeedView.layer.shadowOffset = CGSizeMake(-0.25, -0.25)
-        FeedView.layer.shadowRadius = 1
-        FeedView.layer.shadowPath = path.CGPath
-        FeedView.layer.shadowOpacity = 0.2
+        feedView.layer.shadowOffset = CGSizeMake(-0.25, -0.25)
+        feedView.layer.shadowRadius = 1
+        feedView.layer.shadowPath = path.CGPath
+        feedView.layer.shadowOpacity = 0.2
         
     }
     
     func bookImageSetup()
     {
-        BookImageView.layer.cornerRadius = BookImageView.frame.size.width/2
-        BookImageView.clipsToBounds = true
-        BookImageView.backgroundColor = UIColor.whiteColor()
-        BookImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        bookImageView.layer.cornerRadius = bookImageView.frame.size.width/2
+        bookImageView.clipsToBounds = true
+        bookImageView.backgroundColor = UIColor.whiteColor()
+        bookImageView.contentMode = UIViewContentMode.ScaleAspectFill
         
         
     }

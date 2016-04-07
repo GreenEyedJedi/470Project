@@ -11,7 +11,7 @@ import Parse
 
 class HomeViewTableController: UITableView
 {
-    private var newsFeedCell = HomeViewFeedCell()
+    var newsFeedCell = HomeViewFeedCell()
     
     
     
