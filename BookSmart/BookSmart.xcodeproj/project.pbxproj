@@ -10,6 +10,9 @@
 		24E1901F1CC48F6700995D23 /* FindClassTextbooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E1901E1CC48F6700995D23 /* FindClassTextbooksTableViewController.swift */; };
 		24E190211CC490B300995D23 /* CoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E190201CC490B300995D23 /* CoursesTableViewController.swift */; };
 		24E190271CC7024000995D23 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E190261CC7024000995D23 /* SearchTableViewController.swift */; };
+		24E1902D1CC931DC00995D23 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E1902C1CC931DC00995D23 /* Course.swift */; };
+		24E1902F1CC94F0000995D23 /* ProfessorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E1902E1CC94F0000995D23 /* ProfessorTableViewController.swift */; };
+		24E190311CC94F1700995D23 /* BookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E190301CC94F1700995D23 /* BookTableViewController.swift */; };
 		3F1B4AAD1CB45FD30068FC01 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1B4AAC1CB45FD30068FC01 /* Post.swift */; };
 		3F32CF681CACC5F200E61E39 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F32CF671CACC5F200E61E39 /* SWRevealViewController.m */; };
 		3F32CF6B1CACC7A900E61E39 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32CF6A1CACC7A900E61E39 /* HomeViewController.swift */; };
@@ -62,6 +65,9 @@
 		24E1901E1CC48F6700995D23 /* FindClassTextbooksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindClassTextbooksTableViewController.swift; sourceTree = "<group>"; };
 		24E190201CC490B300995D23 /* CoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesTableViewController.swift; sourceTree = "<group>"; };
 		24E190261CC7024000995D23 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		24E1902C1CC931DC00995D23 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		24E1902E1CC94F0000995D23 /* ProfessorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfessorTableViewController.swift; sourceTree = "<group>"; };
+		24E190301CC94F1700995D23 /* BookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
 		3F1B4AAC1CB45FD30068FC01 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		3F32CF651CACC5F200E61E39 /* BookSmart-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BookSmart-Bridging-Header.h"; sourceTree = "<group>"; };
 		3F32CF661CACC5F200E61E39 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -178,11 +184,14 @@
 			isa = PBXGroup;
 			children = (
 				3F6DC80B1CAB67FE00278937 /* AppDelegate.swift */,
+				24E190301CC94F1700995D23 /* BookTableViewController.swift */,
+				24E1902C1CC931DC00995D23 /* Course.swift */,
 				24E190201CC490B300995D23 /* CoursesTableViewController.swift */,
 				24E1901E1CC48F6700995D23 /* FindClassTextbooksTableViewController.swift */,
 				3F6DC80D1CAB67FE00278937 /* LogInViewController.swift */,
 				3F6DC80F1CAB67FE00278937 /* Main.storyboard */,
 				3F1B4AAC1CB45FD30068FC01 /* Post.swift */,
+				24E1902E1CC94F0000995D23 /* ProfessorTableViewController.swift */,
 				24E190261CC7024000995D23 /* SearchTableViewController.swift */,
 				3F9CB9301CADED7E00CA0CED /* HomeView */,
 				3F6DC8121CAB67FE00278937 /* Assets.xcassets */,
@@ -392,12 +401,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24E1902D1CC931DC00995D23 /* Course.swift in Sources */,
 				3F1B4AAD1CB45FD30068FC01 /* Post.swift in Sources */,
 				3F9CB92F1CADDF4F00CA0CED /* HomeViewTableController.swift in Sources */,
 				3F6DC80E1CAB67FE00278937 /* LogInViewController.swift in Sources */,
 				3F6DC80C1CAB67FE00278937 /* AppDelegate.swift in Sources */,
 				3F32CF681CACC5F200E61E39 /* SWRevealViewController.m in Sources */,
+				24E190311CC94F1700995D23 /* BookTableViewController.swift in Sources */,
 				3F32CF6D1CACCABC00E61E39 /* SideMenuViewController.swift in Sources */,
+				24E1902F1CC94F0000995D23 /* ProfessorTableViewController.swift in Sources */,
 				24E190211CC490B300995D23 /* CoursesTableViewController.swift in Sources */,
 				3F32CF6B1CACC7A900E61E39 /* HomeViewController.swift in Sources */,
 				24E190271CC7024000995D23 /* SearchTableViewController.swift in Sources */,

@@ -8,11 +8,18 @@
 
 import UIKit
 import Parse
+import Foundation
 
 class SearchTableViewController: UITableViewController, UISearchBarDelegate {
 
-    var searchResults = [String]()
+    // Keep an array of the courses selected by the search
     
+    var queriedCourses = [Course]()
+    
+    var searchResultsToDisplay = [String]()
+    
+    // Dictonary to ensure that only one instance of a course is being displayed in the search results
+    var duplicateCheck = [String: AnyObject]()
      
     @IBOutlet weak var querySearchBar: UISearchBar!
     
@@ -38,7 +45,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return searchResults.count
+        return searchResultsToDisplay.count
         
     }
 
@@ -109,8 +116,11 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
             }
             
             if let objects = results {
-                // Empy the results array
-                self.searchResults.removeAll(keepCapacity: false)
+                // Empy the results arrays
+                self.searchResultsToDisplay.removeAll(keepCapacity: false)
+                self.duplicateCheck.removeAll()
+                self.queriedCourses.removeAll()
+                
                 
                 for object in objects {
                     // Get the keys under department and course number and put them as one string
@@ -118,8 +128,22 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                     let course = object.objectForKey("CourseNo") as! String
                     let wholeClass = dept + " " + course
                 
+                    let firstName =  object.objectForKey("PFName") as! String
+                    let lastName = object.objectForKey("PLName") as! String
+                    let wholeName = firstName + " " + lastName
                     
-                    self.searchResults.append(wholeClass)
+                    let classSection = object.objectForKey("SectionNo") as! Int
+                    
+                    if self.duplicateCheck.indexForKey(wholeClass) == nil
+                    {// This course has not been added yet
+                        self.duplicateCheck[wholeClass] = object
+                        self.searchResultsToDisplay.append(wholeClass)
+                        
+                    }
+                    
+                    let newCourse = Course(prof: wholeName, section: classSection, course: wholeClass)
+                    self.queriedCourses.append(newCourse)
+                    
                 }
                 
                 dispatch_async(dispatch_get_main_queue()) {
@@ -145,26 +169,56 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
 
         // Configure the cell to print entries from the array containing the query results
         
-        cell.textLabel!.text = searchResults[indexPath.row]
+        cell.textLabel!.text = searchResultsToDisplay[indexPath.row]
 
         return cell
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-        querySearchBar.resignFirstResponder()
+        // Need to determine if the selected course is just taught by one or more teachers and segue 
+        // accordingly
+        // Get the text of the selected row, filter the course array for multiple instances of the 
+        // same class 
+        
+        let selectedCell = tableView.cellForRowAtIndexPath(indexPath)
+        let course = selectedCell?.textLabel?.text
+        
+        let allDuplicateCourses = self.queriedCourses.filter() {$0.deptAndCourse == course}
+        queriedCourses = allDuplicateCourses
+        
+        
+        if allDuplicateCourses.count == 1
+        {// Go directly to books page
+            
+        }
+        
+        else
+        {// Go to page to select teacher/section number
+            self.performSegueWithIdentifier("toProfessor", sender: self)
+        }
     }
     
-    /*
+    
+    
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prep
     
-    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "toProfessor"
+        {
+            let newVC = segue.destinationViewController as! ProfessorTableViewController
+            newVC.receiveCourses(queriedCourses)
+            
+        }
+    
     }
-    */
+
 
 }

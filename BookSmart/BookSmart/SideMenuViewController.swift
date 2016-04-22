@@ -45,7 +45,7 @@ class SideMenuViewController: UITableViewController {
         if indexPath.row == 0
         {
             var Storyboard = UIStoryboard(name: "Main", bundle: nil)
-            var SearchVC: UIViewController = Storyboard.instantiateViewControllerWithIdentifier("SearchVC")
+            var SearchVC = Storyboard.instantiateViewControllerWithIdentifier("SearchVC")
             self.presentViewController(SearchVC, animated: true, completion: nil)
         }
         
