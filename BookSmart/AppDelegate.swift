@@ -24,7 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("pGQQu6YGEdBgjX0QrbuJvu7BDZ9rp094yyFmlx6V",
             clientKey: "LNoNKtql2LPKKzt1rU8khbcPFANVsdyG9DLRtUz5")
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
-     
+        
+        //let tableVC:PostViewController = PostViewController(className: "Posts")
+        //tableVC.title = "BookSmart"
         
         return true
     }

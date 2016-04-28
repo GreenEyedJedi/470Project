@@ -8,24 +8,24 @@
 
 import UIKit
 import Parse
+import ParseUI
 
-
-class HomeViewFeedCell: UITableViewCell
+class HomeViewFeedCell: PFTableViewCell
 {
     @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var bookDescripLabel: UILabel!
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var userPostTitleLabel: UILabel!
     @IBOutlet weak var feedView: UIView!
+   
+    var parseObject:PFObject?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        print("I'm awake!")
+        //print("I'm awake!")
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
+ 
     @IBAction func SaveForLaterButton(sender: AnyObject)
     {
         print("SaveForLaterButton pressed.")

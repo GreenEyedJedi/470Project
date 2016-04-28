@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F0E03A01CC043DE0079FB3C /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E039F1CC043DE0079FB3C /* CreatePostViewController.swift */; };
 		3F1B4AAD1CB45FD30068FC01 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1B4AAC1CB45FD30068FC01 /* Post.swift */; };
 		3F32CF681CACC5F200E61E39 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F32CF671CACC5F200E61E39 /* SWRevealViewController.m */; };
 		3F32CF6B1CACC7A900E61E39 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32CF6A1CACC7A900E61E39 /* HomeViewController.swift */; };
 		3F32CF6D1CACCABC00E61E39 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F32CF6C1CACCABC00E61E39 /* SideMenuViewController.swift */; };
+		3F5BD80F1CD079CB009B4052 /* FinishPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5BD80E1CD079CB009B4052 /* FinishPostViewController.swift */; };
+		3F5BD8111CD085E0009B4052 /* UploadPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5BD8101CD085E0009B4052 /* UploadPostViewController.swift */; };
 		3F6DC80C1CAB67FE00278937 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DC80B1CAB67FE00278937 /* AppDelegate.swift */; };
 		3F6DC80E1CAB67FE00278937 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DC80D1CAB67FE00278937 /* LogInViewController.swift */; };
 		3F6DC8111CAB67FE00278937 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6DC80F1CAB67FE00278937 /* Main.storyboard */; };
@@ -34,9 +37,10 @@
 		3F6DC8551CAB68B000278937 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6DC8541CAB68AF00278937 /* SystemConfiguration.framework */; };
 		3F6DC8571CAB68B900278937 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6DC8561CAB68B900278937 /* libz.tbd */; };
 		3F6DC8591CAB68C900278937 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F6DC8581CAB68C900278937 /* libsqlite3.tbd */; };
+		3F749D771CB71BD50017DCFA /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F749D761CB71BD50017DCFA /* PostViewController.swift */; };
 		3F9CB92D1CADDB7F00CA0CED /* HomeViewFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CB92C1CADDB7F00CA0CED /* HomeViewFeedCell.swift */; };
-		3F9CB92F1CADDF4F00CA0CED /* HomeViewTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CB92E1CADDF4F00CA0CED /* HomeViewTableController.swift */; };
 		3F9CB9321CAE02A900CA0CED /* FindBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CB9311CAE02A900CA0CED /* FindBooksViewController.swift */; };
+		3FE5D4E31CD1B3D9003CE618 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5D4E21CD1B3D9003CE618 /* Book.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,12 +61,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F0E039F1CC043DE0079FB3C /* CreatePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		3F1B4AAC1CB45FD30068FC01 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		3F32CF651CACC5F200E61E39 /* BookSmart-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BookSmart-Bridging-Header.h"; sourceTree = "<group>"; };
 		3F32CF661CACC5F200E61E39 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		3F32CF671CACC5F200E61E39 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		3F32CF6A1CACC7A900E61E39 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3F32CF6C1CACCABC00E61E39 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		3F5BD80E1CD079CB009B4052 /* FinishPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishPostViewController.swift; sourceTree = "<group>"; };
+		3F5BD8101CD085E0009B4052 /* UploadPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadPostViewController.swift; path = ../UploadPostViewController.swift; sourceTree = "<group>"; };
 		3F6DC8081CAB67FE00278937 /* BookSmart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookSmart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6DC80B1CAB67FE00278937 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F6DC80D1CAB67FE00278937 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -92,9 +99,10 @@
 		3F6DC8541CAB68AF00278937 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		3F6DC8561CAB68B900278937 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		3F6DC8581CAB68C900278937 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		3F749D761CB71BD50017DCFA /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		3F9CB92C1CADDB7F00CA0CED /* HomeViewFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewFeedCell.swift; sourceTree = "<group>"; };
-		3F9CB92E1CADDF4F00CA0CED /* HomeViewTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewTableController.swift; sourceTree = "<group>"; };
 		3F9CB9311CAE02A900CA0CED /* FindBooksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FindBooksViewController.swift; path = ../FindBooksViewController.swift; sourceTree = "<group>"; };
+		3FE5D4E21CD1B3D9003CE618 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,7 +185,10 @@
 				3F6DC80B1CAB67FE00278937 /* AppDelegate.swift */,
 				3F6DC80D1CAB67FE00278937 /* LogInViewController.swift */,
 				3F6DC80F1CAB67FE00278937 /* Main.storyboard */,
-				3F1B4AAC1CB45FD30068FC01 /* Post.swift */,
+				3FE5D4E21CD1B3D9003CE618 /* Book.swift */,
+				3F0E039F1CC043DE0079FB3C /* CreatePostViewController.swift */,
+				3F5BD80E1CD079CB009B4052 /* FinishPostViewController.swift */,
+				3F5BD8101CD085E0009B4052 /* UploadPostViewController.swift */,
 				3F9CB9301CADED7E00CA0CED /* HomeView */,
 				3F6DC8121CAB67FE00278937 /* Assets.xcassets */,
 				3F6DC8141CAB67FE00278937 /* LaunchScreen.storyboard */,
@@ -239,10 +250,11 @@
 		3F9CB9301CADED7E00CA0CED /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				3F32CF6C1CACCABC00E61E39 /* SideMenuViewController.swift */,
-				3F9CB92C1CADDB7F00CA0CED /* HomeViewFeedCell.swift */,
-				3F9CB92E1CADDF4F00CA0CED /* HomeViewTableController.swift */,
+				3F749D761CB71BD50017DCFA /* PostViewController.swift */,
+				3F1B4AAC1CB45FD30068FC01 /* Post.swift */,
 				3F32CF6A1CACC7A900E61E39 /* HomeViewController.swift */,
+				3F9CB92C1CADDB7F00CA0CED /* HomeViewFeedCell.swift */,
+				3F32CF6C1CACCABC00E61E39 /* SideMenuViewController.swift */,
 			);
 			name = HomeView;
 			sourceTree = "<group>";
@@ -381,14 +393,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F0E03A01CC043DE0079FB3C /* CreatePostViewController.swift in Sources */,
 				3F1B4AAD1CB45FD30068FC01 /* Post.swift in Sources */,
-				3F9CB92F1CADDF4F00CA0CED /* HomeViewTableController.swift in Sources */,
 				3F6DC80E1CAB67FE00278937 /* LogInViewController.swift in Sources */,
+				3F5BD8111CD085E0009B4052 /* UploadPostViewController.swift in Sources */,
 				3F6DC80C1CAB67FE00278937 /* AppDelegate.swift in Sources */,
+				3F5BD80F1CD079CB009B4052 /* FinishPostViewController.swift in Sources */,
+				3F749D771CB71BD50017DCFA /* PostViewController.swift in Sources */,
 				3F32CF681CACC5F200E61E39 /* SWRevealViewController.m in Sources */,
 				3F32CF6D1CACCABC00E61E39 /* SideMenuViewController.swift in Sources */,
 				3F32CF6B1CACC7A900E61E39 /* HomeViewController.swift in Sources */,
 				3F9CB9321CAE02A900CA0CED /* FindBooksViewController.swift in Sources */,
+				3FE5D4E31CD1B3D9003CE618 /* Book.swift in Sources */,
 				3F9CB92D1CADDB7F00CA0CED /* HomeViewFeedCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

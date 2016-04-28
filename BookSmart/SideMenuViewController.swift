@@ -16,7 +16,7 @@ class SideMenuViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        MenuArray = ["Search", "Find Class Textbooks", "Settings" , "Log out"]
+        MenuArray = ["Home", "Search", "My Classes", "Browse Textbooks", "Seller Conversations",  "Post", "Settings" , "Log out"]
         
     }
     
@@ -38,16 +38,35 @@ class SideMenuViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        NSLog("You selected: \(MenuArray[indexPath.row])!")
+        NSLog("You selected: \(MenuArray[indexPath.row])")
         
-        if indexPath.row == 1
+        // if user selects Home
+        if indexPath.row == 0
+        {
+            var Storyboard = UIStoryboard(name: "Main", bundle: nil)
+            var HomeVC : UIViewController = Storyboard.instantiateViewControllerWithIdentifier("HomeNavVC")
+            self.revealViewController().setFrontViewController(HomeVC, animated: true)
+        }
+        
+        // if user select Browse Textbooks
+        if indexPath.row == 3
         {
             var Storyboard = UIStoryboard(name: "Main", bundle: nil)
             var FindBooksVC : UIViewController = Storyboard.instantiateViewControllerWithIdentifier("FindBooksVC")
             self.presentViewController(FindBooksVC, animated: true, completion: nil)
         }
         
-        if indexPath.row == 3
+        // if user selects Post
+        if indexPath.row == 5
+        {
+            var Storyboard = UIStoryboard(name: "Main", bundle: nil)
+            var PostVC : UIViewController = Storyboard.instantiateViewControllerWithIdentifier("PostVC")
+            self.revealViewController().setFrontViewController(PostVC, animated: true)
+
+        }
+        
+        // if user selects Log Out
+        if indexPath.row == 7
         {
             loggedOutPressed()
             var Storyboard = UIStoryboard(name: "Main", bundle: nil)
