@@ -48,12 +48,19 @@ class SideMenuViewController: UITableViewController {
             self.revealViewController().setFrontViewController(HomeVC, animated: true)
         }
         
+        if indexPath.row == 1
+        {
+            var Storyboard = UIStoryboard(name: "Main", bundle: nil)
+            var SearchVC: UIViewController = Storyboard.instantiateViewControllerWithIdentifier("SearchVC")
+            self.revealViewController().setFrontViewController(SearchVC, animated: true)
+        }
+        
         // if user select Browse Textbooks
         if indexPath.row == 3
         {
             var Storyboard = UIStoryboard(name: "Main", bundle: nil)
             var FindBooksVC : UIViewController = Storyboard.instantiateViewControllerWithIdentifier("FindBooksVC")
-            self.presentViewController(FindBooksVC, animated: true, completion: nil)
+            self.revealViewController().setFrontViewController(FindBooksVC, animated: true)
         }
         
         // if user selects Post

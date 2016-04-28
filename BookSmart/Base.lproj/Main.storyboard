@@ -1680,6 +1680,161 @@
             </objects>
             <point key="canvasLocation" x="-841.5" y="1047"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EHQ-i9-p6i">
+            <objects>
+                <navigationController storyboardIdentifier="FindBooksVC" id="oj2-fE-uYi" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QWP-2b-r8y">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="4Fu-us-n6J" kind="relationship" relationship="rootViewController" id="wS0-xS-jOl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Df-4K-gBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2842.5" y="3196"/>
+        </scene>
+        <!--Departments-->
+        <scene sceneID="4Ru-JD-v8Y">
+            <objects>
+                <tableViewController id="4Fu-us-n6J" customClass="FindClassTextbooksTableViewController" customModule="BookSmart" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="S9n-Yn-YNW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="iI3-Sl-mXE">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iI3-Sl-mXE" id="F5M-v2-M71">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="o4c-SP-RpA" kind="show" id="i3R-N6-UCb"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4Fu-us-n6J" id="ZjQ-ew-e95"/>
+                            <outlet property="delegate" destination="4Fu-us-n6J" id="vqB-qo-598"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Departments" id="hrN-m7-qax">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="ezt-Jn-iuZ"/>
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="4To-h9-1sy"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuBarButton" destination="4To-h9-1sy" id="HcN-BS-yQa"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rge-Qa-SgG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1984.5" y="3196"/>
+        </scene>
+        <!--Courses Table View Controller-->
+        <scene sceneID="pbl-z3-sJA">
+            <objects>
+                <tableViewController id="o4c-SP-RpA" customClass="CoursesTableViewController" customModule="BookSmart" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="MJF-6W-gUE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="udf-yE-dt4">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="udf-yE-dt4" id="JAK-F7-UZC">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="o4c-SP-RpA" id="uRK-8M-dzF"/>
+                            <outlet property="delegate" destination="o4c-SP-RpA" id="G1M-Sz-qY1"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pnm-L2-oQX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1254" y="3196"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rpC-uS-bjG">
+            <objects>
+                <navigationController storyboardIdentifier="SearchVC" id="Btr-Fb-vQx" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Ic-bm-ODy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Nqp-7c-Feu" kind="relationship" relationship="rootViewController" id="nfc-sf-oYc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YIb-LF-4Pi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1993.5" y="2508"/>
+        </scene>
+        <!--Search Table View Controller-->
+        <scene sceneID="ftn-Dn-nCF">
+            <objects>
+                <tableViewController id="Nqp-7c-Feu" customClass="SearchTableViewController" customModule="BookSmart" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qlr-HS-6o6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="m5v-NU-rVT">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            <scopeButtonTitles>
+                                <string>Courses</string>
+                                <string>Books</string>
+                            </scopeButtonTitles>
+                            <connections>
+                                <outlet property="delegate" destination="Nqp-7c-Feu" id="zcd-Sf-B6x"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="2cL-XL-5cg">
+                                <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2cL-XL-5cg" id="STy-rb-4FS">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Nqp-7c-Feu" id="WR8-Gs-6FO"/>
+                            <outlet property="delegate" destination="Nqp-7c-Feu" id="Xid-ME-078"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="L5y-ee-5bO">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="BZl-kc-g1W"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuBarButton" destination="BZl-kc-g1W" id="AGN-zy-cEp"/>
+                        <outlet property="querySearchBar" destination="m5v-NU-rVT" id="lvR-yd-gXI"/>
+                        <outlet property="searchDisplayController" destination="xEW-0e-qoV" id="Cjd-TY-ZAG"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7MN-Dw-tIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController searchResultsTitle="Courses" id="xEW-0e-qoV">
+                    <connections>
+                        <outlet property="delegate" destination="Nqp-7c-Feu" id="4lI-VG-V9O"/>
+                        <outlet property="searchBar" destination="m5v-NU-rVT" id="nG5-Z8-i8X"/>
+                        <outlet property="searchContentsController" destination="Nqp-7c-Feu" id="7uJ-xZ-DCI"/>
+                        <outlet property="searchResultsDataSource" destination="Nqp-7c-Feu" id="ogU-AT-dvp"/>
+                        <outlet property="searchResultsDelegate" destination="Nqp-7c-Feu" id="9n6-At-9YN"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="-1254" y="2508"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="kkA-0o-XH1"/>
