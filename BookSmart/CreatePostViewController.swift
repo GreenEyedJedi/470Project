@@ -36,7 +36,10 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         {
             var courseID = findCourseID(departmentTextField.text!, course: courseNumberTextField.text!, profLastName: courseProfessorTextField.text!)
             print("COURSE ID IS = \(courseID)")
-            post = Post(PostTitle: postTitleTextField.text, User: PFUser.currentUser(), Condition: postConditionTextField.text, Book: nil, Course: nil, Description: descriptionTextField.text, Image: imageView, Price: postPriceTextField.text)
+            
+            var p = Int(postPriceTextField.text!)
+            
+            post = Post(PostTitle: postTitleTextField.text, User: PFUser.currentUser(), Condition: postConditionTextField.text, Book: nil, Course: nil, Description: descriptionTextField.text, Image: imageView, Price: p)
             ISBN = bookISBNTextField.text
         }
         else

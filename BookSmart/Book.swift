@@ -13,7 +13,7 @@ class Book: PFObject, PFSubclassing
 {
     @NSManaged var bookTitle : String?
     @NSManaged var bookISBN : String?
-    @NSManaged var bookNumOfPages : String?
+    @NSManaged var bookNumOfPages : NSNumber?
     @NSManaged var bookDescription : String?
     @NSManaged var authorFN : String?
     @NSManaged var authorLN : String?
@@ -43,7 +43,7 @@ class Book: PFObject, PFSubclassing
         return query
     }
     
-    init(title : String?, isbn : String?, pageNum : String?, desc : String?, author : String?, image : UIImageView?)
+    init(title : String?, isbn : String?, pageNum : NSNumber?, desc : String?, author : String?, image : UIImageView?)
     {
         super.init()
         

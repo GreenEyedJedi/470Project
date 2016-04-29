@@ -15,7 +15,7 @@ class Post: PFObject, PFSubclassing {
     @NSManaged var postImage : PFFile
     @NSManaged var postTitle: String?
     
-    @NSManaged var postPrice : String?
+    @NSManaged var postPrice : NSNumber?
    
     @NSManaged var user : PFUser
     @NSManaged var postCondition : String?
@@ -41,7 +41,7 @@ class Post: PFObject, PFSubclassing {
     
     
   
-    init(PostTitle: String?, User : PFUser?, Condition: String?, Book : PFObject?, Course : PFObject?, Description: String?, Image: UIImageView?, Price: String?)
+    init(PostTitle: String?, User : PFUser?, Condition: String?, Book : PFObject?, Course : PFObject?, Description: String?, Image: UIImageView?, Price: NSNumber?)
     {
         super.init()
         

@@ -38,12 +38,12 @@ class UploadPostViewController: UIViewController
             postToParse["PostTitle"] = self.post?.postTitle
             postToParse["BookTitle"] = self.book?.bookTitle
             postToParse["Condition"] = self.post?.postCondition
-          
+            postToParse["Price"] = self.post?.postPrice
             
             bookToParse["Title"] = self.book?.bookTitle
             bookToParse["ISBN"] = self.book?.bookISBN
             bookToParse["Description"] = self.book?.bookDescription
-            bookToParse["Pages"] = self.book?.bookNumOfPages
+            //bookToParse["Pages"] = self.book?.bookNumOfPages   CRASH
             bookToParse["AuthorFirstName"] = self.book?.authorFN
             bookToParse["AuthorLastName"] = self.book?.authorLN
             
@@ -51,9 +51,7 @@ class UploadPostViewController: UIViewController
             postToParse["PostImage"] = self.post?.postImage
             
             
-            
-            
-            postToParse.saveInBackgroundWithBlock {
+            PFObject.saveAllInBackground([postToParse, bookToParse], block: {
                 (success: Bool, error: NSError?) -> Void in
                 
                 if (success) {
@@ -62,7 +60,7 @@ class UploadPostViewController: UIViewController
                         var HomeVC : UIViewController = Storyboard.instantiateViewControllerWithIdentifier("HomeNavVC")
                         self.revealViewController().setFrontViewController(HomeVC, animated: true)
                     }
-              
+                    
                 } else {
                     // There was a problem, check error.description
                     self.activityIndicator.stopAnimating()
@@ -70,7 +68,27 @@ class UploadPostViewController: UIViewController
                     
                     failureAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default,handler: nil))
                 }
-            }
+            })
+            
+            
+//            postToParse.saveInBackgroundWithBlock {
+//                (success: Bool, error: NSError?) -> Void in
+//                
+//                if (success) {
+//                    dispatch_async(dispatch_get_main_queue()) {
+//                        var Storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                        var HomeVC : UIViewController = Storyboard.instantiateViewControllerWithIdentifier("HomeNavVC")
+//                        self.revealViewController().setFrontViewController(HomeVC, animated: true)
+//                    }
+//              
+//                } else {
+//                    // There was a problem, check error.description
+//                    self.activityIndicator.stopAnimating()
+//                    var failureAlert = UIAlertController(title: "Error", message: "There was an error with your upload. Try again", preferredStyle: UIAlertControllerStyle.Alert)
+//                    
+//                    failureAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default,handler: nil))
+//                }
+//            }
 
             
         }))

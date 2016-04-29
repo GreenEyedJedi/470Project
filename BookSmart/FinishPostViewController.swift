@@ -35,7 +35,15 @@ class FinishPostViewController: UIViewController
     {
         if checkTextFields() == true
         {
-            book = Book(title: bookTitleTextField.text, isbn: ISBN, pageNum: pagesTextField.text, desc: bookDescriptionTextView.text, author: authorTextField.text, image: bookStockImageView)
+            // Removes " pages" from textField
+            let pageN = pagesTextField.text
+            let pN = pageN!.characters.split{$0 == " "}.map(String.init)
+            
+            // Pass pageNumber as NSNumber
+            let p = Int(pN[0])
+            
+            print("The value of p is \(p)")
+            book = Book(title: bookTitleTextField.text, isbn: ISBN, pageNum: p, desc: bookDescriptionTextView.text, author: authorTextField.text, image: bookStockImageView)
         }
     }
     
