@@ -72,6 +72,14 @@ class SideMenuViewController: UITableViewController {
 
         }
         
+        // if user selects Settings (user management)
+        if indexPath.row == 6
+        {
+            var Storyboard = UIStoryboard(name: "Main", bundle: nil)
+            var UserProfileVC : UIViewController = Storyboard.instantiateViewControllerWithIdentifier("UserProfileVC")
+            self.revealViewController().setFrontViewController(UserProfileVC, animated: true)
+        }
+        
         // if user selects Log Out
         if indexPath.row == 7
         {

@@ -39,6 +39,7 @@ class UploadPostViewController: UIViewController
             postToParse["BookTitle"] = self.book?.bookTitle
             postToParse["Condition"] = self.post?.postCondition
             postToParse["Price"] = self.post?.postPrice
+            postToParse["BookID"] = self.book?.objectId
             
             bookToParse["Title"] = self.book?.bookTitle
             bookToParse["ISBN"] = self.book?.bookISBN
@@ -67,30 +68,9 @@ class UploadPostViewController: UIViewController
                     var failureAlert = UIAlertController(title: "Error", message: "There was an error with your upload. Try again", preferredStyle: UIAlertControllerStyle.Alert)
                     
                     failureAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default,handler: nil))
+                    self.presentViewController(failureAlert, animated: true, completion: nil)
                 }
             })
-            
-            
-//            postToParse.saveInBackgroundWithBlock {
-//                (success: Bool, error: NSError?) -> Void in
-//                
-//                if (success) {
-//                    dispatch_async(dispatch_get_main_queue()) {
-//                        var Storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                        var HomeVC : UIViewController = Storyboard.instantiateViewControllerWithIdentifier("HomeNavVC")
-//                        self.revealViewController().setFrontViewController(HomeVC, animated: true)
-//                    }
-//              
-//                } else {
-//                    // There was a problem, check error.description
-//                    self.activityIndicator.stopAnimating()
-//                    var failureAlert = UIAlertController(title: "Error", message: "There was an error with your upload. Try again", preferredStyle: UIAlertControllerStyle.Alert)
-//                    
-//                    failureAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default,handler: nil))
-//                }
-//            }
-
-            
         }))
         
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in

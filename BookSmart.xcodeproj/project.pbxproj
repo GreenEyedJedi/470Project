@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F01EB191CD3F8890081032C /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F01EB181CD3F8890081032C /* UserProfileViewController.swift */; };
+		3F01EB1B1CD3FAE90081032C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F01EB1A1CD3FAE90081032C /* User.swift */; };
 		3F0E03A01CC043DE0079FB3C /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E039F1CC043DE0079FB3C /* CreatePostViewController.swift */; };
 		3F1B4AAD1CB45FD30068FC01 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1B4AAC1CB45FD30068FC01 /* Post.swift */; };
 		3F32CF681CACC5F200E61E39 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F32CF671CACC5F200E61E39 /* SWRevealViewController.m */; };
@@ -65,6 +67,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F01EB181CD3F8890081032C /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		3F01EB1A1CD3FAE90081032C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3F0E039F1CC043DE0079FB3C /* CreatePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		3F1B4AAC1CB45FD30068FC01 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		3F32CF651CACC5F200E61E39 /* BookSmart-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BookSmart-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -253,6 +257,7 @@
 		3FE5BB3F1CD30A6600662815 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3F01EB181CD3F8890081032C /* UserProfileViewController.swift */,
 				3FE5BB321CD1C19300662815 /* FindClassTextbooksTableViewController.swift */,
 				3FE5BB341CD1C1B800662815 /* SearchTableViewController.swift */,
 				3FE5BB361CD1C21B00662815 /* CoursesTableViewController.swift */,
@@ -269,6 +274,7 @@
 			children = (
 				3FE5D4E21CD1B3D9003CE618 /* Book.swift */,
 				3F1B4AAC1CB45FD30068FC01 /* Post.swift */,
+				3F01EB1A1CD3FAE90081032C /* User.swift */,
 				3FE5BB3A1CD2888900662815 /* BookLookupDataSource.swift */,
 				3FE5BB3C1CD28EAD00662815 /* BookLookup.swift */,
 			);
@@ -436,6 +442,7 @@
 				3F6DC80E1CAB67FE00278937 /* LogInViewController.swift in Sources */,
 				3FE5BB351CD1C1B800662815 /* SearchTableViewController.swift in Sources */,
 				3FE5BB331CD1C19300662815 /* FindClassTextbooksTableViewController.swift in Sources */,
+				3F01EB191CD3F8890081032C /* UserProfileViewController.swift in Sources */,
 				3F5BD8111CD085E0009B4052 /* UploadPostViewController.swift in Sources */,
 				3FE5BB3B1CD2888900662815 /* BookLookupDataSource.swift in Sources */,
 				3F6DC80C1CAB67FE00278937 /* AppDelegate.swift in Sources */,
@@ -446,6 +453,7 @@
 				3F32CF6B1CACC7A900E61E39 /* HomeViewController.swift in Sources */,
 				3FE5D4E31CD1B3D9003CE618 /* Book.swift in Sources */,
 				3F9CB92D1CADDB7F00CA0CED /* HomeViewFeedCell.swift in Sources */,
+				3F01EB1B1CD3FAE90081032C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,6 +33,16 @@ class PostViewController : PFQueryTableViewController
 
         let postObject = object as! Post
         
+//        if let bookObject = postObject["BookID"] as? Book
+//        {
+//        
+//        bookObject.fetchIfNeededInBackgroundWithBlock {
+//            (bookObject: PFObject?, error: NSError?) -> Void in
+//            let bookTitle = bookObject?["Title"] as? String
+//            cell?.bookTitleLabel?.text = bookTitle
+//        }
+//        }
+//        
         print(postObject)
         
         var imageFromParse = postObject.objectForKey("PostImage") as? PFFile
@@ -41,11 +51,19 @@ class PostViewController : PFQueryTableViewController
             cell?.bookImageView.image = image
         })
         
-        cell?.bookTitleLabel?.text = postObject["PostTitle"] as? String
-        //cell?.bookImageView.image = postObject["PostImage"] as? UIImage
+        // Need to make a call to Book class and create a relational data with BookID from Post object
+        
+        cell?.bookTitleLabel?.text = postObject["BookTitle"] as? String
         cell?.bookDescripLabel?.text = postObject["PostDescription"] as? String
         cell?.userPostTitleLabel?.text = postObject["PostTitle"] as? String
-
+        
+        if let price = postObject["Price"] as? NSNumber
+        {
+            cell?.priceLabel?.text = "$\(price)"
+        }
+        
+        
+        
         return cell
     }
 

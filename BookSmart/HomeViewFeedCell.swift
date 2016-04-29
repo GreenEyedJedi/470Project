@@ -17,6 +17,7 @@ class HomeViewFeedCell: PFTableViewCell
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var userPostTitleLabel: UILabel!
     @IBOutlet weak var feedView: UIView!
+    @IBOutlet weak var priceLabel: UILabel!
    
     var parseObject:PFObject?
     
