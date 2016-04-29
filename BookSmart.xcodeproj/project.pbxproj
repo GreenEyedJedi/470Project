@@ -42,6 +42,8 @@
 		3FE5BB331CD1C19300662815 /* FindClassTextbooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5BB321CD1C19300662815 /* FindClassTextbooksTableViewController.swift */; };
 		3FE5BB351CD1C1B800662815 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5BB341CD1C1B800662815 /* SearchTableViewController.swift */; };
 		3FE5BB371CD1C21B00662815 /* CoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5BB361CD1C21B00662815 /* CoursesTableViewController.swift */; };
+		3FE5BB3B1CD2888900662815 /* BookLookupDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5BB3A1CD2888900662815 /* BookLookupDataSource.swift */; };
+		3FE5BB3D1CD28EAD00662815 /* BookLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5BB3C1CD28EAD00662815 /* BookLookup.swift */; };
 		3FE5D4E31CD1B3D9003CE618 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5D4E21CD1B3D9003CE618 /* Book.swift */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +108,8 @@
 		3FE5BB321CD1C19300662815 /* FindClassTextbooksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindClassTextbooksTableViewController.swift; sourceTree = "<group>"; };
 		3FE5BB341CD1C1B800662815 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTableViewController.swift; path = ../SearchTableViewController.swift; sourceTree = "<group>"; };
 		3FE5BB361CD1C21B00662815 /* CoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesTableViewController.swift; sourceTree = "<group>"; };
+		3FE5BB3A1CD2888900662815 /* BookLookupDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookLookupDataSource.swift; sourceTree = "<group>"; };
+		3FE5BB3C1CD28EAD00662815 /* BookLookup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookLookup.swift; sourceTree = "<group>"; };
 		3FE5D4E21CD1B3D9003CE618 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,15 +189,10 @@
 		3F6DC80A1CAB67FE00278937 /* BookSmart */ = {
 			isa = PBXGroup;
 			children = (
-				3FE5BB321CD1C19300662815 /* FindClassTextbooksTableViewController.swift */,
-				3FE5BB341CD1C1B800662815 /* SearchTableViewController.swift */,
-				3FE5BB361CD1C21B00662815 /* CoursesTableViewController.swift */,
+				3FE5BB401CD30A7500662815 /* Model */,
+				3FE5BB3F1CD30A6600662815 /* View */,
 				3F6DC80B1CAB67FE00278937 /* AppDelegate.swift */,
-				3F6DC80D1CAB67FE00278937 /* LogInViewController.swift */,
 				3F6DC80F1CAB67FE00278937 /* Main.storyboard */,
-				3FE5D4E21CD1B3D9003CE618 /* Book.swift */,
-				3FE5BB311CD1C14700662815 /* PostCreation */,
-				3F9CB9301CADED7E00CA0CED /* HomeView */,
 				3F6DC8121CAB67FE00278937 /* Assets.xcassets */,
 				3F6DC8141CAB67FE00278937 /* LaunchScreen.storyboard */,
 				3F6DC8171CAB67FE00278937 /* Info.plist */,
@@ -251,26 +250,49 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3F9CB9301CADED7E00CA0CED /* HomeView */ = {
+		3FE5BB3F1CD30A6600662815 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3F749D761CB71BD50017DCFA /* PostViewController.swift */,
-				3F1B4AAC1CB45FD30068FC01 /* Post.swift */,
-				3F32CF6A1CACC7A900E61E39 /* HomeViewController.swift */,
-				3F9CB92C1CADDB7F00CA0CED /* HomeViewFeedCell.swift */,
+				3FE5BB321CD1C19300662815 /* FindClassTextbooksTableViewController.swift */,
+				3FE5BB341CD1C1B800662815 /* SearchTableViewController.swift */,
+				3FE5BB361CD1C21B00662815 /* CoursesTableViewController.swift */,
+				3F6DC80D1CAB67FE00278937 /* LogInViewController.swift */,
+				3FE5BB411CD30A8F00662815 /* Upload Post */,
+				3FE5BB421CD30A9C00662815 /* Home Feed */,
 				3F32CF6C1CACCABC00E61E39 /* SideMenuViewController.swift */,
 			);
-			name = HomeView;
+			name = View;
 			sourceTree = "<group>";
 		};
-		3FE5BB311CD1C14700662815 /* PostCreation */ = {
+		3FE5BB401CD30A7500662815 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3FE5D4E21CD1B3D9003CE618 /* Book.swift */,
+				3F1B4AAC1CB45FD30068FC01 /* Post.swift */,
+				3FE5BB3A1CD2888900662815 /* BookLookupDataSource.swift */,
+				3FE5BB3C1CD28EAD00662815 /* BookLookup.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		3FE5BB411CD30A8F00662815 /* Upload Post */ = {
 			isa = PBXGroup;
 			children = (
 				3F0E039F1CC043DE0079FB3C /* CreatePostViewController.swift */,
 				3F5BD80E1CD079CB009B4052 /* FinishPostViewController.swift */,
 				3F5BD8101CD085E0009B4052 /* UploadPostViewController.swift */,
 			);
-			name = PostCreation;
+			name = "Upload Post";
+			sourceTree = "<group>";
+		};
+		3FE5BB421CD30A9C00662815 /* Home Feed */ = {
+			isa = PBXGroup;
+			children = (
+				3F749D761CB71BD50017DCFA /* PostViewController.swift */,
+				3F32CF6A1CACC7A900E61E39 /* HomeViewController.swift */,
+				3F9CB92C1CADDB7F00CA0CED /* HomeViewFeedCell.swift */,
+			);
+			name = "Home Feed";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FE5BB3D1CD28EAD00662815 /* BookLookup.swift in Sources */,
 				3F0E03A01CC043DE0079FB3C /* CreatePostViewController.swift in Sources */,
 				3FE5BB371CD1C21B00662815 /* CoursesTableViewController.swift in Sources */,
 				3F1B4AAD1CB45FD30068FC01 /* Post.swift in Sources */,
@@ -414,6 +437,7 @@
 				3FE5BB351CD1C1B800662815 /* SearchTableViewController.swift in Sources */,
 				3FE5BB331CD1C19300662815 /* FindClassTextbooksTableViewController.swift in Sources */,
 				3F5BD8111CD085E0009B4052 /* UploadPostViewController.swift in Sources */,
+				3FE5BB3B1CD2888900662815 /* BookLookupDataSource.swift in Sources */,
 				3F6DC80C1CAB67FE00278937 /* AppDelegate.swift in Sources */,
 				3F5BD80F1CD079CB009B4052 /* FinishPostViewController.swift in Sources */,
 				3F749D771CB71BD50017DCFA /* PostViewController.swift in Sources */,

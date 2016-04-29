@@ -12,11 +12,15 @@ import Parse
 class UploadPostViewController: UIViewController
 {
     var post : Post?
+    var book : Book?
     
     @IBOutlet weak var userPostTitleLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var bookDescriptionLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    
     
     @IBAction func uploadPostButton(sender: AnyObject)
     {
@@ -24,27 +28,47 @@ class UploadPostViewController: UIViewController
         
         refreshAlert.addAction(UIAlertAction(title: "Confirm", style: .Default, handler: { (action: UIAlertAction!) in
             
+            self.activityIndicator.hidden = false
+            self.activityIndicator.startAnimating()
+            
             var postToParse = PFObject(className:"Posts")
+            var bookToParse = PFObject(className: "Book")
+            
             postToParse["UserID"] = PFUser.currentUser()?.objectId
             postToParse["PostTitle"] = self.post?.postTitle
-            postToParse["BookTitle"] = self.post?.bookTitle
-            postToParse["AuthorFN"] = self.post?.authorFirst
-            postToParse["AuthorLN"] = self.post?.authorLast
-            postToParse["BookID"] = self.post?.bookID
+            postToParse["BookTitle"] = self.book?.bookTitle
+            postToParse["Condition"] = self.post?.postCondition
+          
+            
+            bookToParse["Title"] = self.book?.bookTitle
+            bookToParse["ISBN"] = self.book?.bookISBN
+            bookToParse["Description"] = self.book?.bookDescription
+            bookToParse["Pages"] = self.book?.bookNumOfPages
+            bookToParse["AuthorFirstName"] = self.book?.authorFN
+            bookToParse["AuthorLastName"] = self.book?.authorLN
+            
             postToParse["PostDescription"] = self.post?.postDescrip
             postToParse["PostImage"] = self.post?.postImage
-            //postToParse["Condition"] = self.post?.postCondition
-            //postToParse["Price"] = self.post?.postPrice
+            
             
             
             
             postToParse.saveInBackgroundWithBlock {
                 (success: Bool, error: NSError?) -> Void in
+                
                 if (success) {
-                    print("Object Saved!")
-                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        var Storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        var HomeVC : UIViewController = Storyboard.instantiateViewControllerWithIdentifier("HomeNavVC")
+                        self.revealViewController().setFrontViewController(HomeVC, animated: true)
+                    }
+              
                 } else {
                     // There was a problem, check error.description
+                    self.activityIndicator.stopAnimating()
+                    var failureAlert = UIAlertController(title: "Error", message: "There was an error with your upload. Try again", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    failureAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default,handler: nil))
                 }
             }
 
@@ -61,12 +85,14 @@ class UploadPostViewController: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         setPostToUpload(post)
+        self.activityIndicator.hidden = true
         
     }
     
-    func postToUpload(post: Post)
+    func postToUpload(post: Post, book: Book)
     {
         self.post = post
+        self.book = book
     }
     
     func setPostToUpload(post: Post?)
@@ -81,7 +107,7 @@ class UploadPostViewController: UIViewController
                 self.postImageView.image = image
             })
             
-            self.bookTitleLabel.text = post?.postBook
+            self.bookTitleLabel.text = book?.bookTitle
             
             self.bookDescriptionLabel.text = post?.postDescrip
             

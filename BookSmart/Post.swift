@@ -11,35 +11,18 @@ import Parse
 import ParseUI
 
 class Post: PFObject, PFSubclassing {
-     
-//    private var postID:Int?
-//    private var postTitle:String?
-//    private var postPhoto:UIImage?
-//    private var postDescription:String?
-//    private var postBook:String?
-//    private var postPrice:Float?
-//    private var postCondition:String?
 
     @NSManaged var postImage : PFFile
     @NSManaged var postTitle: String?
-    @NSManaged var postBook : String?
+    
     @NSManaged var postPrice : String?
    
     @NSManaged var user : PFUser
-    
     @NSManaged var postCondition : String?
     @NSManaged var postDescrip : String?
-    
-    @NSManaged var authorFirst: String?
-    @NSManaged var authorLast: String?
-    
-    @NSManaged var bookID: String?
-    @NSManaged var bookTitle: String?
     @NSManaged var bookObj: PFObject?
-    
-    @NSManaged var department: String?
-    @NSManaged var courseNum : String?
-    @NSManaged var courseSec: String?
+    @NSManaged var courseObj : PFObject?
+   
     
     override class func initialize() {
         var onceToken: dispatch_once_t = 0
@@ -56,30 +39,9 @@ class Post: PFObject, PFSubclassing {
         return query
     }
     
-    func getBookID() -> String?
-    {
-        if let id = bookID
-        {
-            return id
-        }
-        return nil
-    }
     
-//    init(BookID: String?, Condition: String?, PostDescription: String?, PostImage: PFFile?, Price: String?, UserID: String?) {
-//        super.init()
-//        
-//        self.postImage = PostImage!
-//        
-//        self.postCondition = Condition
-//        self.postBook = "Example"
-//        self.postPrice = Price
-//        self.postDescrip = PostDescription
-//        
-//        print("Initalization of a Post object from Parse")
-//   
-//    }
-
-    init(PostTitle: String?, BookTitle: String?, Author: String?, ISBN: String?, Department: String?, CNumber:String?, CSection:String?, Description: String?, Image: UIImageView?, Price: String?)
+  
+    init(PostTitle: String?, User : PFUser?, Condition: String?, Book : PFObject?, Course : PFObject?, Description: String?, Image: UIImageView?, Price: String?)
     {
         super.init()
         
@@ -95,43 +57,7 @@ class Post: PFObject, PFSubclassing {
         {
             self.postTitle = title
         }
-        
-        if let bTitle = BookTitle
-        {
-            self.bookTitle = bTitle
-        }
-        
-        if let a = Author
-        {
-            let fullName = a
-            let fullNameArr = fullName.characters.split{$0 == " "}.map(String.init)
-            // or simply:
-            // let fullNameArr = fullName.characters.split{" "}.map(String.init)
-            
-            self.authorFirst = fullNameArr[0] // First
-            self.authorLast = fullNameArr[1] // Last
-        }
-        
-        if let bookid = ISBN
-        {
-            self.bookID = bookid
-        }
-        
-        if let dept = Department
-        {
-            self.department = dept
-        }
-        
-        if let cNum = CNumber
-        {
-            self.courseNum = cNum
-        }
-        
-        if let cSec = CSection
-        {
-            self.courseSec = cSec
-        }
-        
+       
         if let desc = Description
         {
             self.postDescrip = desc
@@ -143,12 +69,39 @@ class Post: PFObject, PFSubclassing {
             self.postPrice = p
         }
         
+        if let b = Book
+        {
+            self.bookObj = b
+        }
         
+        if let c = Course
+        {
+            self.courseObj = c
+        }
+        
+        if let user = User
+        {
+            self.user = user
+        }
+        
+        if let cond = Condition
+        {
+            self.postCondition = cond
+        }
         
     }
     
     class func parseClassName() -> String {
         return "Posts"
+    }
+    
+    func setBookObject(book: Book?)
+    {
+        if let b = book
+        {
+            self.bookObj = b as PFObject
+        }
+       
     }
     
     override init() {

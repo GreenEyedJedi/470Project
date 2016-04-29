@@ -13,16 +13,17 @@ import Parse
 class CreatePostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     var post : Post?
-    
+    var ISBN : String?
     @IBOutlet weak var MenuBarButton: UIBarButtonItem!
     
     @IBOutlet weak var postTitleTextField: UITextField!
-    @IBOutlet weak var bookTitleTextField: UITextField!
-    @IBOutlet weak var authorTextField: UITextField!
-    @IBOutlet weak var ISBNTextField: UITextField!
+    @IBOutlet weak var postPriceTextField: UITextField!
+    @IBOutlet weak var postConditionTextField: UITextField! // will make this into picker
+    @IBOutlet weak var bookISBNTextField: UITextField!
+    
     @IBOutlet weak var departmentTextField: UITextField!
     @IBOutlet weak var courseNumberTextField: UITextField!
-    @IBOutlet weak var courseSectionTextField: UITextField!
+    @IBOutlet weak var courseProfessorTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     
     @IBOutlet weak var imageView: UIImageView!
@@ -33,7 +34,10 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     {
         if checkTextFields() == true
         {
-            post = Post(PostTitle: postTitleTextField.text, BookTitle: bookTitleTextField.text, Author: authorTextField.text, ISBN: ISBNTextField.text, Department: departmentTextField.text, CNumber: courseNumberTextField.text, CSection: courseSectionTextField.text, Description: descriptionTextField.text, Image: imageView, Price: nil)
+            var courseID = findCourseID(departmentTextField.text!, course: courseNumberTextField.text!, profLastName: courseProfessorTextField.text!)
+            print("COURSE ID IS = \(courseID)")
+            post = Post(PostTitle: postTitleTextField.text, User: PFUser.currentUser(), Condition: postConditionTextField.text, Book: nil, Course: nil, Description: descriptionTextField.text, Image: imageView, Price: postPriceTextField.text)
+            ISBN = bookISBNTextField.text
         }
         else
         {
@@ -54,10 +58,44 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    func findCourseID(department: String, course: String, profLastName: String) -> Int
+    {
+        var courseID = 0
+        var sectionArray = [Int]()
+        var sectionQuery = PFQuery(className: "Courses")
+        var sectionSkip = 0
+        
+        sectionQuery.orderByAscending("CourseID")
+        sectionQuery.whereKey("CourseNo", equalTo: course)
+        sectionQuery.whereKey("Department", equalTo: department)
+        sectionQuery.whereKey("PLName", equalTo: profLastName)
+        sectionQuery.limit = limit
+        //courseQuery.skip = skip
+        sectionQuery.findObjectsInBackgroundWithBlock{ (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                if let objects = objects {
+                    for object in objects {
+                        var course = object.objectForKey("CourseID")
+                        var id:Int = course!.integerValue
+                        courseID = id
+                    }
+                }
+                
+                if objects!.count == self.limit
+                {
+                    sectionSkip = sectionSkip + self.limit
+                    self.findCourseID(department, course: course, profLastName: profLastName)
+                }
+            }
+        }
+        
+        return courseID
+        
+    }
+    
     func checkTextFields() -> Bool
     {
-        if (!postTitleTextField.text!.isEmpty && !bookTitleTextField.text!.isEmpty && !authorTextField.text!.isEmpty &&
-            !departmentTextField.text!.isEmpty && !courseNumberTextField.text!.isEmpty && !courseSectionTextField.text!.isEmpty && !descriptionTextField.text!.isEmpty)
+        if (!postTitleTextField.text!.isEmpty && !departmentTextField.text!.isEmpty && !courseNumberTextField.text!.isEmpty && !courseProfessorTextField.text!.isEmpty && !descriptionTextField.text!.isEmpty)
         {
             return true
         }
@@ -128,33 +166,36 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     // array and query for loadSectionData()
-    var sectionArray: [String] = ["-- Select Course --"]
-    var sectionQuery = PFQuery(className: "Courses")
-    var sectionSkip = 0
-    func loadSectionData(course: String)
+    var professorArray: [String] = ["-- Select Course --"]
+    var professorQuery = PFQuery(className: "Courses")
+    var professorSkip = 0
+    func loadProfessorData(course: String, department: String)
     {
-        sectionArray.removeAll()
-        sectionQuery.orderByAscending("SectionNo")
-        sectionQuery.whereKey("CourseNo", equalTo: course)
-        sectionQuery.limit = limit
+        professorArray.removeAll()
+        professorQuery.orderByAscending("PLName")
+        professorQuery.whereKey("CourseNo", equalTo: course)
+        professorQuery.whereKey("Department", equalTo: department)
+        professorQuery.limit = limit
         //courseQuery.skip = skip
-        sectionQuery.findObjectsInBackgroundWithBlock{ (objects: [PFObject]?, error: NSError?) -> Void in
+        professorQuery.findObjectsInBackgroundWithBlock{ (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
                 if let objects = objects {
                     for object in objects {
-                        var section = object.objectForKey("SectionNo")
-                        var sectionNo = section!.stringValue
-                        if !self.sectionArray.contains(sectionNo)
+                        //var professorFN = object.objectForKey("PFName")
+                        var professorLN = object.objectForKey("PLName") as! String
+                        //var FN = professorFN!.stringValue
+                        //var LN = professorLN!.stringValue
+                        if !self.professorArray.contains(professorLN)
                         {
-                            self.sectionArray.append(sectionNo)
+                            self.professorArray.append(professorLN)
                         }
                     }
                 }
                 
                 if objects!.count == self.limit
                 {
-                    self.sectionSkip = self.sectionSkip + self.limit
-                    self.loadSectionData(course)
+                    self.professorSkip = self.professorSkip + self.limit
+                    self.loadProfessorData(course, department: department)
                 }
             }
         }
@@ -187,7 +228,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         
         departmentTextField.inputView = departmentPickerView
         courseNumberTextField.inputView = coursesPickerView
-        courseSectionTextField.inputView = sectionPickerView
+        courseProfessorTextField.inputView = sectionPickerView
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -211,7 +252,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         
         if pickerView.tag == 2
         {
-            return sectionArray.count
+            return professorArray.count
         }
         
         return 1
@@ -238,12 +279,12 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         
         if pickerView.tag == 2
         {
-            if sectionArray.count <= 0{
+            if professorArray.count <= 0{
                 return "-- Select Course --"
             }
             else{
                 
-                return sectionArray[row]
+                return professorArray[row]
             }
             
         }
@@ -261,10 +302,10 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         }
         if pickerView.tag == 1
         {
-            if courseArray.count > 1 {
+            if courseArray.count > 0 {
                 courseNumberTextField.text = courseArray[row]
-                self.sectionSkip = 0
-                self.loadSectionData(courseArray[row])
+                self.professorSkip = 0
+                self.loadProfessorData(courseArray[row], department: departmentTextField.text!)
             }
             else
             {
@@ -274,12 +315,12 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         
         if pickerView.tag == 2
         {
-            if sectionArray.count > 1 {
-                courseSectionTextField.text = sectionArray[row]
+            if professorArray.count > 0 {
+                courseProfessorTextField.text = professorArray[row]
             }
             else
             {
-                courseSectionTextField.text = ""
+                courseProfessorTextField.text = ""
             }
         }
         
@@ -293,7 +334,13 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         if segue.identifier == "finishPost" {
             if let p = post{
                 let detailedVC = segue.destinationViewController as! FinishPostViewController
-                detailedVC.postToUpload(p)
+                if let i = ISBN{
+                    detailedVC.postToUploadWithISBN(p, isbn: i)
+                }
+                else
+                {
+                    detailedVC.postToUpload(p)
+                }
             }
         }
     }
