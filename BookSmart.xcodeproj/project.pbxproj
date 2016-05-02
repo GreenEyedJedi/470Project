@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3F01EB191CD3F8890081032C /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F01EB181CD3F8890081032C /* UserProfileViewController.swift */; };
 		3F01EB1B1CD3FAE90081032C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F01EB1A1CD3FAE90081032C /* User.swift */; };
+		3F01EB1D1CD431DD0081032C /* ViewPostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F01EB1C1CD431DD0081032C /* ViewPostDetailViewController.swift */; };
 		3F0E03A01CC043DE0079FB3C /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E039F1CC043DE0079FB3C /* CreatePostViewController.swift */; };
 		3F1B4AAD1CB45FD30068FC01 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1B4AAC1CB45FD30068FC01 /* Post.swift */; };
 		3F32CF681CACC5F200E61E39 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F32CF671CACC5F200E61E39 /* SWRevealViewController.m */; };
@@ -69,6 +70,7 @@
 /* Begin PBXFileReference section */
 		3F01EB181CD3F8890081032C /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		3F01EB1A1CD3FAE90081032C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3F01EB1C1CD431DD0081032C /* ViewPostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPostDetailViewController.swift; sourceTree = "<group>"; };
 		3F0E039F1CC043DE0079FB3C /* CreatePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		3F1B4AAC1CB45FD30068FC01 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		3F32CF651CACC5F200E61E39 /* BookSmart-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BookSmart-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 		3FE5BB3F1CD30A6600662815 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3F01EB1C1CD431DD0081032C /* ViewPostDetailViewController.swift */,
 				3F01EB181CD3F8890081032C /* UserProfileViewController.swift */,
 				3FE5BB321CD1C19300662815 /* FindClassTextbooksTableViewController.swift */,
 				3FE5BB341CD1C1B800662815 /* SearchTableViewController.swift */,
@@ -451,6 +454,7 @@
 				3F32CF681CACC5F200E61E39 /* SWRevealViewController.m in Sources */,
 				3F32CF6D1CACCABC00E61E39 /* SideMenuViewController.swift in Sources */,
 				3F32CF6B1CACC7A900E61E39 /* HomeViewController.swift in Sources */,
+				3F01EB1D1CD431DD0081032C /* ViewPostDetailViewController.swift in Sources */,
 				3FE5D4E31CD1B3D9003CE618 /* Book.swift in Sources */,
 				3F9CB92D1CADDB7F00CA0CED /* HomeViewFeedCell.swift in Sources */,
 				3F01EB1B1CD3FAE90081032C /* User.swift in Sources */,

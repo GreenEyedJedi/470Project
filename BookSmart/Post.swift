@@ -22,6 +22,7 @@ class Post: PFObject, PFSubclassing {
     @NSManaged var postDescrip : String?
     @NSManaged var bookObj: PFObject?
     @NSManaged var courseObj : PFObject?
+    @NSManaged var courseID : NSNumber?
    
     
     override class func initialize() {
@@ -41,7 +42,7 @@ class Post: PFObject, PFSubclassing {
     
     
   
-    init(PostTitle: String?, User : PFUser?, Condition: String?, Book : PFObject?, Course : PFObject?, Description: String?, Image: UIImageView?, Price: NSNumber?)
+    init(PostTitle: String?, User : PFUser?, Condition: String?, Book : PFObject?, Course : NSNumber?, Description: String?, Image: UIImageView?, Price: NSNumber?)
     {
         super.init()
         
@@ -76,7 +77,7 @@ class Post: PFObject, PFSubclassing {
         
         if let c = Course
         {
-            self.courseObj = c
+            self.courseID = c
         }
         
         if let user = User
@@ -107,6 +108,16 @@ class Post: PFObject, PFSubclassing {
     override init() {
         super.init()
     }
+    
+    func getPostTitle() -> String?
+    {
+        if let title = self.postTitle
+        {
+            return title as? String
+        }
+        return nil
+    }
+    
     
 //    init(id: Int, title : String, photo : UIImage, desc : String, book : String, price : Float, condition : String) {
 //        //posts = dataSource

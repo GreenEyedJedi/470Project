@@ -12,6 +12,9 @@ import ParseUI
 
 class HomeViewFeedCell: PFTableViewCell
 {
+    
+    @IBOutlet weak var viewPostDetailButton: UIButton!
+    
     @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var bookDescripLabel: UILabel!
     @IBOutlet weak var bookTitleLabel: UILabel!
@@ -19,7 +22,10 @@ class HomeViewFeedCell: PFTableViewCell
     @IBOutlet weak var feedView: UIView!
     @IBOutlet weak var priceLabel: UILabel!
    
-    var parseObject:PFObject?
+    //var parseObject:PFObject?
+    
+    var postObject : Post?
+    var bookObject : Book?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,16 +33,16 @@ class HomeViewFeedCell: PFTableViewCell
     }
     
  
-    @IBAction func SaveForLaterButton(sender: AnyObject)
-    {
-        print("SaveForLaterButton pressed.")
-    }
+//    @IBAction func SaveForLaterButton(sender: AnyObject)
+//    {
+//        print("SaveForLaterButton pressed.")
+//    }
     
     
-    @IBAction func ViewBookButton(sender: AnyObject)
-    {
-        print("ViewBookButton pressed.")
-    }
+//    @IBAction func ViewBookButton(sender: AnyObject)
+//    {
+//        print("ViewBookButton pressed.")
+//    }
     
 //    override func layoutSubviews() {
 //        homePageFeedViewSetup()

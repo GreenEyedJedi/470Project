@@ -39,7 +39,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             
             var p = Int(postPriceTextField.text!)
             
-            post = Post(PostTitle: postTitleTextField.text, User: PFUser.currentUser(), Condition: postConditionTextField.text, Book: nil, Course: nil, Description: descriptionTextField.text, Image: imageView, Price: p)
+            post = Post(PostTitle: postTitleTextField.text, User: PFUser.currentUser(), Condition: postConditionTextField.text, Book: nil, Course: courseID, Description: descriptionTextField.text, Image: imageView, Price: p)
             ISBN = bookISBNTextField.text
         }
         else
@@ -61,38 +61,28 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    func findCourseID(department: String, course: String, profLastName: String) -> Int
+    func findCourseID(department: String, course: String, profLastName: String) -> NSNumber
     {
-        var courseID = 0
-        var sectionArray = [Int]()
+        do{
         var sectionQuery = PFQuery(className: "Courses")
-        var sectionSkip = 0
-        
-        sectionQuery.orderByAscending("CourseID")
+      
         sectionQuery.whereKey("CourseNo", equalTo: course)
         sectionQuery.whereKey("Department", equalTo: department)
         sectionQuery.whereKey("PLName", equalTo: profLastName)
         sectionQuery.limit = limit
         //courseQuery.skip = skip
-        sectionQuery.findObjectsInBackgroundWithBlock{ (objects: [PFObject]?, error: NSError?) -> Void in
-            if error == nil {
-                if let objects = objects {
-                    for object in objects {
-                        var course = object.objectForKey("CourseID")
-                        var id:Int = course!.integerValue
-                        courseID = id
-                    }
-                }
-                
-                if objects!.count == self.limit
-                {
-                    sectionSkip = sectionSkip + self.limit
-                    self.findCourseID(department, course: course, profLastName: profLastName)
-                }
-            }
+        let courseObject = try sectionQuery.getFirstObject()
+        
+        let id = courseObject["CourseID"] as! NSNumber
+        return id
+            
+        }
+        catch
+        {
+            return 0
         }
         
-        return courseID
+      
         
     }
     

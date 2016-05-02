@@ -14,14 +14,13 @@ class UploadPostViewController: UIViewController
     var post : Post?
     var book : Book?
     
+    
     @IBOutlet weak var userPostTitleLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var bookDescriptionLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-    
-    
+
     @IBAction func uploadPostButton(sender: AnyObject)
     {
         var refreshAlert = UIAlertController(title: "Upload Confirmation", message: "Are you statisfied with your post?", preferredStyle: UIAlertControllerStyle.Alert)
@@ -33,20 +32,40 @@ class UploadPostViewController: UIViewController
             
             var postToParse = PFObject(className:"Posts")
             var bookToParse = PFObject(className: "Book")
+           
+            var courseQuery = PFQuery(className: "Courses")
+            if let courseID = self.post?.courseID
+            {
+                courseQuery.whereKey("CourseID", equalTo: courseID)
+                do
+                {
+                    let course = try courseQuery.getFirstObject()
+                    postToParse["CourseObject"] = course
+                }
+                catch
+                {
+                    // error with getting course object
+                    
+                }
+            }
             
             postToParse["UserID"] = PFUser.currentUser()?.objectId
             postToParse["PostTitle"] = self.post?.postTitle
             postToParse["BookTitle"] = self.book?.bookTitle
             postToParse["Condition"] = self.post?.postCondition
             postToParse["Price"] = self.post?.postPrice
-            postToParse["BookID"] = self.book?.objectId
+            postToParse["BookObject"] = bookToParse
+            postToParse["UserObject"] = PFUser.currentUser()
+            
+            
             
             bookToParse["Title"] = self.book?.bookTitle
             bookToParse["ISBN"] = self.book?.bookISBN
             bookToParse["Description"] = self.book?.bookDescription
-            //bookToParse["Pages"] = self.book?.bookNumOfPages   CRASH
+            //bookToParse["Pages"] = self.book?.bookNumOfPages
             bookToParse["AuthorFirstName"] = self.book?.authorFN
             bookToParse["AuthorLastName"] = self.book?.authorLN
+            bookToParse["BookStockImage"] = self.book?.stockImage
             
             postToParse["PostDescription"] = self.post?.postDescrip
             postToParse["PostImage"] = self.post?.postImage

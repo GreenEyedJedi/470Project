@@ -17,12 +17,6 @@ class FinishPostViewController: UIViewController
     var bookFromDS : BookLookup?
     var bookDS : BookLookupDataSource?
     
-    var arrayOfBookTitles : [String]?
-    var arrayOfBookAuthors : [String]?
-    var arrayOfBookPages : [String]?
-    var arrayOfBookDesc : [String]?
-    var arrayOfBookStockImageURL : [String]?
-    
     @IBOutlet weak var bookTitleTextField: UITextField!
     @IBOutlet weak var authorTextField: UITextField!
     @IBOutlet weak var pagesTextField: UITextField!
@@ -80,7 +74,6 @@ class FinishPostViewController: UIViewController
     
     func autoFillTextFields(book: BookLookup)
     {
-        print("I GET CALLED!")
         dispatch_async(dispatch_get_main_queue()){
             /* Do UI work here */
         
@@ -136,10 +129,6 @@ class FinishPostViewController: UIViewController
         self.post = post
         self.ISBN = nil
     }
-    
-    
-    
-  
     
     
     // MARK: - Navigation
