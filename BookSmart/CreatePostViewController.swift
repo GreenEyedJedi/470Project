@@ -14,6 +14,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     
     var post : Post?
     var ISBN : String?
+    var deptCourseProf : DeptCourseProfLookup?
+    
     @IBOutlet weak var MenuBarButton: UIBarButtonItem!
     
     @IBOutlet weak var postTitleTextField: UITextField!
