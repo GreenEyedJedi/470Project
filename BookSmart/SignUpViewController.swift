@@ -32,7 +32,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     {
         beginSignUp()
     }
- 
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -41,39 +41,51 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func beginSignUp()
     {
-        var user = PFUser()
-        user.username = usernameTextField.text
-        user.password = passwordTextField.text
-        user.email = emailTextField.text
-        
-        if let profilepic = self.profilePictureImageView.image, picture = PFFile(data: UIImageJPEGRepresentation(profilepic, 1.0)!)
+        if checkPasswordFields() == true
         {
-            user["ProfilePicture"] = picture
+            var user = PFUser()
+            user.username = usernameTextField.text
+            user.password = passwordTextField.text
+            user.email = emailTextField.text
+            
+            if let profilepic = self.profilePictureImageView.image, picture = PFFile(data: UIImageJPEGRepresentation(profilepic, 1.0)!)
+            {
+                user["ProfilePicture"] = picture
+            }
+            
+            self.user = user
+        }
+        else
+        {
+            var failureAlert = UIAlertController(title: "Password Error", message: "Password fields must be completed and match.", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            failureAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default,handler: nil))
+            self.presentViewController(failureAlert, animated: true, completion: nil)
         }
         
-        self.user = user
-        
-//        user.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-//            if error == nil{
-//                // Hooray! Let them use app now
-//                let alertErrorController = UIAlertController(title: "Welcome!", message: "You are now signed up with BookSmart", preferredStyle: UIAlertControllerStyle.Alert)
-//                
-//                alertErrorController.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default,handler: nil))
-//                
-//                self.presentViewController(alertErrorController, animated: true, completion: nil)
-//                
-//                
-//            }
-//            else
-//            {
-//                // Examine error object and inform user
-//                let alertErrorController = UIAlertController(title: "Error", message: "There was an error with your sign up. Please try again.", preferredStyle: UIAlertControllerStyle.Alert)
-//                
-//                alertErrorController.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default,handler: nil))
-//                
-//                self.presentViewController(alertErrorController, animated: true, completion: nil)
-//            }
-//        }
+    }
+    
+    func checkPasswordFields() -> Bool
+    {
+        if let pass = self.passwordTextField.text, confirm = self.confirmPasswordTextField.text
+        {
+            if pass.isEmpty && confirm.isEmpty
+            {
+                return false
+            }
+            else
+            {
+                if pass == confirm
+                {
+                    return true
+                }
+                else
+                {
+                    return false
+                }
+            }
+        }
+        return false
         
     }
     
@@ -100,7 +112,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
             }
         }
     }
-
     
-
+    
+    
 }

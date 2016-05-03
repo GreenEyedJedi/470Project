@@ -23,7 +23,6 @@
 		3F5BD80F1CD079CB009B4052 /* FinishPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5BD80E1CD079CB009B4052 /* FinishPostViewController.swift */; };
 		3F5BD8111CD085E0009B4052 /* UploadPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5BD8101CD085E0009B4052 /* UploadPostViewController.swift */; };
 		3F6DC80C1CAB67FE00278937 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DC80B1CAB67FE00278937 /* AppDelegate.swift */; };
-		3F6DC80E1CAB67FE00278937 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DC80D1CAB67FE00278937 /* LogInViewController.swift */; };
 		3F6DC8111CAB67FE00278937 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6DC80F1CAB67FE00278937 /* Main.storyboard */; };
 		3F6DC8131CAB67FE00278937 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F6DC8121CAB67FE00278937 /* Assets.xcassets */; };
 		3F6DC8161CAB67FE00278937 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6DC8141CAB67FE00278937 /* LaunchScreen.storyboard */; };
@@ -92,7 +91,6 @@
 		3F5BD8101CD085E0009B4052 /* UploadPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UploadPostViewController.swift; path = ../UploadPostViewController.swift; sourceTree = "<group>"; };
 		3F6DC8081CAB67FE00278937 /* BookSmart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookSmart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6DC80B1CAB67FE00278937 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3F6DC80D1CAB67FE00278937 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		3F6DC8101CAB67FE00278937 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F6DC8121CAB67FE00278937 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F6DC8151CAB67FE00278937 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -182,6 +180,16 @@
 				C3215CA0458E4020613380F1 /* Pods-BookSmart.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		3F1D9CA61CD953AF00BB18D2 /* Login/SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				3F1D9C9E1CD8977900BB18D2 /* BeginLogInViewController.swift */,
+				3F1D9CA01CD898E300BB18D2 /* SignUpViewController.swift */,
+				3F1D9CA21CD8F86D00BB18D2 /* FinishSignUpViewController.swift */,
+			);
+			name = Login/SignUp;
 			sourceTree = "<group>";
 		};
 		3F32CF691CACC60700E61E39 /* Supporting Files */ = {
@@ -291,10 +299,7 @@
 				3FE5BB321CD1C19300662815 /* FindClassTextbooksTableViewController.swift */,
 				3FE5BB341CD1C1B800662815 /* SearchTableViewController.swift */,
 				3FE5BB361CD1C21B00662815 /* CoursesTableViewController.swift */,
-				3F6DC80D1CAB67FE00278937 /* LogInViewController.swift */,
-				3F1D9C9E1CD8977900BB18D2 /* BeginLogInViewController.swift */,
-				3F1D9CA01CD898E300BB18D2 /* SignUpViewController.swift */,
-				3F1D9CA21CD8F86D00BB18D2 /* FinishSignUpViewController.swift */,
+				3F1D9CA61CD953AF00BB18D2 /* Login/SignUp */,
 				3FE5BB411CD30A8F00662815 /* Upload Post */,
 				3FE5BB421CD30A9C00662815 /* Home Feed */,
 				3F32CF6C1CACCABC00E61E39 /* SideMenuViewController.swift */,
@@ -527,7 +532,6 @@
 				3FE5BB371CD1C21B00662815 /* CoursesTableViewController.swift in Sources */,
 				3F1D9C9F1CD8977900BB18D2 /* BeginLogInViewController.swift in Sources */,
 				3F1B4AAD1CB45FD30068FC01 /* Post.swift in Sources */,
-				3F6DC80E1CAB67FE00278937 /* LogInViewController.swift in Sources */,
 				3FE5BB351CD1C1B800662815 /* SearchTableViewController.swift in Sources */,
 				3FE5BB331CD1C19300662815 /* FindClassTextbooksTableViewController.swift in Sources */,
 				3F01EB191CD3F8890081032C /* UserProfileViewController.swift in Sources */,

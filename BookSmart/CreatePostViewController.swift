@@ -83,9 +83,7 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         {
             return 0
         }
-        
-      
-        
+       
     }
     
     func checkTextFields() -> Bool

@@ -97,5 +97,28 @@ class DeptCourseProfLookup
             }
         }
     }
+    
+    func findCourseID(department: String, course: String, profLastName: String) -> NSNumber
+    {
+        do{
+            var sectionQuery = PFQuery(className: "Courses")
+            
+            sectionQuery.whereKey("CourseNo", equalTo: course)
+            sectionQuery.whereKey("Department", equalTo: department)
+            sectionQuery.whereKey("PLName", equalTo: profLastName)
+            sectionQuery.limit = limit
+            //courseQuery.skip = skip
+            let courseObject = try sectionQuery.getFirstObject()
+            
+            let id = courseObject["CourseID"] as! NSNumber
+            return id
+            
+        }
+        catch
+        {
+            return 0
+        }
+        
+    }
 
 }

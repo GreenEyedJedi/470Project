@@ -12,6 +12,7 @@ import Parse
 class FinishSignUpViewController: UIViewController, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate
 {
     var user : PFUser?
+    
     var deptCourseProf1 : DeptCourseProfLookup?
     var deptCourseProf2 : DeptCourseProfLookup?
     var deptCourseProf3 : DeptCourseProfLookup?
@@ -48,6 +49,7 @@ class FinishSignUpViewController: UIViewController, UINavigationControllerDelega
     
     @IBAction func signUpButton(sender: AnyObject)
     {
+        signUpUser()
     }
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -80,6 +82,165 @@ class FinishSignUpViewController: UIViewController, UINavigationControllerDelega
         }
     }
     
+    func findCourseIDs() -> [NSNumber]
+    {
+        var courseIDArray: Array<NSNumber> = []
+        
+        if !(self.departmentTextField1.text == nil && self.courseTextField1.text == nil && self.professorTextField1.text == nil)
+        {
+            if let lookup = self.deptCourseProf1, dept = self.departmentTextField1.text, course = self.courseTextField1.text, prof = self.professorTextField1.text
+            {
+                let courseID = lookup.findCourseID(dept, course: course, profLastName: prof)
+                if courseID != 0
+                {
+                    courseIDArray.append(courseID)
+                    print("Course ID: \(courseID) appended")
+                }
+            }
+        }
+        
+        if !(self.departmentTextField2.text == nil && self.courseTextField2.text == nil && self.professorTextField2.text == nil)
+        {
+            if let lookup = self.deptCourseProf2, dept = self.departmentTextField2.text, course = self.courseTextField2.text, prof = self.professorTextField2.text
+            {
+                let courseID = lookup.findCourseID(dept, course: course, profLastName: prof)
+                if courseID != 0
+                {
+                    courseIDArray.append(courseID)
+                    print("Course ID: \(courseID) appended")
+                }
+            }
+        }
+        
+        if !(self.departmentTextField3.text == nil && self.courseTextField3.text == nil && self.professorTextField3.text == nil)
+        {
+            if let lookup = self.deptCourseProf3, dept = self.departmentTextField3.text, course = self.courseTextField3.text, prof = self.professorTextField3.text
+            {
+                let courseID = lookup.findCourseID(dept, course: course, profLastName: prof)
+                if courseID != 0
+                {
+                    courseIDArray.append(courseID)
+                    print("Course ID: \(courseID) appended")
+                }
+            }
+        }
+        
+        if !(self.departmentTextField4.text == nil && self.courseTextField4.text == nil && self.professorTextField4.text == nil)
+        {
+            if let lookup = self.deptCourseProf4, dept = self.departmentTextField4.text, course = self.courseTextField4.text, prof = self.professorTextField4.text
+            {
+                let courseID = lookup.findCourseID(dept, course: course, profLastName: prof)
+                if courseID != 0
+                {
+                    courseIDArray.append(courseID)
+                    print("Course ID: \(courseID) appended")
+                }
+            }
+        }
+        
+        if !(self.departmentTextField5.text == nil && self.courseTextField5.text == nil && self.professorTextField5.text == nil)
+        {
+            if let lookup = self.deptCourseProf5, dept = self.departmentTextField5.text, course = self.courseTextField5.text, prof = self.professorTextField5.text
+            {
+                let courseID = lookup.findCourseID(dept, course: course, profLastName: prof)
+                if courseID != 0
+                {
+                    courseIDArray.append(courseID)
+                    print("Course ID: \(courseID) appended")
+                }
+            }
+        }
+        
+        if !(self.departmentTextField6.text == nil && self.courseTextField6.text == nil && self.professorTextField6.text == nil)
+        {
+            if let lookup = self.deptCourseProf6, dept = self.departmentTextField6.text, course = self.courseTextField6.text, prof = self.professorTextField6.text
+            {
+                let courseID = lookup.findCourseID(dept, course: course, profLastName: prof)
+                if courseID != 0
+                {
+                    courseIDArray.append(courseID)
+                    print("Course ID: \(courseID) appended")
+                }
+            }
+        }
+        return courseIDArray
+    }
+    
+    func signUpUser()
+    {
+        
+        self.activityIndicator.hidden = false
+        self.activityIndicator.startAnimating()
+        
+        var courseObjects = [PFObject]()
+        
+        var courseIDArray = findCourseIDs()
+        
+        //findCourseIDs()
+        
+        if let newUser = self.user
+        {
+            var relation = newUser.relationForKey("CourseRelation")
+            
+            var courseQuery = PFQuery(className: "Courses")
+            
+            print("Elements in courseIDArray = \(courseIDArray)")
+            
+            let courses = courseIDArray
+            
+            for (var i = 0; i < courses.count; i++)
+            {
+                print("CourseID to query: \(courses[i])")
+                if courses[i] != 0
+                {
+                    
+                    courseQuery.whereKey("CourseID", equalTo: courses[i])
+                    do
+                    {
+                        let course = try courseQuery.getFirstObject()
+                        relation.addObject(course)
+                        print("CourseRelation: \(course) added!")
+                    }
+                    catch
+                    {
+                        // error with getting course object
+                        
+                    }
+                }
+            }
+            
+            
+            newUser.signUpInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+                if error == nil{
+                    self.activityIndicator.stopAnimating()
+                    let refreshAlert = UIAlertController(title: "Welcome!", message: "You are now signed up with BookSmart", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    refreshAlert.addAction(UIAlertAction(title: "Confirm", style: .Default, handler: { (action: UIAlertAction!) in
+                        
+                        dispatch_async(dispatch_get_main_queue()) {
+                            var Storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            var MainVC : UIViewController = Storyboard.instantiateViewControllerWithIdentifier("MainVC")
+                            self.presentViewController(MainVC, animated: true, completion: nil)
+                        }
+                        }
+                        ))
+                    self.presentViewController(refreshAlert, animated: true, completion: nil)
+                    
+                }
+                else
+                {
+                    self.activityIndicator.stopAnimating()
+                    // Examine error object and inform user
+                    let alertErrorController = UIAlertController(title: "Error", message: "There was an error with your sign up. Please try again.", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    alertErrorController.addAction(UIAlertAction(title: "Continue", style: UIAlertActionStyle.Default,handler: nil))
+                    
+                    self.presentViewController(alertErrorController, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -95,32 +256,32 @@ class FinishSignUpViewController: UIViewController, UINavigationControllerDelega
         
         loadPickers()
         
-        var departmentPickerView1 = UIPickerView()
-        var coursesPickerView1 = UIPickerView()
-        var sectionPickerView1 = UIPickerView()
+        let departmentPickerView1 = UIPickerView()
+        let coursesPickerView1 = UIPickerView()
+        let sectionPickerView1 = UIPickerView()
         
-        var departmentPickerView2 = UIPickerView()
-        var coursesPickerView2 = UIPickerView()
-        var sectionPickerView2 = UIPickerView()
+        let departmentPickerView2 = UIPickerView()
+        let coursesPickerView2 = UIPickerView()
+        let sectionPickerView2 = UIPickerView()
         
-        var departmentPickerView3 = UIPickerView()
-        var coursesPickerView3 = UIPickerView()
-        var sectionPickerView3 = UIPickerView()
+        let departmentPickerView3 = UIPickerView()
+        let coursesPickerView3 = UIPickerView()
+        let sectionPickerView3 = UIPickerView()
         
-        var departmentPickerView4 = UIPickerView()
-        var coursesPickerView4 = UIPickerView()
-        var sectionPickerView4 = UIPickerView()
+        let departmentPickerView4 = UIPickerView()
+        let coursesPickerView4 = UIPickerView()
+        let sectionPickerView4 = UIPickerView()
         
-        var departmentPickerView5 = UIPickerView()
-        var coursesPickerView5 = UIPickerView()
-        var sectionPickerView5 = UIPickerView()
+        let departmentPickerView5 = UIPickerView()
+        let coursesPickerView5 = UIPickerView()
+        let sectionPickerView5 = UIPickerView()
         
-        var departmentPickerView6 = UIPickerView()
-        var coursesPickerView6 = UIPickerView()
-        var sectionPickerView6 = UIPickerView()
+        let departmentPickerView6 = UIPickerView()
+        let coursesPickerView6 = UIPickerView()
+        let sectionPickerView6 = UIPickerView()
         
-        var universityPickerView = UIPickerView()
-        var termPickerView = UIPickerView()
+        let universityPickerView = UIPickerView()
+        let termPickerView = UIPickerView()
         
         departmentPickerView1.tag = 0
         coursesPickerView1.tag = 1
@@ -319,7 +480,7 @@ class FinishSignUpViewController: UIViewController, UINavigationControllerDelega
             return 1
         }
         return 1
-       
+        
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
@@ -503,12 +664,12 @@ class FinishSignUpViewController: UIViewController, UINavigationControllerDelega
         case 18:
             return "Sonoma State University"
         case 19:
-            return "Spring 2016"
+            return "Fall 2016"
         default:
             return ""
         }
         return ""
-    
+        
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
@@ -713,10 +874,14 @@ class FinishSignUpViewController: UIViewController, UINavigationControllerDelega
                     self.professorTextField5.text = ""
                 }
             }
+        case 18:
+            self.universityTextField.text = "Sonoma State University"
+        case 19:
+            self.termTextField.text = "Fall 2016"
         default:
             print("Error with pickers")
         }
-
+        
         
     }
     
