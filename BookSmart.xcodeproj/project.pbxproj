@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D48D18DD3F589B975469263 /* Pods_BookSmart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB9B8C1BADA55467EEE7F86 /* Pods_BookSmart.framework */; };
 		3F01EB191CD3F8890081032C /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F01EB181CD3F8890081032C /* UserProfileViewController.swift */; };
 		3F01EB1B1CD3FAE90081032C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F01EB1A1CD3FAE90081032C /* User.swift */; };
 		3F01EB1D1CD431DD0081032C /* ViewPostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F01EB1C1CD431DD0081032C /* ViewPostDetailViewController.swift */; };
@@ -52,7 +51,6 @@
 		3FE5BB3B1CD2888900662815 /* BookLookupDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5BB3A1CD2888900662815 /* BookLookupDataSource.swift */; };
 		3FE5BB3D1CD28EAD00662815 /* BookLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5BB3C1CD28EAD00662815 /* BookLookup.swift */; };
 		3FE5D4E31CD1B3D9003CE618 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5D4E21CD1B3D9003CE618 /* Book.swift */; };
-		3FF0CB341CD84E82006C4912 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 3FF0CB331CD84E82006C4912 /* Podfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,7 +150,6 @@
 				3F6DC8421CAB680600278937 /* ParseFacebookUtilsV4.framework in Frameworks */,
 				3F6DC8411CAB680600278937 /* ParseFacebookUtils.framework in Frameworks */,
 				3F6DC8431CAB680600278937 /* ParseTwitterUtils.framework in Frameworks */,
-				1D48D18DD3F589B975469263 /* Pods_BookSmart.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,12 +344,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3F6DC8301CAB67FE00278937 /* Build configuration list for PBXNativeTarget "BookSmart" */;
 			buildPhases = (
-				2BE60117299DE606B6DA8277 /* Check Pods Manifest.lock */,
 				3F6DC8041CAB67FE00278937 /* Sources */,
 				3F6DC8051CAB67FE00278937 /* Frameworks */,
 				3F6DC8061CAB67FE00278937 /* Resources */,
-				575E63F8F3F33C2A7D67F7A1 /* Embed Pods Frameworks */,
-				D59B460420F349A18D150C4C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -452,7 +446,6 @@
 			files = (
 				3F6DC8161CAB67FE00278937 /* LaunchScreen.storyboard in Resources */,
 				3F6DC8131CAB67FE00278937 /* Assets.xcassets in Resources */,
-				3FF0CB341CD84E82006C4912 /* Podfile in Resources */,
 				3F6DC8111CAB67FE00278937 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,54 +465,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		2BE60117299DE606B6DA8277 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		575E63F8F3F33C2A7D67F7A1 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BookSmart/Pods-BookSmart-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D59B460420F349A18D150C4C /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BookSmart/Pods-BookSmart-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3F6DC8041CAB67FE00278937 /* Sources */ = {
@@ -634,6 +579,7 @@
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
@@ -672,6 +618,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_INVALID_OFFSETOF_MACRO = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
@@ -686,7 +633,6 @@
 		};
 		3F6DC8311CAB67FE00278937 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 70E543C9109986DCFE253760 /* Pods-BookSmart.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -706,7 +652,6 @@
 		};
 		3F6DC8321CAB67FE00278937 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3215CA0458E4020613380F1 /* Pods-BookSmart.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

@@ -9,13 +9,13 @@
 import UIKit
 import Parse
 import Bolts
-import Atlas
+//import Atlas
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var layerClient : LYRClient!
+    //var layerClient : LYRClient!
     
     // LayerApp ID key to use messaging
     let LayerAppIDString: NSURL! = NSURL(string: "layer:///apps/staging/bdcc3c7a-10da-11e6-a486-234fc40412a3")
@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("pGQQu6YGEdBgjX0QrbuJvu7BDZ9rp094yyFmlx6V",
             clientKey: "LNoNKtql2LPKKzt1rU8khbcPFANVsdyG9DLRtUz5")
         PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
-        setupLayer()
+        //setupLayer()
         
         
         //let tableVC:PostViewController = PostViewController(className: "Posts")
@@ -59,9 +59,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func setupLayer() {
-        layerClient = LYRClient(appID: LayerAppIDString)
-        layerClient.autodownloadMIMETypes = NSSet(objects: ATLMIMETypeImagePNG, ATLMIMETypeImageJPEG, ATLMIMETypeImageJPEGPreview, ATLMIMETypeImageGIF, ATLMIMETypeImageGIFPreview, ATLMIMETypeLocation) as? Set<String>
-    }
+//    func setupLayer() {
+//        layerClient = LYRClient(appID: LayerAppIDString)
+//        layerClient.autodownloadMIMETypes = NSSet(objects: ATLMIMETypeImagePNG, ATLMIMETypeImageJPEG, ATLMIMETypeImageJPEGPreview, ATLMIMETypeImageGIF, ATLMIMETypeImageGIFPreview, ATLMIMETypeLocation) as? Set<String>
+//    }
 }
 
