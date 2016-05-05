@@ -241,6 +241,13 @@ class FinishSignUpViewController: UIViewController, UINavigationControllerDelega
         }
     }
     
+    
+      
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()

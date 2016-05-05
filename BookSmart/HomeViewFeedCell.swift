@@ -14,6 +14,7 @@ class HomeViewFeedCell: PFTableViewCell
 {
     
     @IBOutlet weak var viewPostDetailButton: UIButton!
+    @IBOutlet weak var backPackItButton: UIButton!
     
     @IBOutlet weak var bookImageView: UIImageView!
     @IBOutlet weak var bookDescripLabel: UILabel!
@@ -21,7 +22,18 @@ class HomeViewFeedCell: PFTableViewCell
     @IBOutlet weak var userPostTitleLabel: UILabel!
     @IBOutlet weak var feedView: UIView!
     @IBOutlet weak var priceLabel: UILabel!
+//   
+//    @IBAction func backPackItAction(sender: AnyObject)
+//    {
+//        if let post = self.postObject
+//        {
+//            savePostToBackPack(post)
+//        }
+//    }
+    
    
+
+    
     //var parseObject:PFObject?
     
     var postObject : Post?

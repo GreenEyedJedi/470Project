@@ -33,20 +33,11 @@ class PostViewController : PFQueryTableViewController
 
         // set viewPostDetailButton tag to indexPath.row
         cell?.viewPostDetailButton.tag = indexPath.row
+        cell?.backPackItButton.tag = indexPath.row
         
+        cell?.backPackItButton.addTarget(self, action: "showAlert:", forControlEvents:UIControlEvents.TouchUpInside)
         
         let postObject = object as! Post
-        
-//        if let bookObject = postObject["BookID"] as? Book
-//        {
-//        
-//        bookObject.fetchIfNeededInBackgroundWithBlock {
-//            (bookObject: PFObject?, error: NSError?) -> Void in
-//            let bookTitle = bookObject?["Title"] as? String
-//            cell?.bookTitleLabel?.text = bookTitle
-//        }
-//        }
-//        
         print(postObject)
         
         var imageFromParse = postObject.objectForKey("PostImage") as? PFFile
@@ -71,7 +62,62 @@ class PostViewController : PFQueryTableViewController
         return cell
     }
 
-
+    func showAlert(sender:UIButton!)
+    {
+        let indexPath = NSIndexPath(forRow: sender.tag, inSection: 0)
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! HomeViewFeedCell
+        if let post = cell.postObject
+        {
+            savePostToBackPack(post)
+        }
+        
+    }
+    
+    func savePostToBackPack(post: Post)
+    {
+        let refreshAlert = UIAlertController(title: "Add to BackPack?", message: "Are you sure you want to add this post to your BackPack?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Confirm", style: .Default, handler: { (action: UIAlertAction!) in
+            
+            if let user = PFUser.currentUser()
+            {
+                let backPackRelation = user.relationForKey("BackPack")
+                backPackRelation.addObject(post)
+                
+                user.saveInBackgroundWithBlock {
+                    (success: Bool, error: NSError?) -> Void in
+                    
+                    if (success) {
+                        let successAlert = UIAlertController(title: "Success!", message: "Post has been added to BackPack", preferredStyle: UIAlertControllerStyle.Alert)
+                        
+                        successAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default,handler: nil))
+                        self.presentViewController(successAlert, animated: true, completion: nil)
+                        
+                    } else {
+                        // There was a problem, check error.description
+                        //self.activityIndicator.stopAnimating()
+                        let failureAlert = UIAlertController(title: "Error", message: "There was an error saving your post. Try again", preferredStyle: UIAlertControllerStyle.Alert)
+                        
+                        failureAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default,handler: nil))
+                        self.presentViewController(failureAlert, animated: true, completion: nil)
+                        
+                    }
+                }
+                
+                print("Post \(post) added to BackPack!")
+            }
+            
+            //var postToBackPack = PFObject(className:"Posts")
+            
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+            return
+        }))
+        
+        presentViewController(refreshAlert, animated: true, completion: nil)
+        
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {

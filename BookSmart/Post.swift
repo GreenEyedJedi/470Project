@@ -11,19 +11,19 @@ import Parse
 import ParseUI
 
 class Post: PFObject, PFSubclassing {
-
+    
     @NSManaged var postImage : PFFile
     @NSManaged var postTitle: String?
     
     @NSManaged var postPrice : NSNumber?
-   
+    
     @NSManaged var user : PFUser
     @NSManaged var postCondition : String?
     @NSManaged var postDescrip : String?
     @NSManaged var bookObj: PFObject?
     @NSManaged var courseObj : PFObject?
     @NSManaged var courseID : NSNumber?
-   
+    
     
     override class func initialize() {
         var onceToken: dispatch_once_t = 0
@@ -34,23 +34,30 @@ class Post: PFObject, PFSubclassing {
     
     override class func query() -> PFQuery? {
         let query = PFQuery(className: Post.parseClassName())
-        //query.includeKey("user") 
+        //query.includeKey("user")
         
         query.orderByDescending("createdAt")
         return query
     }
     
     
-  
+    
+    
+    
     init(PostTitle: String?, User : PFUser?, Condition: String?, Book : PFObject?, Course : NSNumber?, Description: String?, Image: UIImageView?, Price: NSNumber?)
     {
         super.init()
         
-        if let img = Image
+        if let picture = Image
         {
-            if let imageView = PFFile(data: UIImageJPEGRepresentation(img.image!, 1.0)!)
+            if let jpeg = picture.image
             {
-                self.postImage = imageView
+                if let pic = UIImageJPEGRepresentation(jpeg, 1.0), imageView = PFFile(data: pic)
+                {
+                    self.postImage = imageView
+                }
+                
+                
             }
         }
         
@@ -58,7 +65,7 @@ class Post: PFObject, PFSubclassing {
         {
             self.postTitle = title
         }
-       
+        
         if let desc = Description
         {
             self.postDescrip = desc
@@ -102,7 +109,7 @@ class Post: PFObject, PFSubclassing {
         {
             self.bookObj = b as PFObject
         }
-       
+        
     }
     
     override init() {
@@ -118,60 +125,69 @@ class Post: PFObject, PFSubclassing {
         return nil
     }
     
+    func getDeptAndCourseString() -> String?
+    {
+        if let courseID = self.courseID
+        {
+            
+        }
+        return nil
+    }
     
-//    init(id: Int, title : String, photo : UIImage, desc : String, book : String, price : Float, condition : String) {
-//        //posts = dataSource
-//        postID = id
-//        postTitle = title
-//        postPhoto = photo
-//        postDescription = desc
-//        postBook = book
-//        postPrice = price
-//        postCondition = condition
-//        super.init()
-//    }
-//    
-//    func getPostID() -> Int?
-//    {
-//        let id = postID ?? nil
-//        return id
-//    }
-//    
-//    func getPhoto () -> UIImage?
-//    {
-//        let photo = postPhoto ?? nil
-//        return photo
-//    }
-//    
-//    func getTitle() -> String?
-//    {
-//        let title = postTitle ?? nil
-//        return title
-//    }
-//    
-//    func getDescription() -> String?
-//    {
-//        let description = postDescription ?? nil
-//        return description
-//    }
-//    
-//    func getBookName() -> String?
-//    {
-//        let book = postBook ?? nil
-//        return book
-//    }
-//    
-//    func getPrice() -> Float?
-//    {
-//        let price = postPrice ?? nil
-//        return price
-//    }
-//    
-//    func getCondition() -> String?
-//    {
-//        let condition = postCondition ?? nil
-//        return condition
-//    }
+    
+    //    init(id: Int, title : String, photo : UIImage, desc : String, book : String, price : Float, condition : String) {
+    //        //posts = dataSource
+    //        postID = id
+    //        postTitle = title
+    //        postPhoto = photo
+    //        postDescription = desc
+    //        postBook = book
+    //        postPrice = price
+    //        postCondition = condition
+    //        super.init()
+    //    }
+    //
+    //    func getPostID() -> Int?
+    //    {
+    //        let id = postID ?? nil
+    //        return id
+    //    }
+    //
+    //    func getPhoto () -> UIImage?
+    //    {
+    //        let photo = postPhoto ?? nil
+    //        return photo
+    //    }
+    //
+    //    func getTitle() -> String?
+    //    {
+    //        let title = postTitle ?? nil
+    //        return title
+    //    }
+    //
+    //    func getDescription() -> String?
+    //    {
+    //        let description = postDescription ?? nil
+    //        return description
+    //    }
+    //
+    //    func getBookName() -> String?
+    //    {
+    //        let book = postBook ?? nil
+    //        return book
+    //    }
+    //
+    //    func getPrice() -> Float?
+    //    {
+    //        let price = postPrice ?? nil
+    //        return price
+    //    }
+    //    
+    //    func getCondition() -> String?
+    //    {
+    //        let condition = postCondition ?? nil
+    //        return condition
+    //    }
     
     
 }

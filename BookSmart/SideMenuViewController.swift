@@ -16,7 +16,7 @@ class SideMenuViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        MenuArray = ["Home", "Search", "My Classes", "Browse Textbooks", "Seller Conversations",  "Post", "Settings" , "Log out"]
+        MenuArray = ["Home", "Search", "My Classes", "Browse Textbooks", "My BackPack", "Post", "Settings" , "Log out"]
         
     }
     
@@ -61,6 +61,14 @@ class SideMenuViewController: UITableViewController {
             var Storyboard = UIStoryboard(name: "Main", bundle: nil)
             var FindBooksVC : UIViewController = Storyboard.instantiateViewControllerWithIdentifier("FindBooksVC")
             self.revealViewController().setFrontViewController(FindBooksVC, animated: true)
+        }
+        
+        // if user selects My BackPack
+        if indexPath.row == 4
+        {
+            var Storyboard = UIStoryboard(name: "Main", bundle: nil)
+            var BackPackNavVC : UIViewController = Storyboard.instantiateViewControllerWithIdentifier("BackPackNavVC")
+            self.revealViewController().setFrontViewController(BackPackNavVC, animated: true)
         }
         
         // if user selects Post

@@ -13,7 +13,8 @@ class ViewPostDetailViewController: UIViewController
 {
     var post : Post?
     var book : Book?
-    var user : PFUser?
+    //var user : PFUser?
+    var seller : PFObject?
     
     @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
@@ -41,15 +42,176 @@ class ViewPostDetailViewController: UIViewController
     @IBOutlet weak var bookPageNumLabel: UILabel!
     @IBOutlet weak var bookYearLabel: UILabel!
     
-    @IBOutlet weak var saveForLaterButton: UIButton!
     @IBOutlet weak var messageSellerButton: UIButton!
+
+    @IBOutlet weak var backPackIt: UIButton!
+    @IBAction func backPackItButton(sender: AnyObject)
+    {
+        if let post = self.post
+        {
+            savePostToBackPack(post)
+        }
+    }
     
+    @IBOutlet weak var removeBackPackButton: UIButton!
+    
+    @IBAction func removeBackPackAction(sender: AnyObject)
+    {
+        if let post = self.post
+        {
+            removeFromBackPack(post)
+        }
+    }
+    
+    private var viewingFromBackPackFlag : Bool = false
+    
+    
+    func removeFromBackPack(post: Post)
+    {
+        var refreshAlert = UIAlertController(title: "Remove from BackPack?", message: "Are you sure you want to remove this post from your BackPack?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Confirm", style: .Default, handler: { (action: UIAlertAction!) in
+            
+            if let user = PFUser.currentUser()
+            {
+                var backPackRelation = user.relationForKey("BackPack")
+                backPackRelation.removeObject(post)
+                
+                user.saveInBackgroundWithBlock {
+                    (success: Bool, error: NSError?) -> Void in
+                    
+                    if (success) {
+                        self.backPackIt.hidden = false
+                        self.removeBackPackButton.hidden = true
+                        
+                        var successAlert = UIAlertController(title: "Removed!", message: "Post has been removed from BackPack", preferredStyle: UIAlertControllerStyle.Alert)
+                        
+                        successAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default,handler: nil))
+                        self.presentViewController(successAlert, animated: true, completion: nil)
+                        
+                    } else {
+                        // There was a problem, check error.description
+                        //self.activityIndicator.stopAnimating()
+                        var failureAlert = UIAlertController(title: "Error", message: "There was an error removing your post. Try again", preferredStyle: UIAlertControllerStyle.Alert)
+                        
+                        failureAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default,handler: nil))
+                        self.presentViewController(failureAlert, animated: true, completion: nil)
+                        
+                    }
+                }
+                
+            }
+            
+            //var postToBackPack = PFObject(className:"Posts")
+            
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+            return
+        }))
+        
+        presentViewController(refreshAlert, animated: true, completion: nil)
+        
+        
+    }
+    
+    func savePostToBackPack(post: Post)
+    {
+        var refreshAlert = UIAlertController(title: "Add to BackPack?", message: "Are you sure you want to add this post to your BackPack?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Confirm", style: .Default, handler: { (action: UIAlertAction!) in
+   
+            if let user = PFUser.currentUser()
+            {
+                var backPackRelation = user.relationForKey("BackPack")
+                backPackRelation.addObject(post)
+                
+                user.saveInBackgroundWithBlock {
+                    (success: Bool, error: NSError?) -> Void in
+                    
+                    if (success) {
+                        var successAlert = UIAlertController(title: "Success!", message: "Post has been added to BackPack", preferredStyle: UIAlertControllerStyle.Alert)
+                        
+                        successAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default,handler: nil))
+                        self.presentViewController(successAlert, animated: true, completion: nil)
+                        
+                    } else {
+                        // There was a problem, check error.description
+                        //self.activityIndicator.stopAnimating()
+                        var failureAlert = UIAlertController(title: "Error", message: "There was an error saving your post. Try again", preferredStyle: UIAlertControllerStyle.Alert)
+                        
+                        failureAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default,handler: nil))
+                        self.presentViewController(failureAlert, animated: true, completion: nil)
+                    
+                }
+                }
+
+            }
+            
+            //var postToBackPack = PFObject(className:"Posts")
+
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+            return
+        }))
+        
+        presentViewController(refreshAlert, animated: true, completion: nil)
+        
+    }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+        self.backPackIt.hidden = false
+        self.removeBackPackButton.hidden = true
+        checkIsInBackPack()
         setPostDetails()
+    }
+    
+    func checkIsInBackPack()
+    {
+        if let user = PFUser.currentUser()
+        {
+            if let user = PFUser.currentUser()
+            {
+                var flag : Bool = false
+                var backPackRelation = user.relationForKey("BackPack")
+                backPackRelation.query().findObjectsInBackgroundWithBlock{ (objects: [PFObject]?, error: NSError?) -> Void in
+                    if error == nil {
+                        if let objects = objects{
+                            print("objects in checkIsInBackPack = \(objects)")
+                            for object in objects
+                            {
+                                if let post = self.post
+                                {
+                                    print("postID = \(post.objectId) object.id = \(object.objectId)")
+                                    if object.objectId == post.objectId
+                                    {
+                                        print("post is in BackPack!")
+                                        self.backPackIt.hidden = true
+                                        self.removeBackPackButton.hidden = false
+                                        break
+                                    }
+                                    else
+                                    {
+                                        self.backPackIt.hidden = false
+                                        self.removeBackPackButton.hidden = true
+                                        
+                                    }
+                                  
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+             
+                
+            }
+        }
+       
+        
     }
     
     
@@ -57,6 +219,16 @@ class ViewPostDetailViewController: UIViewController
     func postToView(post: Post)
     {
         self.post = post
+        self.viewingFromBackPackFlag = false
+        checkIsInBackPack()
+    }
+    
+    func postToViewFromBackPack(post: Post)
+    {
+        self.post = post
+        self.viewingFromBackPackFlag = true
+        
+        print("postToViewFromBackPack called!")
     }
     
     func setPostDetails()
@@ -110,6 +282,8 @@ class ViewPostDetailViewController: UIViewController
                                     self.sellerProfilePictureImageView.image = image
                                 })
                             }
+                            
+                            self.seller = userObject
                             
                         }
                     }
@@ -183,6 +357,21 @@ class ViewPostDetailViewController: UIViewController
                 }
                 
                 
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        // update price and condition before segue
+        
+        if segue.identifier == "messageSeller"
+        {
+            if let seller = self.seller, user = PFUser.currentUser(), post = self.post {
+                let detailedVC = segue.destinationViewController as! SendMessageViewController
+                
+                detailedVC.getUserAndSellerAndPost(user, seller: seller, post: post)
+            }
         }
     }
     
