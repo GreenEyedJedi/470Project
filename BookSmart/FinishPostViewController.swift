@@ -24,20 +24,14 @@ class FinishPostViewController: UIViewController
     @IBOutlet weak var bookDescriptionTextView: UITextView!
     @IBOutlet weak var bookStockImageView: UIImageView!
     
-    
+    var bookYear : String!
+    var pages : Int!
     @IBAction func nextButtonToUpload(sender: AnyObject)
     {
         if checkTextFields() == true
         {
-            // Removes " pages" from textField
-            let pageN = pagesTextField.text
-            let pN = pageN!.characters.split{$0 == " "}.map(String.init)
-            
-            // Pass pageNumber as NSNumber
-            let p = Int(pN[0])
-            
-            print("The value of p is \(p)")
-            book = Book(title: bookTitleTextField.text, isbn: ISBN, pageNum: p, desc: bookDescriptionTextView.text, author: authorTextField.text, image: bookStockImageView)
+            print("The value of pages is \(pages)")
+            book = Book(title: bookTitleTextField.text, isbn: ISBN, pageNum: pages, desc: bookDescriptionTextView.text, author: authorTextField.text, image: bookStockImageView, year: bookYear)
         }
     }
     
@@ -97,12 +91,17 @@ class FinishPostViewController: UIViewController
             if let pageNum = book.bookPages()
             {
                 print("pages: \(pageNum)")
+                self.pages = pageNum
                 self.pagesTextField.text = "\(pageNum) pages"
             }
             if let stock = book.bookStockImageURL()
             {
                 self.bookStockImageView.image = stock
                 
+            }
+            if let year = book.bookYearPublished()
+            {
+                self.bookYear = year
             }
         }
     }

@@ -56,6 +56,15 @@ class BookLookup : NSObject
         
     }
     
+    func bookYearPublished() -> String?
+    {
+        if let year = book["publishedDate"]
+        {
+            return year as? String
+        }
+        return nil
+    }
+    
     func bookStockImageURL() -> UIImage? {
         if let image = book["imageLinks"]
         {

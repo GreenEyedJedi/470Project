@@ -308,6 +308,7 @@ class ViewPostDetailViewController: UIViewController, UIPopoverPresentationContr
                             (bookObject: PFObject?, error: NSError?) -> Void in
                             let bookTitle = bookObject?["Title"] as? String
                             let bookDescrip = bookObject?["Description"] as? String
+                           
                             if let firstName = bookObject?["AuthorFirstName"] as? String, lastName = bookObject?["AuthorLastName"] as? String
                             {
                                 self.bookAuthorLabel.text = "Author: \(firstName) \(lastName)"
@@ -320,6 +321,15 @@ class ViewPostDetailViewController: UIViewController, UIPopoverPresentationContr
                                     var image: UIImage! = UIImage(data: imageData!)!
                                     self.bookStockImageView.image = image
                                 })
+                            }
+                            if let bookYear = bookObject?["Year"] as? String
+                            {
+                                self.bookYearLabel.text = "Year: \(bookYear)"
+                            }
+                            
+                            if let pages = bookObject?["Pages"] as? NSNumber
+                            {
+                                self.bookPageNumLabel.text = "Page count: \(pages)"
                             }
                             
                             self.bookTitleLabel.text = bookTitle

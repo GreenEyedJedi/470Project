@@ -18,6 +18,7 @@ class Book: PFObject, PFSubclassing
     @NSManaged var authorFN : String?
     @NSManaged var authorLN : String?
     @NSManaged var stockImage : PFFile?
+    @NSManaged var bookYear : String?
     
     override class func initialize() {
         var onceToken: dispatch_once_t = 0
@@ -43,7 +44,7 @@ class Book: PFObject, PFSubclassing
         return query
     }
     
-    init(title : String?, isbn : String?, pageNum : NSNumber?, desc : String?, author : String?, image : UIImageView?)
+    init(title : String?, isbn : String?, pageNum : NSNumber?, desc : String?, author : String?, image : UIImageView?, year: String?)
     {
         super.init()
         
@@ -84,6 +85,11 @@ class Book: PFObject, PFSubclassing
             {
                 self.stockImage = imageView
             }
+        }
+        
+        if let y = year
+        {
+            self.bookYear = y
         }
         
         

@@ -65,11 +65,11 @@ class UploadPostViewController: UIViewController
             postToParse["UserObject"] = PFUser.currentUser()
             
             
-            
+            bookToParse["Year"] = self.book?.bookYear
             bookToParse["Title"] = self.book?.bookTitle
             bookToParse["ISBN"] = self.book?.bookISBN
             bookToParse["Description"] = self.book?.bookDescription
-            //bookToParse["Pages"] = self.book?.bookNumOfPages
+            bookToParse["Pages"] = self.book?.bookNumOfPages
             bookToParse["AuthorFirstName"] = self.book?.authorFN
             bookToParse["AuthorLastName"] = self.book?.authorLN
             bookToParse["BookStockImage"] = self.book?.stockImage
