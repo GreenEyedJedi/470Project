@@ -55,7 +55,7 @@
             BlueprintIdentifier = "3F6DC8071CAB67FE00278937"
             BuildableName = "BookSmart.app"
             BlueprintName = "BookSmart"
-            ReferencedContainer = "container:BookSmartFinal.xcodeproj">
+            ReferencedContainer = "container:BookSmart.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -78,7 +78,7 @@
             BlueprintIdentifier = "3F6DC8071CAB67FE00278937"
             BuildableName = "BookSmart.app"
             BlueprintName = "BookSmart"
-            ReferencedContainer = "container:BookSmartFinal.xcodeproj">
+            ReferencedContainer = "container:BookSmart.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>

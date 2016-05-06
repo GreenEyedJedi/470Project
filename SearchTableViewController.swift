@@ -26,16 +26,12 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     // Dictonary to ensure that only one instance of a course is being displayed in the search results
     var duplicateCheck = [String: AnyObject]()
     
-    
-    var book = [String: String]()
-    
-    
-    var searchResults = [String]()
-    
+    var booksToDisplay = [String]()
     
     @IBOutlet weak var menuBarButton: UIBarButtonItem!
     
     @IBOutlet weak var querySearchBar: UISearchBar!
+    
     
     override func viewDidLoad() {
         
@@ -64,9 +60,15 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        
-        return searchResultsToDisplay.count
-        
+    
+        if (searchingForClass == true)
+        {
+            return searchResultsToDisplay.count
+        }
+        else
+        {
+            return booksToDisplay.count
+        }
         
         
         
@@ -97,6 +99,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         if scope == 0
         { // Searching for class
             
+            searchingForClass = true
             
             
             // Variables that will hold query conditions depending on what's entered
@@ -182,16 +185,18 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                         let newCourse = Course(prof: wholeName, section: classSection, course: wholeClass, courseID: id)
                         self.queriedCourses.append(newCourse)
                         
+                        dispatch_async(dispatch_get_main_queue()) {
+                            // Refresh the table to reflect the results of the query
+                            self.tableView.reloadData()
+                            
+                            self.querySearchBar.resignFirstResponder()
+                            
+                            
+                        }
+                        
                     } // end of for object in objects
                     
-                    dispatch_async(dispatch_get_main_queue()) {
-                        // Refresh the table to reflect the results of the query
-                        self.tableView.reloadData()
-                        
-                        self.querySearchBar.resignFirstResponder()
-                        
-                        
-                    }
+          
                     
                     
                     
@@ -205,6 +210,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
             
             searchingForClass = false
             
+            print("Searching for book")
             let title = searchBar.text!
             let pred = NSPredicate(format: "Title == %@", title)
             let query = PFQuery(className: "Book", predicate: pred)
@@ -229,16 +235,41 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                 
                 if let objects = results
                 {
-                    let authorFN = objects[0].objectForKey("AuthorFirstName") as! String
-                    let authorLN = objects[0].objectForKey("AuthorLastName") as! String
-                    let author = authorFN + " " + authorLN
-                    self.book[author] = title
+                    self.booksToDisplay.removeAll()
+                    
+                    for object in objects
+                    {
+                        print("looping")
+                        let title = object.objectForKey("Title") as! String
+                        self.booksToDisplay.append(title)
+                    }
+                    
+                }
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    // Refresh the table to reflect the results of the query
+                    self.tableView.reloadData()
+                
+                    
+                    
                 }
                 
             } // end query
             
             
+            
         } // End of else (scope of book search)
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            // Refresh the table to reflect the results of the query
+            self.tableView.reloadData()
+            
+            self.querySearchBar.resignFirstResponder()
+            
+            
+        }
+        
+        
         self.tableView.performSelectorOnMainThread(Selector("reloadData"), withObject: nil, waitUntilDone: true)
         
         
@@ -249,15 +280,25 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        
-        // Configure the cell to print entries from the array containing the query results
-        
-        cell.textLabel!.text = searchResultsToDisplay[indexPath.row]
-        
-        cell.textLabel!.text = searchResults[indexPath.row]
         
         
+        var cell = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell!
+        
+        if !(cell != nil) {
+            
+            
+        
+            cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "cell")
+        }
+        if (searchingForClass == true)
+        {
+            cell.textLabel?.text = searchResultsToDisplay[indexPath.row]
+        }
+        else
+        {
+            print(booksToDisplay.count)
+            cell.textLabel?.text = booksToDisplay[indexPath.row]
+        }
         return cell
     }
     
@@ -268,16 +309,23 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         // accordingly
         // Get the text of the selected row, filter the course array for multiple instances of the
         // same class
+        if (searchingForClass == true)
+        {
+            let selectedCell = tableView.cellForRowAtIndexPath(indexPath)
+            selectedCourse = selectedCell?.textLabel?.text
+            print(selectedCourse)
         
-        let selectedCell = tableView.cellForRowAtIndexPath(indexPath)
-        selectedCourse = selectedCell?.textLabel?.text
-        print(selectedCourse)
+            let allDuplicateCourses = self.queriedCourses.filter() {$0.deptAndCourse == selectedCourse}
+            queriedCourses = allDuplicateCourses
+            print(queriedCourses.count)
         
-        let allDuplicateCourses = self.queriedCourses.filter() {$0.deptAndCourse == selectedCourse}
-        queriedCourses = allDuplicateCourses
-        print(queriedCourses.count)
+            self.performSegueWithIdentifier("toProfessor", sender: self)
+        }
         
-        self.performSegueWithIdentifier("toProfessor", sender: self)
+        else
+        {
+            
+        }
     }
     
     
