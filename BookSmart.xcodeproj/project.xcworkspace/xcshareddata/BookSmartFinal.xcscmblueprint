@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "EA64E028E428E38557B27856ABB6D825BB75F0FE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "EA64E028E428E38557B27856ABB6D825BB75F0FE" : 0,
+    "DF946FB8231B51553EDDAA90D08F3284159F1471" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B5FE4971-7D7C-4294-A380-1FED8BC1EA25",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "EA64E028E428E38557B27856ABB6D825BB75F0FE" : "BookSmartFinal\/",
+    "DF946FB8231B51553EDDAA90D08F3284159F1471" : "470Project-master-3\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "BookSmartFinal",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "BookSmartFinal.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/GreenEyedJedi\/470Project.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DF946FB8231B51553EDDAA90D08F3284159F1471"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/GreenEyedJedi\/470Project.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EA64E028E428E38557B27856ABB6D825BB75F0FE"
+    }
+  ]
+}
