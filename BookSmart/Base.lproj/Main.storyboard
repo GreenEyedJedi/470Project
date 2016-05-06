@@ -123,6 +123,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pgq-DV-Q6V">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="167" y="0.0" width="69" height="68"/>
+                                </variation>
+                            </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DbE-RN-Nqq">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <constraints>
@@ -157,6 +163,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="pgq-DV-Q6V"/>
                                 <exclude reference="DbE-RN-Nqq"/>
                             </mask>
                             <mask key="constraints">
@@ -167,6 +174,7 @@
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
+                                <include reference="pgq-DV-Q6V"/>
                                 <include reference="DbE-RN-Nqq"/>
                             </mask>
                             <mask key="constraints">
@@ -193,7 +201,7 @@
         <!--Post View Controller-->
         <scene sceneID="eA1-9I-FIq">
             <objects>
-                <tableViewController id="eTC-Bq-34X" customClass="PostViewController" customModule="BookSmart" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="eTC-Bq-34X" customClass="PostViewController" customModule="BookSmart" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="191" sectionHeaderHeight="28" sectionFooterHeight="28" id="c4x-X9-fOD">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -252,44 +260,66 @@
                                                         <segue destination="cxT-Dl-ew9" kind="show" identifier="toPostDetail" id="81a-tr-YSA"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Post Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OVw-oe-1co">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Post Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="OVw-oe-1co">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="384" id="sA2-Qz-odQ">
-                                                            <variation key="widthClass=compact" constant="371"/>
+                                                            <variation key="widthClass=compact" constant="365"/>
                                                         </constraint>
+                                                        <constraint firstAttribute="height" constant="21" id="uj5-qb-G9f"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="sA2-Qz-odQ"/>
+                                                            <exclude reference="uj5-qb-G9f"/>
                                                         </mask>
                                                     </variation>
                                                     <variation key="widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="sA2-Qz-odQ"/>
+                                                            <include reference="uj5-qb-G9f"/>
                                                         </mask>
                                                     </variation>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageupload" translatesAutoresizingMaskIntoConstraints="NO" id="yDc-rV-dXd">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="yDc-rV-dXd" secondAttribute="height" multiplier="51:46" id="A7y-BD-c55"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="A7y-BD-c55"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="A7y-BD-c55"/>
+                                                        </mask>
+                                                    </variation>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hW9-zT-1HC">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Mwu-47-5jd"/>
                                                         <constraint firstAttribute="width" constant="274" id="uHz-44-B2x">
                                                             <variation key="widthClass=compact" constant="259"/>
                                                         </constraint>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
+                                                            <exclude reference="Mwu-47-5jd"/>
                                                             <exclude reference="uHz-44-B2x"/>
                                                         </mask>
                                                     </variation>
                                                     <variation key="widthClass=compact">
                                                         <mask key="constraints">
+                                                            <include reference="Mwu-47-5jd"/>
                                                             <include reference="uHz-44-B2x"/>
                                                         </mask>
                                                     </variation>
@@ -302,7 +332,7 @@
                                                             <variation key="widthClass=compact" constant="176"/>
                                                         </constraint>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
@@ -325,7 +355,7 @@
                                                             <variation key="widthClass=compact" constant="259"/>
                                                         </constraint>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Italic" family="Avenir Next Condensed" pointSize="15"/>
                                                     <color key="textColor" red="0.45226964209999998" green="0.45226964209999998" blue="0.45226964209999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
@@ -339,22 +369,50 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageupload" translatesAutoresizingMaskIntoConstraints="NO" id="yDc-rV-dXd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Professor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ge7-mZ-Ys6">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="yDc-rV-dXd" secondAttribute="height" multiplier="51:46" id="A7y-BD-c55"/>
+                                                        <constraint firstAttribute="height" constant="15" id="2q0-g9-XIk"/>
+                                                        <constraint firstAttribute="width" constant="204" id="ka8-vs-seO"/>
                                                     </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="13"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="A7y-BD-c55"/>
+                                                            <exclude reference="2q0-g9-XIk"/>
+                                                            <exclude reference="ka8-vs-seO"/>
                                                         </mask>
                                                     </variation>
                                                     <variation key="widthClass=compact">
                                                         <mask key="constraints">
-                                                            <include reference="A7y-BD-c55"/>
+                                                            <include reference="2q0-g9-XIk"/>
+                                                            <include reference="ka8-vs-seO"/>
                                                         </mask>
                                                     </variation>
-                                                </imageView>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dept + Course" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ke-jw-Fmd">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="204" id="W2v-5Z-6U1"/>
+                                                        <constraint firstAttribute="height" constant="16" id="cKt-6p-krB"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="13"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="W2v-5Z-6U1"/>
+                                                            <exclude reference="cKt-6p-krB"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="W2v-5Z-6U1"/>
+                                                            <include reference="cKt-6p-krB"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hW9-zT-1HC" firstAttribute="leading" secondItem="yDc-rV-dXd" secondAttribute="trailing" constant="8" id="0F6-5L-LEW">
@@ -364,12 +422,14 @@
                                                     <variation key="widthClass=compact" constant="20"/>
                                                 </constraint>
                                                 <constraint firstItem="abj-Pc-vn8" firstAttribute="leading" secondItem="aKc-XU-JbE" secondAttribute="leading" constant="7" id="2jX-aT-LKc"/>
+                                                <constraint firstItem="9Ke-jw-Fmd" firstAttribute="top" secondItem="vzR-oh-NRS" secondAttribute="bottom" constant="22" id="4wI-Ik-oG9"/>
                                                 <constraint firstAttribute="trailing" secondItem="OtL-YC-hWI" secondAttribute="trailing" constant="9" id="6dw-v6-aLg"/>
                                                 <constraint firstAttribute="bottom" secondItem="abj-Pc-vn8" secondAttribute="bottom" constant="7" id="77c-c2-rHX"/>
                                                 <constraint firstAttribute="trailing" secondItem="6tc-Y1-eEW" secondAttribute="trailing" constant="8" id="78T-jS-DQP"/>
                                                 <constraint firstItem="6tc-Y1-eEW" firstAttribute="top" secondItem="OtL-YC-hWI" secondAttribute="bottom" constant="8" id="9YJ-ti-taa"/>
+                                                <constraint firstItem="Ge7-mZ-Ys6" firstAttribute="top" secondItem="9Ke-jw-Fmd" secondAttribute="bottom" constant="-1" id="FTC-Sm-JKe"/>
                                                 <constraint firstItem="hW9-zT-1HC" firstAttribute="top" secondItem="OVw-oe-1co" secondAttribute="bottom" constant="8" id="FbR-zZ-14H">
-                                                    <variation key="widthClass=compact" constant="8"/>
+                                                    <variation key="widthClass=compact" constant="4"/>
                                                 </constraint>
                                                 <constraint firstItem="6tc-Y1-eEW" firstAttribute="top" secondItem="aKc-XU-JbE" secondAttribute="top" constant="131" id="Jzk-nh-isd"/>
                                                 <constraint firstItem="6tc-Y1-eEW" firstAttribute="leading" secondItem="abj-Pc-vn8" secondAttribute="trailing" constant="2" id="MpS-PG-wVd"/>
@@ -377,12 +437,14 @@
                                                     <variation key="widthClass=compact" constant="-72"/>
                                                 </constraint>
                                                 <constraint firstItem="6tc-Y1-eEW" firstAttribute="leading" secondItem="abj-Pc-vn8" secondAttribute="trailing" constant="2" id="QEO-A1-n6t"/>
+                                                <constraint firstItem="9Ke-jw-Fmd" firstAttribute="leading" secondItem="yDc-rV-dXd" secondAttribute="trailing" constant="4" id="QeX-50-SCh"/>
                                                 <constraint firstItem="abj-Pc-vn8" firstAttribute="top" secondItem="aKc-XU-JbE" secondAttribute="top" constant="131" id="U05-4Q-RGW"/>
                                                 <constraint firstItem="yDc-rV-dXd" firstAttribute="top" secondItem="OVw-oe-1co" secondAttribute="bottom" constant="5" id="V7w-49-m29">
                                                     <variation key="widthClass=compact" constant="2"/>
                                                 </constraint>
                                                 <constraint firstItem="OVw-oe-1co" firstAttribute="top" secondItem="aKc-XU-JbE" secondAttribute="top" constant="8" id="Zi7-8W-LNm"/>
                                                 <constraint firstAttribute="bottom" secondItem="6tc-Y1-eEW" secondAttribute="bottom" constant="7" id="ekG-Cn-dO6"/>
+                                                <constraint firstItem="abj-Pc-vn8" firstAttribute="top" secondItem="Ge7-mZ-Ys6" secondAttribute="bottom" constant="8" id="ixY-kj-s1I"/>
                                                 <constraint firstAttribute="trailing" secondItem="OtL-YC-hWI" secondAttribute="trailing" constant="24" id="jTU-je-gr7"/>
                                                 <constraint firstAttribute="trailing" secondItem="hW9-zT-1HC" secondAttribute="trailing" constant="9" id="jTc-lu-Zno">
                                                     <variation key="widthClass=compact" constant="15"/>
@@ -390,18 +452,21 @@
                                                 <constraint firstItem="OVw-oe-1co" firstAttribute="leading" secondItem="aKc-XU-JbE" secondAttribute="leading" constant="7" id="jj9-EW-XJK">
                                                     <variation key="widthClass=compact" constant="20"/>
                                                 </constraint>
+                                                <constraint firstItem="Ge7-mZ-Ys6" firstAttribute="leading" secondItem="yDc-rV-dXd" secondAttribute="trailing" constant="4" id="kjh-A9-zVT"/>
                                                 <constraint firstAttribute="trailing" secondItem="yDc-rV-dXd" secondAttribute="trailing" constant="291" id="nfM-OF-Y6D">
                                                     <variation key="widthClass=compact" constant="278"/>
                                                 </constraint>
                                                 <constraint firstItem="vzR-oh-NRS" firstAttribute="leading" secondItem="yDc-rV-dXd" secondAttribute="trailing" constant="8" id="oU4-Ie-TeK">
                                                     <variation key="widthClass=compact" constant="4"/>
                                                 </constraint>
-                                                <constraint firstAttribute="trailing" secondItem="OVw-oe-1co" secondAttribute="trailing" constant="9" id="p7C-5q-uum"/>
+                                                <constraint firstAttribute="trailing" secondItem="OVw-oe-1co" secondAttribute="trailing" constant="9" id="p7C-5q-uum">
+                                                    <variation key="widthClass=compact" constant="15"/>
+                                                </constraint>
                                                 <constraint firstItem="OtL-YC-hWI" firstAttribute="leading" secondItem="yDc-rV-dXd" secondAttribute="trailing" constant="91" id="rUI-A6-5s4">
                                                     <variation key="widthClass=compact" constant="78"/>
                                                 </constraint>
                                                 <constraint firstItem="vzR-oh-NRS" firstAttribute="top" secondItem="hW9-zT-1HC" secondAttribute="bottom" id="wmp-Tg-s6f">
-                                                    <variation key="widthClass=compact" constant="-1"/>
+                                                    <variation key="widthClass=compact" constant="-4"/>
                                                 </constraint>
                                             </constraints>
                                             <variation key="default">
@@ -409,36 +474,43 @@
                                                     <exclude reference="abj-Pc-vn8"/>
                                                     <exclude reference="6tc-Y1-eEW"/>
                                                     <exclude reference="OVw-oe-1co"/>
+                                                    <exclude reference="yDc-rV-dXd"/>
                                                     <exclude reference="hW9-zT-1HC"/>
                                                     <exclude reference="OtL-YC-hWI"/>
                                                     <exclude reference="vzR-oh-NRS"/>
-                                                    <exclude reference="yDc-rV-dXd"/>
+                                                    <exclude reference="Ge7-mZ-Ys6"/>
+                                                    <exclude reference="9Ke-jw-Fmd"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="Zi7-8W-LNm"/>
+                                                    <exclude reference="jj9-EW-XJK"/>
+                                                    <exclude reference="p7C-5q-uum"/>
+                                                    <exclude reference="0dw-ci-BIV"/>
+                                                    <exclude reference="V7w-49-m29"/>
+                                                    <exclude reference="nfM-OF-Y6D"/>
+                                                    <exclude reference="0F6-5L-LEW"/>
+                                                    <exclude reference="FbR-zZ-14H"/>
+                                                    <exclude reference="jTc-lu-Zno"/>
+                                                    <exclude reference="2jX-aT-LKc"/>
+                                                    <exclude reference="77c-c2-rHX"/>
+                                                    <exclude reference="U05-4Q-RGW"/>
+                                                    <exclude reference="ixY-kj-s1I"/>
+                                                    <exclude reference="Nz0-eK-eRa"/>
+                                                    <exclude reference="oU4-Ie-TeK"/>
+                                                    <exclude reference="wmp-Tg-s6f"/>
+                                                    <exclude reference="4wI-Ik-oG9"/>
+                                                    <exclude reference="QeX-50-SCh"/>
+                                                    <exclude reference="FTC-Sm-JKe"/>
+                                                    <exclude reference="kjh-A9-zVT"/>
+                                                    <exclude reference="6dw-v6-aLg"/>
+                                                    <exclude reference="jTU-je-gr7"/>
+                                                    <exclude reference="rUI-A6-5s4"/>
                                                     <exclude reference="78T-jS-DQP"/>
                                                     <exclude reference="9YJ-ti-taa"/>
                                                     <exclude reference="Jzk-nh-isd"/>
                                                     <exclude reference="MpS-PG-wVd"/>
                                                     <exclude reference="QEO-A1-n6t"/>
                                                     <exclude reference="ekG-Cn-dO6"/>
-                                                    <exclude reference="2jX-aT-LKc"/>
-                                                    <exclude reference="77c-c2-rHX"/>
-                                                    <exclude reference="U05-4Q-RGW"/>
-                                                    <exclude reference="Zi7-8W-LNm"/>
-                                                    <exclude reference="jj9-EW-XJK"/>
-                                                    <exclude reference="p7C-5q-uum"/>
-                                                    <exclude reference="6dw-v6-aLg"/>
-                                                    <exclude reference="jTU-je-gr7"/>
-                                                    <exclude reference="rUI-A6-5s4"/>
-                                                    <exclude reference="0F6-5L-LEW"/>
-                                                    <exclude reference="FbR-zZ-14H"/>
-                                                    <exclude reference="jTc-lu-Zno"/>
-                                                    <exclude reference="Nz0-eK-eRa"/>
-                                                    <exclude reference="oU4-Ie-TeK"/>
-                                                    <exclude reference="wmp-Tg-s6f"/>
-                                                    <exclude reference="0dw-ci-BIV"/>
-                                                    <exclude reference="V7w-49-m29"/>
-                                                    <exclude reference="nfM-OF-Y6D"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -446,36 +518,43 @@
                                                     <include reference="abj-Pc-vn8"/>
                                                     <include reference="6tc-Y1-eEW"/>
                                                     <include reference="OVw-oe-1co"/>
+                                                    <include reference="yDc-rV-dXd"/>
                                                     <include reference="hW9-zT-1HC"/>
                                                     <include reference="OtL-YC-hWI"/>
                                                     <include reference="vzR-oh-NRS"/>
-                                                    <include reference="yDc-rV-dXd"/>
+                                                    <include reference="Ge7-mZ-Ys6"/>
+                                                    <include reference="9Ke-jw-Fmd"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <include reference="Zi7-8W-LNm"/>
+                                                    <include reference="jj9-EW-XJK"/>
+                                                    <include reference="p7C-5q-uum"/>
+                                                    <include reference="0dw-ci-BIV"/>
+                                                    <include reference="V7w-49-m29"/>
+                                                    <include reference="nfM-OF-Y6D"/>
+                                                    <include reference="0F6-5L-LEW"/>
+                                                    <include reference="FbR-zZ-14H"/>
+                                                    <include reference="jTc-lu-Zno"/>
+                                                    <include reference="2jX-aT-LKc"/>
+                                                    <include reference="77c-c2-rHX"/>
+                                                    <include reference="U05-4Q-RGW"/>
+                                                    <include reference="ixY-kj-s1I"/>
+                                                    <include reference="Nz0-eK-eRa"/>
+                                                    <include reference="oU4-Ie-TeK"/>
+                                                    <include reference="wmp-Tg-s6f"/>
+                                                    <include reference="4wI-Ik-oG9"/>
+                                                    <include reference="QeX-50-SCh"/>
+                                                    <include reference="FTC-Sm-JKe"/>
+                                                    <include reference="kjh-A9-zVT"/>
+                                                    <exclude reference="6dw-v6-aLg"/>
+                                                    <include reference="jTU-je-gr7"/>
+                                                    <include reference="rUI-A6-5s4"/>
                                                     <include reference="78T-jS-DQP"/>
                                                     <include reference="9YJ-ti-taa"/>
                                                     <include reference="Jzk-nh-isd"/>
                                                     <include reference="MpS-PG-wVd"/>
                                                     <include reference="QEO-A1-n6t"/>
                                                     <include reference="ekG-Cn-dO6"/>
-                                                    <include reference="2jX-aT-LKc"/>
-                                                    <include reference="77c-c2-rHX"/>
-                                                    <include reference="U05-4Q-RGW"/>
-                                                    <include reference="Zi7-8W-LNm"/>
-                                                    <include reference="jj9-EW-XJK"/>
-                                                    <include reference="p7C-5q-uum"/>
-                                                    <exclude reference="6dw-v6-aLg"/>
-                                                    <include reference="jTU-je-gr7"/>
-                                                    <include reference="rUI-A6-5s4"/>
-                                                    <include reference="0F6-5L-LEW"/>
-                                                    <include reference="FbR-zZ-14H"/>
-                                                    <include reference="jTc-lu-Zno"/>
-                                                    <include reference="Nz0-eK-eRa"/>
-                                                    <include reference="oU4-Ie-TeK"/>
-                                                    <include reference="wmp-Tg-s6f"/>
-                                                    <include reference="0dw-ci-BIV"/>
-                                                    <include reference="V7w-49-m29"/>
-                                                    <include reference="nfM-OF-Y6D"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
@@ -511,8 +590,10 @@
                                     <outlet property="bookDescripLabel" destination="vzR-oh-NRS" id="Dah-yv-N3X"/>
                                     <outlet property="bookImageView" destination="yDc-rV-dXd" id="sqz-lh-Kdg"/>
                                     <outlet property="bookTitleLabel" destination="hW9-zT-1HC" id="23R-1P-Xed"/>
+                                    <outlet property="deptAndCourseLabel" destination="9Ke-jw-Fmd" id="sbE-zc-RfJ"/>
                                     <outlet property="feedView" destination="aKc-XU-JbE" id="0c0-Gh-y6R"/>
                                     <outlet property="priceLabel" destination="OtL-YC-hWI" id="Qvt-lo-jo7"/>
+                                    <outlet property="professorLabel" destination="Ge7-mZ-Ys6" id="oGH-VJ-ldf"/>
                                     <outlet property="userPostTitleLabel" destination="OVw-oe-1co" id="DGZ-wU-Qs6"/>
                                     <outlet property="viewPostDetailButton" destination="6tc-Y1-eEW" id="MFn-Uh-KMT"/>
                                 </connections>
@@ -533,6 +614,7 @@
                         <viewControllerLayoutGuide type="bottom" id="gfr-ce-bY3"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TnL-DW-Uom">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageupload" translatesAutoresizingMaskIntoConstraints="NO" id="DYR-VQ-ePH">
@@ -624,7 +706,7 @@
                                         <variation key="widthClass=compact" constant="353"/>
                                     </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -646,7 +728,7 @@
                                     </constraint>
                                     <constraint firstAttribute="height" constant="21" id="vAs-c3-KAC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -670,7 +752,7 @@
                                         <variation key="widthClass=compact" constant="232"/>
                                     </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="13"/>
                                 <color key="textColor" red="0.45226964209999998" green="0.45226964209999998" blue="0.45226964209999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -714,7 +796,7 @@
                                         <variation key="widthClass=compact" constant="252"/>
                                     </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -740,7 +822,7 @@
                                         <variation key="widthClass=compact" constant="181"/>
                                     </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -764,7 +846,7 @@
                                     </constraint>
                                     <constraint firstAttribute="height" constant="21" id="twZ-Aj-eKs"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -788,7 +870,7 @@
                                     <constraint firstAttribute="height" constant="129" id="zrw-ic-rAD"/>
                                 </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -811,7 +893,7 @@
                                         <variation key="widthClass=compact" constant="228"/>
                                     </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -855,7 +937,7 @@
                                     <constraint firstAttribute="width" constant="107" id="3e5-pa-Mwa"/>
                                     <constraint firstAttribute="height" constant="21" id="XV2-zT-7xI"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -877,7 +959,7 @@
                                     <constraint firstAttribute="height" constant="21" id="Cvm-Q2-jD5"/>
                                     <constraint firstAttribute="width" constant="47" id="dCc-cN-j8f"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -899,7 +981,7 @@
                                     <constraint firstAttribute="height" constant="21" id="9Ti-LN-zjY"/>
                                     <constraint firstAttribute="width" constant="42" id="SzQ-qE-tj6"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -948,7 +1030,7 @@
                                         <variation key="widthClass=compact" constant="181"/>
                                     </constraint>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -970,7 +1052,7 @@
                                     <constraint firstAttribute="height" constant="21" id="6cK-yG-CT6"/>
                                     <constraint firstAttribute="width" constant="118" id="ow1-yw-9n1"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -1021,7 +1103,7 @@
                                     </constraint>
                                     <constraint firstAttribute="height" constant="51" id="vjz-nJ-UnX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1044,7 +1126,7 @@
                                     </constraint>
                                     <constraint firstAttribute="height" constant="21" id="mhJ-uU-4y6"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="13"/>
                                 <color key="textColor" red="0.45226964209999998" green="0.45226964209999998" blue="0.45226964209999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
@@ -1086,6 +1168,26 @@
                                     <action selector="removeBackPackAction:" destination="cxT-Dl-ew9" eventType="touchUpInside" id="aOS-fw-IPo"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SPa-B2-vfh">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="DdS-cU-9Lp"/>
+                                    <constraint firstAttribute="width" constant="26" id="Mne-xw-pmb"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="Filled Flag 2-48"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="DdS-cU-9Lp"/>
+                                        <exclude reference="Mne-xw-pmb"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="DdS-cU-9Lp"/>
+                                        <include reference="Mne-xw-pmb"/>
+                                    </mask>
+                                </variation>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1112,6 +1214,7 @@
                             </constraint>
                             <constraint firstAttribute="leadingMargin" secondItem="YJ0-OH-SOw" secondAttribute="leading" id="EVK-fK-Un5"/>
                             <constraint firstItem="3mv-Bb-zp6" firstAttribute="top" secondItem="Q3p-CC-hSm" secondAttribute="bottom" constant="-7" id="FMf-HA-zYr"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="SPa-B2-vfh" secondAttribute="leading" id="Fu6-4c-s1F"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Oz8-i7-ps5" secondAttribute="trailing" constant="-13" id="Ixi-3S-6md">
                                 <variation key="widthClass=compact" constant="-10"/>
                             </constraint>
@@ -1140,6 +1243,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="bjo-9j-Vls" secondAttribute="leading" id="cCz-eb-g3K"/>
                             <constraint firstItem="Q3p-CC-hSm" firstAttribute="top" secondItem="5ns-qn-eW8" secondAttribute="bottom" constant="8" id="dBk-FE-Ioc"/>
                             <constraint firstItem="Qje-cX-Hs7" firstAttribute="top" secondItem="kQl-XX-D9h" secondAttribute="bottom" constant="66" id="hJB-xU-edl"/>
+                            <constraint firstItem="SPa-B2-vfh" firstAttribute="top" secondItem="5ns-qn-eW8" secondAttribute="bottom" constant="5" id="jDb-v9-p1j"/>
                             <constraint firstItem="waM-o8-7Il" firstAttribute="top" secondItem="REy-gZ-Fu4" secondAttribute="bottom" constant="-3" id="jPl-aT-DvC"/>
                             <constraint firstItem="vkf-Q5-bf4" firstAttribute="leading" secondItem="bfw-NP-Jmu" secondAttribute="trailing" constant="7" id="mYH-Rp-cwm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YJ0-OH-SOw" secondAttribute="trailing" constant="196" id="n51-g2-5P8">
@@ -1186,8 +1290,11 @@
                                 <exclude reference="cDL-P8-opS"/>
                                 <exclude reference="Nod-hA-ZOm"/>
                                 <exclude reference="aLj-R9-kuc"/>
+                                <exclude reference="SPa-B2-vfh"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="Fu6-4c-s1F"/>
+                                <exclude reference="jDb-v9-p1j"/>
                                 <exclude reference="cCz-eb-g3K"/>
                                 <exclude reference="ovk-t8-1ed"/>
                                 <exclude reference="6C8-9Z-XP2"/>
@@ -1199,25 +1306,25 @@
                                 <exclude reference="2Ik-dI-hR2"/>
                                 <exclude reference="467-FG-5Zc"/>
                                 <exclude reference="95C-Oy-lBf"/>
-                                <exclude reference="RRS-7g-e8a"/>
-                                <exclude reference="TAV-A4-TF5"/>
-                                <exclude reference="oNg-0N-tYL"/>
+                                <exclude reference="aYJ-ZI-Kje"/>
                                 <exclude reference="ECn-IQ-bw1"/>
                                 <exclude reference="tz0-CK-Kmy"/>
                                 <exclude reference="uCO-Xm-V7N"/>
-                                <exclude reference="aYJ-ZI-Kje"/>
+                                <exclude reference="RRS-7g-e8a"/>
+                                <exclude reference="TAV-A4-TF5"/>
+                                <exclude reference="oNg-0N-tYL"/>
                                 <exclude reference="118-pc-e8V"/>
                                 <exclude reference="Cmw-Hk-uer"/>
                                 <exclude reference="nhd-by-3y0"/>
                                 <exclude reference="EVK-fK-Un5"/>
                                 <exclude reference="RRk-AP-siN"/>
                                 <exclude reference="n51-g2-5P8"/>
+                                <exclude reference="4Fi-2l-yBe"/>
+                                <exclude reference="zrh-Bw-Gan"/>
                                 <exclude reference="3jb-jG-Mw4"/>
                                 <exclude reference="6xv-tG-msm"/>
                                 <exclude reference="M1b-QU-I0q"/>
                                 <exclude reference="NPe-RE-NBV"/>
-                                <exclude reference="4Fi-2l-yBe"/>
-                                <exclude reference="zrh-Bw-Gan"/>
                                 <exclude reference="C2B-3l-UfQ"/>
                                 <exclude reference="Ojv-XU-kvB"/>
                                 <exclude reference="Veh-0R-h3g"/>
@@ -1268,8 +1375,11 @@
                                 <include reference="cDL-P8-opS"/>
                                 <include reference="Nod-hA-ZOm"/>
                                 <include reference="aLj-R9-kuc"/>
+                                <include reference="SPa-B2-vfh"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="Fu6-4c-s1F"/>
+                                <include reference="jDb-v9-p1j"/>
                                 <include reference="cCz-eb-g3K"/>
                                 <include reference="ovk-t8-1ed"/>
                                 <include reference="6C8-9Z-XP2"/>
@@ -1281,25 +1391,25 @@
                                 <include reference="2Ik-dI-hR2"/>
                                 <include reference="467-FG-5Zc"/>
                                 <include reference="95C-Oy-lBf"/>
-                                <include reference="RRS-7g-e8a"/>
-                                <include reference="TAV-A4-TF5"/>
-                                <include reference="oNg-0N-tYL"/>
+                                <include reference="aYJ-ZI-Kje"/>
                                 <include reference="ECn-IQ-bw1"/>
                                 <include reference="tz0-CK-Kmy"/>
                                 <include reference="uCO-Xm-V7N"/>
-                                <include reference="aYJ-ZI-Kje"/>
+                                <include reference="RRS-7g-e8a"/>
+                                <include reference="TAV-A4-TF5"/>
+                                <include reference="oNg-0N-tYL"/>
                                 <include reference="118-pc-e8V"/>
                                 <include reference="Cmw-Hk-uer"/>
                                 <include reference="nhd-by-3y0"/>
                                 <include reference="EVK-fK-Un5"/>
                                 <include reference="RRk-AP-siN"/>
                                 <include reference="n51-g2-5P8"/>
+                                <include reference="4Fi-2l-yBe"/>
+                                <include reference="zrh-Bw-Gan"/>
                                 <include reference="3jb-jG-Mw4"/>
                                 <include reference="6xv-tG-msm"/>
                                 <include reference="M1b-QU-I0q"/>
                                 <include reference="NPe-RE-NBV"/>
-                                <include reference="4Fi-2l-yBe"/>
-                                <include reference="zrh-Bw-Gan"/>
                                 <include reference="C2B-3l-UfQ"/>
                                 <include reference="Ojv-XU-kvB"/>
                                 <include reference="Veh-0R-h3g"/>
@@ -1361,12 +1471,15 @@
             <objects>
                 <tableViewController id="9aR-08-kaM" customClass="BackPackViewController" customModule="BookSmart" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" id="2ne-2P-0XA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="backPackCell" rowHeight="71" id="c8G-Xz-QA0" customClass="BackPackTableViewCell" customModule="BookSmart" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c8G-Xz-QA0" id="f1O-bn-gMm">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7qD-td-eRy">
@@ -1394,7 +1507,7 @@
                                                 <constraint firstAttribute="height" constant="12" id="CKW-g8-Bxm"/>
                                                 <constraint firstAttribute="width" constant="161" id="ukj-nf-evD"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="12"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -1416,7 +1529,7 @@
                                                 <constraint firstAttribute="height" constant="9" id="AFj-8H-nk4"/>
                                                 <constraint firstAttribute="width" constant="161" id="aqb-X8-BUT"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="12"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -1438,7 +1551,7 @@
                                                 <constraint firstAttribute="height" constant="17" id="Urz-8S-Y8e"/>
                                                 <constraint firstAttribute="width" constant="314" id="fQw-Ro-HS1"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -1460,7 +1573,7 @@
                                                 <constraint firstAttribute="width" constant="93" id="2wQ-UD-jMY"/>
                                                 <constraint firstAttribute="height" constant="21" id="EYY-gi-avR"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -1482,7 +1595,7 @@
                                                 <constraint firstAttribute="width" constant="314" id="MqH-k8-Hlp"/>
                                                 <constraint firstAttribute="height" constant="21" id="snc-U3-hUM"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -1616,12 +1729,15 @@
             <objects>
                 <tableViewController id="cHy-n2-0a3" customClass="MatchesTableViewController" customModule="BookSmart" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZFY-Da-h2R">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="71" id="Zxc-HT-zcd" customClass="MatchesTableViewCell" customModule="BookSmart" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zxc-HT-zcd" id="cpa-2H-IZw">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dept + Course" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5M-hX-7vZ">
@@ -1630,7 +1746,7 @@
                                                 <constraint firstAttribute="width" constant="161" id="dnW-Aj-bJn"/>
                                                 <constraint firstAttribute="height" constant="12" id="mme-q7-j9f"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="12"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -1652,7 +1768,7 @@
                                                 <constraint firstAttribute="height" constant="9" id="Ext-VQ-qzc"/>
                                                 <constraint firstAttribute="width" constant="161" id="Tbb-Io-y9o"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="12"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -1693,7 +1809,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="2ZY-VD-gcX"/>
                                                 <constraint firstAttribute="width" constant="314" id="njT-oh-cnO"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -1715,7 +1831,7 @@
                                                 <constraint firstAttribute="height" constant="21" id="Vaa-C3-Z7r"/>
                                                 <constraint firstAttribute="width" constant="93" id="bU0-Qn-p7n"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -1737,7 +1853,7 @@
                                                 <constraint firstAttribute="height" constant="17" id="qzl-E3-SNg"/>
                                                 <constraint firstAttribute="width" constant="314" id="x9l-30-fn2"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -1868,6 +1984,7 @@
                         <viewControllerLayoutGuide type="bottom" id="q0F-JZ-5lO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vRO-JP-VTk">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z0e-8Q-dDS">
@@ -2025,7 +2142,7 @@
         <!--Navigation Controller-->
         <scene sceneID="mB7-A9-lzJ">
             <objects>
-                <navigationController id="Khm-gD-aI7" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="BeginLoginNav" id="Khm-gD-aI7" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="N09-LE-HSH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2075,7 +2192,7 @@
                                     <constraint firstAttribute="height" constant="30" id="CXr-Ii-e8t"/>
                                     <constraint firstAttribute="width" constant="210" id="kQy-wU-AqS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2096,7 +2213,7 @@
                                     <constraint firstAttribute="height" constant="30" id="645-jV-Rz9"/>
                                     <constraint firstAttribute="width" constant="210" id="JYg-aA-f95"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2194,7 +2311,9 @@
                             <constraint firstItem="I2f-NY-6g6" firstAttribute="centerX" secondItem="9R1-R3-j0Y" secondAttribute="centerX" id="3Wy-PM-P4Y"/>
                             <constraint firstItem="n9X-cv-xiG" firstAttribute="centerX" secondItem="9R1-R3-j0Y" secondAttribute="centerX" id="84y-RR-m2c"/>
                             <constraint firstItem="I2f-NY-6g6" firstAttribute="top" secondItem="hIQ-3z-eHZ" secondAttribute="bottom" constant="3" id="8eL-6H-ytu"/>
-                            <constraint firstItem="n9X-cv-xiG" firstAttribute="top" secondItem="BnC-GG-rfQ" secondAttribute="bottom" constant="8" id="95q-Dg-GaX"/>
+                            <constraint firstItem="n9X-cv-xiG" firstAttribute="top" secondItem="BnC-GG-rfQ" secondAttribute="bottom" constant="8" id="95q-Dg-GaX">
+                                <variation key="widthClass=compact" constant="35"/>
+                            </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="hIQ-3z-eHZ" secondAttribute="trailing" constant="75" id="IUq-nE-dsn"/>
                             <constraint firstItem="dCC-EX-wWA" firstAttribute="top" secondItem="AYR-Ef-BMY" secondAttribute="bottom" constant="8" id="J9S-PV-OCy"/>
                             <constraint firstItem="hIQ-3z-eHZ" firstAttribute="top" secondItem="dCC-EX-wWA" secondAttribute="bottom" constant="8" id="KZR-3y-Cdj"/>
@@ -2207,11 +2326,15 @@
                             <constraint firstItem="dCC-EX-wWA" firstAttribute="leading" secondItem="9R1-R3-j0Y" secondAttribute="leadingMargin" constant="75" id="WSZ-Mt-KXh"/>
                             <constraint firstItem="hIQ-3z-eHZ" firstAttribute="leading" secondItem="9R1-R3-j0Y" secondAttribute="leadingMargin" constant="75" id="XJF-dZ-BPt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Rjv-rB-BHJ" secondAttribute="trailing" id="XyR-tm-4c8"/>
-                            <constraint firstItem="Rjv-rB-BHJ" firstAttribute="top" secondItem="BnC-GG-rfQ" secondAttribute="bottom" constant="58" id="Ycf-YW-UGW"/>
+                            <constraint firstItem="Rjv-rB-BHJ" firstAttribute="top" secondItem="BnC-GG-rfQ" secondAttribute="bottom" constant="58" id="Ycf-YW-UGW">
+                                <variation key="widthClass=compact" constant="84"/>
+                            </constraint>
                             <constraint firstItem="AYR-Ef-BMY" firstAttribute="centerX" secondItem="9R1-R3-j0Y" secondAttribute="centerX" id="ZF8-ag-43Z"/>
                             <constraint firstItem="AYR-Ef-BMY" firstAttribute="leading" secondItem="9R1-R3-j0Y" secondAttribute="leadingMargin" constant="75" id="dbj-P4-cqs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AYR-Ef-BMY" secondAttribute="trailing" constant="75" id="izP-15-Yug"/>
-                            <constraint firstItem="AYR-Ef-BMY" firstAttribute="top" secondItem="Rjv-rB-BHJ" secondAttribute="bottom" constant="64.5" id="mQy-hC-rn7"/>
+                            <constraint firstItem="AYR-Ef-BMY" firstAttribute="top" secondItem="Rjv-rB-BHJ" secondAttribute="bottom" constant="64.5" id="mQy-hC-rn7">
+                                <variation key="widthClass=compact" constant="39"/>
+                            </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="I2f-NY-6g6" secondAttribute="trailing" constant="75" id="sjd-BD-jQD"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Rjv-rB-BHJ" secondAttribute="leading" id="zva-kt-Tk5"/>
                         </constraints>
@@ -2333,7 +2456,7 @@
                                     <constraint firstAttribute="height" constant="30" id="Sap-MD-cke"/>
                                     <constraint firstAttribute="width" constant="285" id="UOr-Rv-WD3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2354,7 +2477,7 @@
                                     <constraint firstAttribute="height" constant="30" id="cpr-r9-xqh"/>
                                     <constraint firstAttribute="width" constant="285" id="xvI-3L-5Hz"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2401,7 +2524,7 @@
                                     <constraint firstAttribute="width" constant="285" id="NVf-Nq-ZMJ"/>
                                     <constraint firstAttribute="height" constant="30" id="cpc-A6-9Ob"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2422,7 +2545,7 @@
                                     <constraint firstAttribute="height" constant="30" id="2FS-j7-8uf"/>
                                     <constraint firstAttribute="width" constant="285" id="MPt-1T-LrQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2612,7 +2735,7 @@
                                     <constraint firstAttribute="width" constant="285" id="6iy-IA-5WR"/>
                                     <constraint firstAttribute="height" constant="30" id="hJL-r8-57p"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2633,7 +2756,7 @@
                                     <constraint firstAttribute="height" constant="30" id="sr3-aX-xMe"/>
                                     <constraint firstAttribute="width" constant="83" id="uOw-bx-IgA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2676,7 +2799,7 @@
                                     <constraint firstAttribute="width" constant="83" id="Riq-Ql-6GO"/>
                                     <constraint firstAttribute="height" constant="30" id="b1j-gF-iD7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2697,7 +2820,7 @@
                                     <constraint firstAttribute="width" constant="83" id="9yJ-Lb-kcF"/>
                                     <constraint firstAttribute="height" constant="30" id="uRh-ZW-P9j"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2740,7 +2863,7 @@
                                     <constraint firstAttribute="height" constant="30" id="hFZ-mM-wiK"/>
                                     <constraint firstAttribute="width" constant="83" id="lQF-nM-aYe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2761,7 +2884,7 @@
                                     <constraint firstAttribute="width" constant="83" id="AnA-tU-dmp"/>
                                     <constraint firstAttribute="height" constant="30" id="GaP-EM-lMM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2782,7 +2905,7 @@
                                     <constraint firstAttribute="height" constant="30" id="LGy-o0-UcB"/>
                                     <constraint firstAttribute="width" constant="83" id="baM-Gy-KHr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2803,7 +2926,7 @@
                                     <constraint firstAttribute="height" constant="30" id="FJ0-Vk-OAj"/>
                                     <constraint firstAttribute="width" constant="83" id="pdW-lI-m1Q"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2824,7 +2947,7 @@
                                     <constraint firstAttribute="height" constant="30" id="v5x-Wh-5ej"/>
                                     <constraint firstAttribute="width" constant="83" id="wrS-kq-TCo"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2845,7 +2968,7 @@
                                     <constraint firstAttribute="height" constant="30" id="78L-lb-Qqi"/>
                                     <constraint firstAttribute="width" constant="83" id="h8v-0y-UDR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2866,7 +2989,7 @@
                                     <constraint firstAttribute="height" constant="30" id="0MT-Jz-PE5"/>
                                     <constraint firstAttribute="width" constant="83" id="Bih-3b-YSj"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2887,7 +3010,7 @@
                                     <constraint firstAttribute="height" constant="30" id="eKx-ch-Ish"/>
                                     <constraint firstAttribute="width" constant="83" id="gIa-3e-Eoo"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2908,7 +3031,7 @@
                                     <constraint firstAttribute="width" constant="83" id="ZZO-yb-e4g"/>
                                     <constraint firstAttribute="height" constant="30" id="rf4-JU-Bvc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2929,7 +3052,7 @@
                                     <constraint firstAttribute="height" constant="30" id="4Yc-uD-oEO"/>
                                     <constraint firstAttribute="width" constant="83" id="zri-St-iDl"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2950,7 +3073,7 @@
                                     <constraint firstAttribute="width" constant="83" id="KRT-0T-9tQ"/>
                                     <constraint firstAttribute="height" constant="30" id="UWk-HD-sHr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2971,7 +3094,7 @@
                                     <constraint firstAttribute="width" constant="83" id="JTU-i5-Ygj"/>
                                     <constraint firstAttribute="height" constant="30" id="NPL-yq-HPJ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2992,7 +3115,7 @@
                                     <constraint firstAttribute="width" constant="83" id="LUg-Ce-hHe"/>
                                     <constraint firstAttribute="height" constant="30" id="NsC-bP-a3V"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -3013,7 +3136,7 @@
                                     <constraint firstAttribute="width" constant="83" id="H2k-Or-KVL"/>
                                     <constraint firstAttribute="height" constant="30" id="cBn-dr-dyl"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -3034,7 +3157,7 @@
                                     <constraint firstAttribute="height" constant="30" id="66x-YI-cQy"/>
                                     <constraint firstAttribute="width" constant="83" id="zlX-za-Nau"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -3081,7 +3204,7 @@
                                     <constraint firstAttribute="width" constant="285" id="ddf-ji-hyg"/>
                                     <constraint firstAttribute="height" constant="30" id="s38-2h-pfx"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -3826,7 +3949,7 @@
                                     <constraint firstAttribute="height" constant="30" id="Mlh-Pd-IMC"/>
                                     <constraint firstAttribute="width" constant="177" id="rCn-FE-IGx"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -3847,7 +3970,7 @@
                                     <constraint firstAttribute="width" constant="175" id="UWd-hF-Qzo"/>
                                     <constraint firstAttribute="height" constant="30" id="sk9-a7-QVR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -3868,7 +3991,7 @@
                                     <constraint firstAttribute="height" constant="30" id="p1I-9h-Zxs"/>
                                     <constraint firstAttribute="width" constant="177" id="rHz-nl-IDg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -3889,7 +4012,7 @@
                                     <constraint firstAttribute="width" constant="249" id="2fr-f1-HOF"/>
                                     <constraint firstAttribute="height" constant="30" id="gQM-9q-MIx"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -3952,7 +4075,7 @@
                                     <constraint firstAttribute="height" constant="30" id="nc0-1i-kud"/>
                                     <constraint firstAttribute="width" constant="249" id="vFC-Q0-baO"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -3973,7 +4096,7 @@
                                     <constraint firstAttribute="height" constant="30" id="GGI-wW-b1g"/>
                                     <constraint firstAttribute="width" constant="249" id="ZqQ-oy-vB9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -3994,7 +4117,7 @@
                                     <constraint firstAttribute="height" constant="30" id="TUb-Md-cSl"/>
                                     <constraint firstAttribute="width" constant="175" id="l4m-ZK-6VI"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -4014,7 +4137,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="360" id="hKs-Dz-Xcu"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -4219,7 +4342,7 @@
                                     <constraint firstAttribute="width" constant="240" id="9Uv-hI-Bc9"/>
                                     <constraint firstAttribute="height" constant="30" id="x8e-tl-5o0"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -4240,7 +4363,7 @@
                                     <constraint firstAttribute="width" constant="240" id="XNW-1a-l5a"/>
                                     <constraint firstAttribute="height" constant="30" id="xXF-1g-NJf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -4289,7 +4412,7 @@
                                     <constraint firstAttribute="height" constant="126" id="4BS-Ak-wZP"/>
                                     <constraint firstAttribute="width" constant="360" id="FUb-cD-gsw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -4330,7 +4453,7 @@
                                     <constraint firstAttribute="height" constant="30" id="Ahc-b6-hwB"/>
                                     <constraint firstAttribute="width" constant="240" id="jG9-cg-RU5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -4455,10 +4578,9 @@
                                     <constraint firstAttribute="width" constant="346" id="TUe-dU-7Kd"/>
                                     <constraint firstAttribute="height" constant="21" id="pF0-yw-Tj2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.69953021230142287" green="0.98061544809369239" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="TUe-dU-7Kd"/>
@@ -4475,12 +4597,35 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H7I-Xp-cia">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lD1-y4-c3h">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Post Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2M-N4-wK2">
                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="274" id="qc8-S1-Wq7"/>
+                                            <constraint firstAttribute="width" constant="384" id="t7c-yG-F6c">
+                                                <variation key="widthClass=compact" constant="368"/>
+                                            </constraint>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="t7c-yG-F6c"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="t7c-yG-F6c"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lD1-y4-c3h">
+                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="274" id="qc8-S1-Wq7">
+                                                <variation key="widthClass=compact" constant="269"/>
+                                            </constraint>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Italic" family="Avenir Next Condensed" pointSize="17"/>
                                         <color key="textColor" red="0.45226964209999998" green="0.45226964209999998" blue="0.45226964209999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
@@ -4494,12 +4639,62 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hva-R6-ePU">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dept + Course" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GzC-Da-7Yp">
                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="274" id="DXp-wA-4oC"/>
+                                            <constraint firstAttribute="height" constant="16" id="wCC-cy-hxt"/>
+                                            <constraint firstAttribute="width" constant="180" id="xT8-xe-0fR">
+                                                <variation key="widthClass=compact" constant="140"/>
+                                            </constraint>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="13"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="wCC-cy-hxt"/>
+                                                <exclude reference="xT8-xe-0fR"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="wCC-cy-hxt"/>
+                                                <include reference="xT8-xe-0fR"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Professor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuN-hm-4jK">
+                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="2iS-2D-2wp">
+                                                <variation key="widthClass=compact" constant="140"/>
+                                            </constraint>
+                                            <constraint firstAttribute="height" constant="18" id="FXk-0T-XFR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="13"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="2iS-2D-2wp"/>
+                                                <exclude reference="FXk-0T-XFR"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="2iS-2D-2wp"/>
+                                                <include reference="FXk-0T-XFR"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hva-R6-ePU">
+                                        <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="274" id="DXp-wA-4oC">
+                                                <variation key="widthClass=compact" constant="269"/>
+                                            </constraint>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
@@ -4513,22 +4708,25 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Post Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2M-N4-wK2">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4km-oD-vBp">
                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="384" id="t7c-yG-F6c"/>
+                                            <constraint firstAttribute="width" constant="83" id="OYf-c9-FTN"/>
+                                            <constraint firstAttribute="height" constant="21" id="sOg-QE-dvw"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="t7c-yG-F6c"/>
+                                                <exclude reference="OYf-c9-FTN"/>
+                                                <exclude reference="sOg-QE-dvw"/>
                                             </mask>
                                         </variation>
                                         <variation key="widthClass=compact">
                                             <mask key="constraints">
-                                                <include reference="t7c-yG-F6c"/>
+                                                <include reference="OYf-c9-FTN"/>
+                                                <include reference="sOg-QE-dvw"/>
                                             </mask>
                                         </variation>
                                     </label>
@@ -4550,67 +4748,116 @@
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="lD1-y4-c3h" firstAttribute="leading" secondItem="RBB-dX-jCe" secondAttribute="trailing" constant="8" id="2lp-iW-SSm"/>
+                                    <constraint firstItem="lD1-y4-c3h" firstAttribute="leading" secondItem="RBB-dX-jCe" secondAttribute="trailing" constant="8" id="2lp-iW-SSm">
+                                        <variation key="widthClass=compact" constant="3"/>
+                                    </constraint>
                                     <constraint firstAttribute="width" constant="400" id="4sd-ag-8Ia"/>
-                                    <constraint firstItem="i2M-N4-wK2" firstAttribute="leading" secondItem="H7I-Xp-cia" secondAttribute="leading" constant="7" id="8Q9-fv-qMq"/>
-                                    <constraint firstItem="lD1-y4-c3h" firstAttribute="top" secondItem="hva-R6-ePU" secondAttribute="bottom" constant="2" id="9j0-zB-Pjd"/>
-                                    <constraint firstAttribute="trailing" secondItem="RBB-dX-jCe" secondAttribute="trailing" constant="291" id="CUj-Cy-kXs"/>
+                                    <constraint firstItem="GzC-Da-7Yp" firstAttribute="leading" secondItem="RBB-dX-jCe" secondAttribute="trailing" constant="8" id="8KW-Ae-aoL">
+                                        <variation key="widthClass=compact" constant="3"/>
+                                    </constraint>
+                                    <constraint firstItem="i2M-N4-wK2" firstAttribute="leading" secondItem="H7I-Xp-cia" secondAttribute="leading" constant="7" id="8Q9-fv-qMq">
+                                        <variation key="widthClass=compact" constant="23"/>
+                                    </constraint>
+                                    <constraint firstItem="lD1-y4-c3h" firstAttribute="top" secondItem="hva-R6-ePU" secondAttribute="bottom" constant="2" id="9j0-zB-Pjd">
+                                        <variation key="widthClass=compact" constant="-3"/>
+                                    </constraint>
+                                    <constraint firstAttribute="trailing" secondItem="RBB-dX-jCe" secondAttribute="trailing" constant="291" id="CUj-Cy-kXs">
+                                        <variation key="widthClass=compact" constant="281"/>
+                                    </constraint>
                                     <constraint firstAttribute="trailing" secondItem="i2M-N4-wK2" secondAttribute="trailing" constant="9" id="GBI-AE-JCv"/>
+                                    <constraint firstItem="GzC-Da-7Yp" firstAttribute="top" secondItem="lD1-y4-c3h" secondAttribute="bottom" constant="14" id="Ieu-XH-8hu"/>
                                     <constraint firstAttribute="trailing" secondItem="hva-R6-ePU" secondAttribute="trailing" constant="9" id="KDI-qq-eYP"/>
+                                    <constraint firstItem="iuN-hm-4jK" firstAttribute="top" secondItem="GzC-Da-7Yp" secondAttribute="bottom" constant="1" id="KKS-bo-YPe"/>
                                     <constraint firstAttribute="trailing" secondItem="lD1-y4-c3h" secondAttribute="trailing" constant="9" id="RjY-wz-aLQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="4km-oD-vBp" secondAttribute="trailing" constant="29" id="VLQ-oF-WNX">
+                                        <variation key="widthClass=compact" constant="52"/>
+                                    </constraint>
                                     <constraint firstItem="hva-R6-ePU" firstAttribute="top" secondItem="i2M-N4-wK2" secondAttribute="bottom" constant="8" id="Z1n-n5-KPK"/>
+                                    <constraint firstItem="4km-oD-vBp" firstAttribute="leading" secondItem="iuN-hm-4jK" secondAttribute="trailing" constant="-9" id="ZXU-2G-RNN">
+                                        <variation key="widthClass=compact" constant="3"/>
+                                    </constraint>
                                     <constraint firstItem="i2M-N4-wK2" firstAttribute="top" secondItem="H7I-Xp-cia" secondAttribute="top" constant="8" id="buL-4x-RdY"/>
-                                    <constraint firstItem="RBB-dX-jCe" firstAttribute="top" secondItem="i2M-N4-wK2" secondAttribute="bottom" constant="5" id="djW-DP-xEV"/>
-                                    <constraint firstItem="hva-R6-ePU" firstAttribute="leading" secondItem="RBB-dX-jCe" secondAttribute="trailing" constant="8" id="gAj-9x-xGf"/>
+                                    <constraint firstItem="RBB-dX-jCe" firstAttribute="top" secondItem="i2M-N4-wK2" secondAttribute="bottom" constant="5" id="djW-DP-xEV">
+                                        <variation key="widthClass=compact" constant="6"/>
+                                    </constraint>
+                                    <constraint firstItem="4km-oD-vBp" firstAttribute="top" secondItem="lD1-y4-c3h" secondAttribute="bottom" constant="30" id="fjz-gD-6Mc"/>
+                                    <constraint firstItem="hva-R6-ePU" firstAttribute="leading" secondItem="RBB-dX-jCe" secondAttribute="trailing" constant="8" id="gAj-9x-xGf">
+                                        <variation key="widthClass=compact" constant="3"/>
+                                    </constraint>
                                     <constraint firstAttribute="height" constant="168" id="o51-n3-Fmb"/>
-                                    <constraint firstItem="RBB-dX-jCe" firstAttribute="leading" secondItem="H7I-Xp-cia" secondAttribute="leading" constant="7" id="vpj-Z0-VRh"/>
+                                    <constraint firstItem="iuN-hm-4jK" firstAttribute="leading" secondItem="RBB-dX-jCe" secondAttribute="trailing" constant="8" id="sfD-E8-okt">
+                                        <variation key="widthClass=compact" constant="3"/>
+                                    </constraint>
+                                    <constraint firstItem="RBB-dX-jCe" firstAttribute="leading" secondItem="H7I-Xp-cia" secondAttribute="leading" constant="7" id="vpj-Z0-VRh">
+                                        <variation key="widthClass=compact" constant="17"/>
+                                    </constraint>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
-                                        <exclude reference="lD1-y4-c3h"/>
-                                        <exclude reference="hva-R6-ePU"/>
                                         <exclude reference="i2M-N4-wK2"/>
+                                        <exclude reference="lD1-y4-c3h"/>
+                                        <exclude reference="GzC-Da-7Yp"/>
+                                        <exclude reference="iuN-hm-4jK"/>
+                                        <exclude reference="hva-R6-ePU"/>
+                                        <exclude reference="4km-oD-vBp"/>
                                         <exclude reference="RBB-dX-jCe"/>
                                     </mask>
                                     <mask key="constraints">
                                         <exclude reference="4sd-ag-8Ia"/>
                                         <exclude reference="o51-n3-Fmb"/>
-                                        <exclude reference="KDI-qq-eYP"/>
-                                        <exclude reference="Z1n-n5-KPK"/>
-                                        <exclude reference="gAj-9x-xGf"/>
                                         <exclude reference="8Q9-fv-qMq"/>
                                         <exclude reference="GBI-AE-JCv"/>
                                         <exclude reference="buL-4x-RdY"/>
-                                        <exclude reference="2lp-iW-SSm"/>
-                                        <exclude reference="9j0-zB-Pjd"/>
-                                        <exclude reference="RjY-wz-aLQ"/>
                                         <exclude reference="CUj-Cy-kXs"/>
                                         <exclude reference="djW-DP-xEV"/>
                                         <exclude reference="vpj-Z0-VRh"/>
+                                        <exclude reference="KDI-qq-eYP"/>
+                                        <exclude reference="Z1n-n5-KPK"/>
+                                        <exclude reference="gAj-9x-xGf"/>
+                                        <exclude reference="2lp-iW-SSm"/>
+                                        <exclude reference="9j0-zB-Pjd"/>
+                                        <exclude reference="RjY-wz-aLQ"/>
+                                        <exclude reference="8KW-Ae-aoL"/>
+                                        <exclude reference="Ieu-XH-8hu"/>
+                                        <exclude reference="KKS-bo-YPe"/>
+                                        <exclude reference="sfD-E8-okt"/>
+                                        <exclude reference="VLQ-oF-WNX"/>
+                                        <exclude reference="ZXU-2G-RNN"/>
+                                        <exclude reference="fjz-gD-6Mc"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="subviews">
-                                        <include reference="lD1-y4-c3h"/>
-                                        <include reference="hva-R6-ePU"/>
                                         <include reference="i2M-N4-wK2"/>
+                                        <include reference="lD1-y4-c3h"/>
+                                        <include reference="GzC-Da-7Yp"/>
+                                        <include reference="iuN-hm-4jK"/>
+                                        <include reference="hva-R6-ePU"/>
+                                        <include reference="4km-oD-vBp"/>
                                         <include reference="RBB-dX-jCe"/>
                                     </mask>
                                     <mask key="constraints">
                                         <include reference="4sd-ag-8Ia"/>
                                         <include reference="o51-n3-Fmb"/>
-                                        <include reference="KDI-qq-eYP"/>
-                                        <include reference="Z1n-n5-KPK"/>
-                                        <include reference="gAj-9x-xGf"/>
                                         <include reference="8Q9-fv-qMq"/>
                                         <include reference="GBI-AE-JCv"/>
                                         <include reference="buL-4x-RdY"/>
-                                        <include reference="2lp-iW-SSm"/>
-                                        <include reference="9j0-zB-Pjd"/>
-                                        <include reference="RjY-wz-aLQ"/>
                                         <include reference="CUj-Cy-kXs"/>
                                         <include reference="djW-DP-xEV"/>
                                         <include reference="vpj-Z0-VRh"/>
+                                        <include reference="KDI-qq-eYP"/>
+                                        <include reference="Z1n-n5-KPK"/>
+                                        <include reference="gAj-9x-xGf"/>
+                                        <include reference="2lp-iW-SSm"/>
+                                        <include reference="9j0-zB-Pjd"/>
+                                        <include reference="RjY-wz-aLQ"/>
+                                        <include reference="8KW-Ae-aoL"/>
+                                        <include reference="Ieu-XH-8hu"/>
+                                        <include reference="KKS-bo-YPe"/>
+                                        <include reference="sfD-E8-okt"/>
+                                        <include reference="VLQ-oF-WNX"/>
+                                        <include reference="ZXU-2G-RNN"/>
+                                        <include reference="fjz-gD-6Mc"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
@@ -4743,7 +4990,10 @@
                         <outlet property="activityIndicator" destination="L10-CA-Qce" id="wQP-Bm-fgM"/>
                         <outlet property="bookDescriptionLabel" destination="lD1-y4-c3h" id="mNM-zW-oEO"/>
                         <outlet property="bookTitleLabel" destination="hva-R6-ePU" id="bbX-55-86l"/>
+                        <outlet property="deptAndCourseLabel" destination="GzC-Da-7Yp" id="zdH-Th-03G"/>
                         <outlet property="postImageView" destination="RBB-dX-jCe" id="Fno-7Q-hyx"/>
+                        <outlet property="priceLabel" destination="4km-oD-vBp" id="zqd-Eo-w8K"/>
+                        <outlet property="professorLabel" destination="iuN-hm-4jK" id="n0O-eP-oU4"/>
                         <outlet property="userPostTitleLabel" destination="i2M-N4-wK2" id="ey1-Wj-2IX"/>
                     </connections>
                 </viewController>
@@ -4891,7 +5141,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="m5v-NU-rVT">
-                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="64" width="800" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             <scopeButtonTitles>
@@ -4944,6 +5194,7 @@
     </scenes>
     <resources>
         <image name="Book-Cover-Unavailable" width="199" height="300"/>
+        <image name="Filled Flag 2-48" width="48" height="48"/>
         <image name="Matches-50" width="50" height="50"/>
         <image name="Menu-50" width="50" height="50"/>
         <image name="Rucksack-50" width="50" height="50"/>

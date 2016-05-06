@@ -93,7 +93,7 @@ class SideMenuViewController: UITableViewController {
         {
             loggedOutPressed()
             var Storyboard = UIStoryboard(name: "Main", bundle: nil)
-            var LogInVC : UIViewController = Storyboard.instantiateViewControllerWithIdentifier("BeginLogin")
+            var LogInVC : UIViewController = Storyboard.instantiateViewControllerWithIdentifier("BeginLoginNav")
             self.presentViewController(LogInVC, animated: true, completion: nil)
         }
         

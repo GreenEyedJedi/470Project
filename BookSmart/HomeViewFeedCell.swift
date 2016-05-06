@@ -22,6 +22,8 @@ class HomeViewFeedCell: PFTableViewCell
     @IBOutlet weak var userPostTitleLabel: UILabel!
     @IBOutlet weak var feedView: UIView!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var deptAndCourseLabel: UILabel!
+    @IBOutlet weak var professorLabel: UILabel!
 //   
 //    @IBAction func backPackItAction(sender: AnyObject)
 //    {

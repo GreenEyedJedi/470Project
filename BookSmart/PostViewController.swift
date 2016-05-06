@@ -15,7 +15,7 @@ class PostViewController : PFQueryTableViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
-        
+        self.automaticallyAdjustsScrollViewInsets = false
         
     }
     
@@ -47,6 +47,28 @@ class PostViewController : PFQueryTableViewController
             var image: UIImage! = UIImage(data: imageData!)!
             cell?.bookImageView.image = image
         })
+        
+        // retrieve courseObject from post
+        if let courseObject = postObject["CourseObject"] as? PFObject{
+            courseObject.fetchIfNeededInBackgroundWithBlock{
+                (courseObject: PFObject?, error: NSError?) -> Void in
+                
+                if let course = courseObject
+                {
+                    if let pFName = course["PFName"] as? String, pLNAme = course["PLName"] as? String
+                    {
+                        cell?.professorLabel.text = "Dr. \(pFName) \(pLNAme)"
+                    }
+                    
+                    if let dept = course["Department"] as? String, courseNo = course["CourseNo"] as? String
+                    {
+                        cell?.deptAndCourseLabel.text = "\(dept) \(courseNo)"
+                    }
+                }
+                
+            }
+        }
+
         
         // Need to make a call to Book class and create a relational data with BookID from Post object
         cell?.postObject = postObject

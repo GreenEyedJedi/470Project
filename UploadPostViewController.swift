@@ -19,8 +19,15 @@ class UploadPostViewController: UIViewController
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var bookDescriptionLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var deptAndCourseLabel: UILabel!
+    @IBOutlet weak var professorLabel: UILabel!
+    
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
+    
+    
     @IBAction func uploadPostButton(sender: AnyObject)
     {
         var refreshAlert = UIAlertController(title: "Upload Confirmation", message: "Are you statisfied with your post?", preferredStyle: UIAlertControllerStyle.Alert)
@@ -101,7 +108,7 @@ class UploadPostViewController: UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setPostToUpload(post)
+        setPostToUpload(self.post)
         self.activityIndicator.hidden = true
         
     }
@@ -123,6 +130,58 @@ class UploadPostViewController: UIViewController
                 var image: UIImage! = UIImage(data: imageData!)!
                 self.postImageView.image = image
             })
+            
+            
+            self.priceLabel.text = ("$\(p.postPrice!)")
+            print("Price should be = \(self.priceLabel.text)")
+            
+            // retrieve courseObject from post
+            print("CourseObject before unwrap = \(p["CourseObject"] as? PFObject)")
+//            
+//            if let courseObject = post["CourseObject"] as? PFObject{
+//                print("CourseObject = \(courseObject)")
+//                courseObject.fetchIfNeededInBackgroundWithBlock{
+//                    (courseObject: PFObject?, error: NSError?) -> Void in
+//                    
+//                    if let course = courseObject
+//                    {
+//                        if let pFName = course["PFName"] as? String, pLNAme = course["PLName"] as? String
+//                        {
+//                            self.professorLabel.text = "Dr. \(pFName) \(pLNAme)"
+//                        }
+//                        
+//                        if let dept = course["Department"] as? String, courseNo = course["CourseNo"] as? String
+//                        {
+//                            self.deptAndCourseLabel.text = "\(dept) \(courseNo)"
+//                        }
+//                    }
+//                    
+//                }
+//            }
+            var courseQuery = PFQuery(className: "Courses")
+            if let courseID = p.courseID
+            {
+                courseQuery.whereKey("CourseID", equalTo: courseID)
+                do
+                {
+                    let course = try courseQuery.getFirstObject()
+                    if let pFName = course["PFName"] as? String, pLNAme = course["PLName"] as? String
+                    {
+                        self.professorLabel.text = "Dr. \(pFName) \(pLNAme)"
+                    }
+                    
+                    if let dept = course["Department"] as? String, courseNo = course["CourseNo"] as? String
+                    {
+                        self.deptAndCourseLabel.text = "\(dept) \(courseNo)"
+                    }
+                }
+                catch
+                {
+                    // error with getting course object
+                    
+                }
+            }
+            
             
             self.bookTitleLabel.text = book?.bookTitle
             
