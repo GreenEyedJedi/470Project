@@ -15,6 +15,8 @@ class PostViewController : PFQueryTableViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.reloadData()
+        
+        
     }
     
     override func viewWillAppear(animated: Bool) {

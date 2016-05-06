@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class ViewPostDetailViewController: UIViewController
+class ViewPostDetailViewController: UIViewController, UIPopoverPresentationControllerDelegate
 {
     var post : Post?
     var book : Book?
@@ -167,6 +167,70 @@ class ViewPostDetailViewController: UIViewController
         self.removeBackPackButton.hidden = true
         checkIsInBackPack()
         setPostDetails()
+        
+        postImageView.userInteractionEnabled = true
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("postImageTapped:"))
+        postImageView.addGestureRecognizer(tapRecognizer)
+        
+        bookStockImageView.userInteractionEnabled = true
+        
+        let tapRecognizer2 = UITapGestureRecognizer(target: self, action: Selector("bookImageTapped:"))
+        bookStockImageView.addGestureRecognizer(tapRecognizer2)
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
+    }
+    
+    func postImageTapped(gestureRecognizer: UITapGestureRecognizer)
+    {
+        var Storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let VC : ImagePopoverViewController = Storyboard.instantiateViewControllerWithIdentifier("imagePopover") as! ImagePopoverViewController
+        VC.preferredContentSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: 400)
+        
+        let navController = UINavigationController(rootViewController: VC)
+        navController.modalPresentationStyle = UIModalPresentationStyle.Popover
+        
+        let popOver = navController.popoverPresentationController
+        popOver?.delegate = self
+        popOver?.sourceView = self.postImageView
+        popOver?.permittedArrowDirections = UIPopoverArrowDirection.Left
+        
+        if let pic = self.postImageView
+        {
+            VC.useImage(pic)
+        }
+        
+        navController.popoverPresentationController?.sourceView = self.view
+        
+        self.presentViewController(navController, animated: true, completion: nil)
+        
+    }
+    
+    func bookImageTapped(gestureRecognizer: UITapGestureRecognizer)
+    {
+        var Storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let VC : ImagePopoverViewController = Storyboard.instantiateViewControllerWithIdentifier("imagePopover") as! ImagePopoverViewController
+        VC.preferredContentSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: 400)
+        
+        let navController = UINavigationController(rootViewController: VC)
+        navController.modalPresentationStyle = UIModalPresentationStyle.Popover
+        
+        let popOver = navController.popoverPresentationController
+        popOver?.delegate = self
+        popOver?.sourceView = self.postImageView
+        popOver?.permittedArrowDirections = UIPopoverArrowDirection.Left
+        
+        if let pic = self.bookStockImageView
+        {
+            VC.useImage(pic)
+        }
+        
+        navController.popoverPresentationController?.sourceView = self.view
+        
+        self.presentViewController(navController, animated: true, completion: nil)
+        
     }
     
     func checkIsInBackPack()
@@ -297,7 +361,7 @@ class ViewPostDetailViewController: UIViewController
                             {
                                 if let pFName = course["PFName"] as? String, pLNAme = course["PLName"] as? String
                                 {
-                                    self.professorLabel.text = "Teacher: \(pFName) \(pLNAme)"
+                                    self.professorLabel.text = "Dr. \(pFName) \(pLNAme)"
                                 }
                                 
                                 if let dept = course["Department"] as? String, courseNo = course["CourseNo"] as? String

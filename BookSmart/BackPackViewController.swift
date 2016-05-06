@@ -112,7 +112,7 @@ class BackPackViewController: PFQueryTableViewController
                     {
                         if let pFName = course["PFName"] as? String, pLNAme = course["PLName"] as? String
                         {
-                            cell.professorLabel.text = "Teacher: \(pFName) \(pLNAme)"
+                            cell.professorLabel.text = "Dr. \(pFName) \(pLNAme)"
                         }
                         
                         if let dept = course["Department"] as? String, courseNo = course["CourseNo"] as? String

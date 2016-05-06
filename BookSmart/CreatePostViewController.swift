@@ -16,6 +16,8 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
     var ISBN : String?
     var deptCourseProf : DeptCourseProfLookup?
     
+    let conditionStringArray = ["Unopened", "Like New", "Very Good", "Good", "Acceptable", "Okay", "Poor"]
+    
     @IBOutlet weak var MenuBarButton: UIBarButtonItem!
     
     @IBOutlet weak var postTitleTextField: UITextField!
@@ -62,6 +64,11 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         imagePicker.sourceType = .PhotoLibrary
         
         presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, withEvent: event)
     }
     
     func findCourseID(department: String, course: String, profLastName: String) -> NSNumber
@@ -210,19 +217,24 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
         var coursesPickerView = UIPickerView()
         var sectionPickerView = UIPickerView()
         
+        var conditionPickerView = UIPickerView()
+        
         imagePicker.delegate = self
         
         departmentPickerView.tag = 0
         coursesPickerView.tag = 1
         sectionPickerView.tag = 2
+        conditionPickerView.tag = 3
         
         departmentPickerView.delegate = self
         coursesPickerView.delegate = self
         sectionPickerView.delegate = self
+        conditionPickerView.delegate = self
         
         departmentTextField.inputView = departmentPickerView
         courseNumberTextField.inputView = coursesPickerView
         courseProfessorTextField.inputView = sectionPickerView
+        postConditionTextField.inputView = conditionPickerView
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -249,6 +261,10 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             return professorArray.count
         }
         
+        if pickerView.tag == 3
+        {
+            return conditionStringArray.count
+        }
         return 1
     }
     
@@ -281,6 +297,10 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
                 return professorArray[row]
             }
             
+        }
+        if pickerView.tag == 3
+        {
+            return conditionStringArray[row]
         }
         
         return ""
@@ -316,6 +336,11 @@ class CreatePostViewController: UIViewController, UIImagePickerControllerDelegat
             {
                 courseProfessorTextField.text = ""
             }
+        }
+        
+        if pickerView.tag == 3
+        {
+            postConditionTextField.text = conditionStringArray[row]
         }
         
     }

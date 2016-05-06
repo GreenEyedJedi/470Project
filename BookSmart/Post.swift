@@ -125,69 +125,15 @@ class Post: PFObject, PFSubclassing {
         return nil
     }
     
-    func getDeptAndCourseString() -> String?
-    {
-        if let courseID = self.courseID
-        {
-            
-        }
-        return nil
-    }
-    
-    
-    //    init(id: Int, title : String, photo : UIImage, desc : String, book : String, price : Float, condition : String) {
-    //        //posts = dataSource
-    //        postID = id
-    //        postTitle = title
-    //        postPhoto = photo
-    //        postDescription = desc
-    //        postBook = book
-    //        postPrice = price
-    //        postCondition = condition
-    //        super.init()
-    //    }
-    //
-    //    func getPostID() -> Int?
-    //    {
-    //        let id = postID ?? nil
-    //        return id
-    //    }
-    //
-    //    func getPhoto () -> UIImage?
-    //    {
-    //        let photo = postPhoto ?? nil
-    //        return photo
-    //    }
-    //
-    //    func getTitle() -> String?
-    //    {
-    //        let title = postTitle ?? nil
-    //        return title
-    //    }
-    //
-    //    func getDescription() -> String?
-    //    {
-    //        let description = postDescription ?? nil
-    //        return description
-    //    }
-    //
-    //    func getBookName() -> String?
-    //    {
-    //        let book = postBook ?? nil
-    //        return book
-    //    }
-    //
-    //    func getPrice() -> Float?
-    //    {
-    //        let price = postPrice ?? nil
-    //        return price
-    //    }
-    //    
-    //    func getCondition() -> String?
-    //    {
-    //        let condition = postCondition ?? nil
-    //        return condition
-    //    }
+//    func getDeptAndCourseString() -> String?
+//    {
+//        if let courseID = self.courseID
+//        {
+//            
+//        }
+//        return nil
+//    }
+
     
     
 }

@@ -51,6 +51,7 @@
 		3F94A4251CDBD60300BD72A0 /* BackPackTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94A4241CDBD60300BD72A0 /* BackPackTabViewController.swift */; };
 		3F94A4271CDBDDA100BD72A0 /* MatchesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94A4261CDBDDA100BD72A0 /* MatchesTableViewController.swift */; };
 		3F94A4291CDBDE1A00BD72A0 /* MatchesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94A4281CDBDE1A00BD72A0 /* MatchesTableViewCell.swift */; };
+		3F94A42B1CDC0A7300BD72A0 /* ImagePopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F94A42A1CDC0A7300BD72A0 /* ImagePopoverViewController.swift */; };
 		3F9CB92D1CADDB7F00CA0CED /* HomeViewFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9CB92C1CADDB7F00CA0CED /* HomeViewFeedCell.swift */; };
 		3FE5BB331CD1C19300662815 /* FindClassTextbooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5BB321CD1C19300662815 /* FindClassTextbooksTableViewController.swift */; };
 		3FE5BB351CD1C1B800662815 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5BB341CD1C1B800662815 /* SearchTableViewController.swift */; };
@@ -130,6 +131,7 @@
 		3F94A4241CDBD60300BD72A0 /* BackPackTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackPackTabViewController.swift; path = ../BackPackTabViewController.swift; sourceTree = "<group>"; };
 		3F94A4261CDBDDA100BD72A0 /* MatchesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesTableViewController.swift; sourceTree = "<group>"; };
 		3F94A4281CDBDE1A00BD72A0 /* MatchesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesTableViewCell.swift; sourceTree = "<group>"; };
+		3F94A42A1CDC0A7300BD72A0 /* ImagePopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePopoverViewController.swift; sourceTree = "<group>"; };
 		3F9CB92C1CADDB7F00CA0CED /* HomeViewFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewFeedCell.swift; sourceTree = "<group>"; };
 		3FE5BB321CD1C19300662815 /* FindClassTextbooksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindClassTextbooksTableViewController.swift; sourceTree = "<group>"; };
 		3FE5BB341CD1C1B800662815 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTableViewController.swift; path = ../SearchTableViewController.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				3F94A4211CDAB28C00BD72A0 /* BackPack  */,
 				3F94A41B1CDAA53100BD72A0 /* SendMessageViewController.swift */,
 				3F01EB1C1CD431DD0081032C /* ViewPostDetailViewController.swift */,
+				3F94A42A1CDC0A7300BD72A0 /* ImagePopoverViewController.swift */,
 				3F01EB181CD3F8890081032C /* UserProfileViewController.swift */,
 				3FE5BB321CD1C19300662815 /* FindClassTextbooksTableViewController.swift */,
 				3FE5BB341CD1C1B800662815 /* SearchTableViewController.swift */,
@@ -510,6 +513,7 @@
 				3F94A4291CDBDE1A00BD72A0 /* MatchesTableViewCell.swift in Sources */,
 				3F1B4AAD1CB45FD30068FC01 /* Post.swift in Sources */,
 				3FE5BB351CD1C1B800662815 /* SearchTableViewController.swift in Sources */,
+				3F94A42B1CDC0A7300BD72A0 /* ImagePopoverViewController.swift in Sources */,
 				3FE5BB331CD1C19300662815 /* FindClassTextbooksTableViewController.swift in Sources */,
 				3F01EB191CD3F8890081032C /* UserProfileViewController.swift in Sources */,
 				3F5BD8111CD085E0009B4052 /* UploadPostViewController.swift in Sources */,
