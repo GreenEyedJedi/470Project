@@ -39,6 +39,7 @@ class FindClassTextbooksTableViewController: PFQueryTableViewController {
         self.parseClassName = "Departments"
         self.textKey = "DeptName"
         
+        self.objectsPerPage = 59
         
         
     }
@@ -49,6 +50,7 @@ class FindClassTextbooksTableViewController: PFQueryTableViewController {
         // Pull the DeptName field from entries in the Departments table
         var query = PFQuery(className: "Departments")
         query.orderByAscending("DeptName")
+       
         return query
     }
     

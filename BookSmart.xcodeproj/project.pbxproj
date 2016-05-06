@@ -11,7 +11,7 @@
 		248D83021CDCEE7000C54E6F /* CoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248D83011CDCEE7000C54E6F /* CoursesTableViewController.swift */; };
 		248D83041CDCEF2200C54E6F /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248D83031CDCEF2200C54E6F /* BookViewController.swift */; };
 		248D83061CDCF04700C54E6F /* ProfessorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248D83051CDCF04700C54E6F /* ProfessorTableViewController.swift */; };
-		249053551CDCFEF6000640E7 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249053541CDCFEF6000640E7 /* SearchTableViewCell.swift */; };
+		249053571CDD1DA2000640E7 /* PostBrowseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249053561CDD1DA2000640E7 /* PostBrowseTableViewController.swift */; };
 		3F01EB191CD3F8890081032C /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F01EB181CD3F8890081032C /* UserProfileViewController.swift */; };
 		3F01EB1B1CD3FAE90081032C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F01EB1A1CD3FAE90081032C /* User.swift */; };
 		3F01EB1D1CD431DD0081032C /* ViewPostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F01EB1C1CD431DD0081032C /* ViewPostDetailViewController.swift */; };
@@ -87,7 +87,7 @@
 		248D83011CDCEE7000C54E6F /* CoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoursesTableViewController.swift; path = "../../470Project-master-3/BookSmart/CoursesTableViewController.swift"; sourceTree = "<group>"; };
 		248D83031CDCEF2200C54E6F /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookViewController.swift; path = "../../470Project-master-3/BookSmart/BookViewController.swift"; sourceTree = "<group>"; };
 		248D83051CDCF04700C54E6F /* ProfessorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfessorTableViewController.swift; path = "../../470Project-master-3/BookSmart/ProfessorTableViewController.swift"; sourceTree = "<group>"; };
-		249053541CDCFEF6000640E7 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		249053561CDD1DA2000640E7 /* PostBrowseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostBrowseTableViewController.swift; sourceTree = "<group>"; };
 		3F01EB181CD3F8890081032C /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		3F01EB1A1CD3FAE90081032C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3F01EB1C1CD431DD0081032C /* ViewPostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPostDetailViewController.swift; sourceTree = "<group>"; };
@@ -336,12 +336,12 @@
 				3FE5BB341CD1C1B800662815 /* SearchTableViewController.swift */,
 				248D83051CDCF04700C54E6F /* ProfessorTableViewController.swift */,
 				248D83031CDCEF2200C54E6F /* BookViewController.swift */,
+				249053561CDD1DA2000640E7 /* PostBrowseTableViewController.swift */,
 				248D83011CDCEE7000C54E6F /* CoursesTableViewController.swift */,
 				3F1D9CA61CD953AF00BB18D2 /* Login/SignUp */,
 				3FE5BB411CD30A8F00662815 /* Upload Post */,
 				3FE5BB421CD30A9C00662815 /* Home Feed */,
 				3F32CF6C1CACCABC00E61E39 /* SideMenuViewController.swift */,
-				249053541CDCFEF6000640E7 /* SearchTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -520,6 +520,7 @@
 				3F0E03A01CC043DE0079FB3C /* CreatePostViewController.swift in Sources */,
 				248D83041CDCEF2200C54E6F /* BookViewController.swift in Sources */,
 				3F94A4231CDAB9AD00BD72A0 /* BackPackBrain.swift in Sources */,
+				249053571CDD1DA2000640E7 /* PostBrowseTableViewController.swift in Sources */,
 				3F1D9C9F1CD8977900BB18D2 /* BeginLogInViewController.swift in Sources */,
 				3F94A4201CDAB27500BD72A0 /* BackPackTableViewCell.swift in Sources */,
 				3F94A4291CDBDE1A00BD72A0 /* MatchesTableViewCell.swift in Sources */,
@@ -549,7 +550,6 @@
 				3FE5D4E31CD1B3D9003CE618 /* Book.swift in Sources */,
 				3F9CB92D1CADDB7F00CA0CED /* HomeViewFeedCell.swift in Sources */,
 				3F01EB1B1CD3FAE90081032C /* User.swift in Sources */,
-				249053551CDCFEF6000640E7 /* SearchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
