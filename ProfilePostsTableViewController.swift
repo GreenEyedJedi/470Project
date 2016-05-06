@@ -1,8 +1,8 @@
 //
-//  BackPackViewController.swift
+//  ProfilePostsTableViewController.swift
 //  BookSmart
 //
-//  Created by Alec Brownlie on 5/4/16.
+//  Created by Alec Brownlie on 5/6/16.
 //  Copyright © 2016 Alec Brownlie. All rights reserved.
 //
 
@@ -10,9 +10,9 @@ import UIKit
 import Parse
 import ParseUI
 
-class BackPackViewController: PFQueryTableViewController
+class ProfilePostsTableViewController: PFQueryTableViewController
 {
-    
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -22,27 +22,7 @@ class BackPackViewController: PFQueryTableViewController
         
         tableView.allowsMultipleSelectionDuringEditing = true
         
-
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-    {
-        if segue.identifier == "toPostDetailFromBackPack"
-        {
-            print("We get here. Sender is = \(sender)")
-            let detailedVC = segue.destinationViewController as! ViewPostDetailViewController
-            
-            
-            if let cell = sender as? BackPackTableViewCell
-            {
-                print("We get here!")
-                if let post = cell.postObject
-                {
-                    print("detailedVC.postToViewFromBackPack(post) gets called!!")
-                    detailedVC.postToViewFromBackPack(post)
-                }
-            }
-        }
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -54,10 +34,10 @@ class BackPackViewController: PFQueryTableViewController
         
         let user = PFUser.currentUser()
         
-        let backPackRelation = user!.relationForKey("BackPack")
+        let postsRelation = user!.relationForKey("Posts")
         
         
-        backPackRelation.query().findObjectsInBackgroundWithBlock {
+        postsRelation.query().findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             if let error = error
             {
@@ -67,14 +47,12 @@ class BackPackViewController: PFQueryTableViewController
             {
             }
         }
-        var query = backPackRelation.query()
+        var query = postsRelation.query()
         return query
-        
     }
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell?
     {
-        var tcell:BackPackTableViewCell? = tableView.dequeueReusableCellWithIdentifier("backPackCell", forIndexPath: indexPath) as? BackPackTableViewCell
+        var tcell:ProfilePostsTableViewCell? = tableView.dequeueReusableCellWithIdentifier("profilePostsCell", forIndexPath: indexPath) as? ProfilePostsTableViewCell
         
         // set viewPostDetailButton tag to indexPath.row
         //cell?.viewPostDetailButton.tag = indexPath.row
@@ -136,51 +114,33 @@ class BackPackViewController: PFQueryTableViewController
                         cell.authorLabel.text = "Author: \(firstName) \(lastName)"
                         
                     }
-                 
+                    
                     
                 }
             }
-     
-            
+ 
         }
-        
-       
-        
+  
         return tcell
     }
     
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-            if (editingStyle == .Delete) {
-//                removeObjectAtIndexPath(indexPath)
-//                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade )
-                
-                if let user = PFUser.currentUser(), object = self.objectAtIndexPath(indexPath)
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "fromProfilePosts"
+        {
+            print("We get here. Sender is = \(sender)")
+            let detailedVC = segue.destinationViewController as! ViewPostDetailViewController
+            
+            
+            if let cell = sender as? ProfilePostsTableViewCell
+            {
+                print("We get here!")
+                if let post = cell.postObject
                 {
-                    
-                    var backPackRelation = user.relationForKey("BackPack")
-                    backPackRelation.removeObject(object)
-                    
-                    
-                    user.saveInBackgroundWithBlock{
-                        (success: Bool, error: NSError?) -> Void in
-                        if (success){
-                            self.loadObjects()
-                            self.tableView.reloadData()
-                        }
-                        else
-                        {
-                            print("Could not delete object = \(object)")
-                        }
-                    
-                    }
-                    
+                    print("detailedVC.postToViewFromBackPack(post) gets called!!")
+                    detailedVC.postToViewFromBackPack(post)
                 }
+            }
         }
     }
-    
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    
 }

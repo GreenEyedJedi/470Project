@@ -10,13 +10,11 @@ import UIKit
 import Parse
 import ParseUI
 
-class Post: PFObject, PFSubclassing {
-    
+class Post: PFObject, PFSubclassing
+{
     @NSManaged var postImage : PFFile
     @NSManaged var postTitle: String?
-    
     @NSManaged var postPrice : NSNumber?
-    
     @NSManaged var user : PFUser
     @NSManaged var postCondition : String?
     @NSManaged var postDescrip : String?
@@ -24,15 +22,16 @@ class Post: PFObject, PFSubclassing {
     @NSManaged var courseObj : PFObject?
     @NSManaged var courseID : NSNumber?
     
-    
-    override class func initialize() {
+    override class func initialize()
+    {
         var onceToken: dispatch_once_t = 0
         dispatch_once(&onceToken) {
             self.registerSubclass()
         }
     }
     
-    override class func query() -> PFQuery? {
+    override class func query() -> PFQuery?
+    {
         let query = PFQuery(className: Post.parseClassName())
         //query.includeKey("user")
         
@@ -40,14 +39,9 @@ class Post: PFObject, PFSubclassing {
         return query
     }
     
-    
-    
-    
-    
     init(PostTitle: String?, User : PFUser?, Condition: String?, Book : PFObject?, Course : NSNumber?, Description: String?, Image: UIImageView?, Price: NSNumber?)
     {
         super.init()
-        
         if let picture = Image
         {
             if let jpeg = picture.image
@@ -56,8 +50,6 @@ class Post: PFObject, PFSubclassing {
                 {
                     self.postImage = imageView
                 }
-                
-                
             }
         }
         
@@ -96,10 +88,10 @@ class Post: PFObject, PFSubclassing {
         {
             self.postCondition = cond
         }
-        
     }
     
-    class func parseClassName() -> String {
+    class func parseClassName() -> String
+    {
         return "Posts"
     }
     
@@ -124,16 +116,4 @@ class Post: PFObject, PFSubclassing {
         }
         return nil
     }
-    
-//    func getDeptAndCourseString() -> String?
-//    {
-//        if let courseID = self.courseID
-//        {
-//            
-//        }
-//        return nil
-//    }
-
-    
-    
 }

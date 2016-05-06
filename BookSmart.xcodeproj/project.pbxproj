@@ -12,6 +12,9 @@
 		3F01EB1D1CD431DD0081032C /* ViewPostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F01EB1C1CD431DD0081032C /* ViewPostDetailViewController.swift */; };
 		3F0E03A01CC043DE0079FB3C /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0E039F1CC043DE0079FB3C /* CreatePostViewController.swift */; };
 		3F1B4AAD1CB45FD30068FC01 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1B4AAC1CB45FD30068FC01 /* Post.swift */; };
+		3F1BD9031CDD00FB00291614 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1BD9021CDD00FB00291614 /* ProfileViewController.swift */; };
+		3F1BD9071CDD061300291614 /* ProfilePostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1BD9061CDD061300291614 /* ProfilePostsTableViewCell.swift */; };
+		3F1BD9091CDD062E00291614 /* ProfilePostsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1BD9081CDD062E00291614 /* ProfilePostsTableViewController.swift */; };
 		3F1D9C9F1CD8977900BB18D2 /* BeginLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D9C9E1CD8977900BB18D2 /* BeginLogInViewController.swift */; };
 		3F1D9CA11CD898E300BB18D2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D9CA01CD898E300BB18D2 /* SignUpViewController.swift */; };
 		3F1D9CA31CD8F86D00BB18D2 /* FinishSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D9CA21CD8F86D00BB18D2 /* FinishSignUpViewController.swift */; };
@@ -84,6 +87,9 @@
 		3F01EB1C1CD431DD0081032C /* ViewPostDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewPostDetailViewController.swift; sourceTree = "<group>"; };
 		3F0E039F1CC043DE0079FB3C /* CreatePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		3F1B4AAC1CB45FD30068FC01 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		3F1BD9021CDD00FB00291614 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3F1BD9061CDD061300291614 /* ProfilePostsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePostsTableViewCell.swift; sourceTree = "<group>"; };
+		3F1BD9081CDD062E00291614 /* ProfilePostsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfilePostsTableViewController.swift; path = ../ProfilePostsTableViewController.swift; sourceTree = "<group>"; };
 		3F1D9C9E1CD8977900BB18D2 /* BeginLogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeginLogInViewController.swift; sourceTree = "<group>"; };
 		3F1D9CA01CD898E300BB18D2 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3F1D9CA21CD8F86D00BB18D2 /* FinishSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FinishSignUpViewController.swift; path = ../FinishSignUpViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +199,16 @@
 				C3215CA0458E4020613380F1 /* Pods-BookSmart.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		3F1BD90A1CDD063D00291614 /* Profile View */ = {
+			isa = PBXGroup;
+			children = (
+				3F1BD9081CDD062E00291614 /* ProfilePostsTableViewController.swift */,
+				3F1BD9021CDD00FB00291614 /* ProfileViewController.swift */,
+				3F1BD9061CDD061300291614 /* ProfilePostsTableViewCell.swift */,
+			);
+			name = "Profile View";
 			sourceTree = "<group>";
 		};
 		3F1D9CA61CD953AF00BB18D2 /* Login/SignUp */ = {
@@ -327,6 +343,7 @@
 				3FE5BB321CD1C19300662815 /* FindClassTextbooksTableViewController.swift */,
 				3FE5BB341CD1C1B800662815 /* SearchTableViewController.swift */,
 				3FE5BB361CD1C21B00662815 /* CoursesTableViewController.swift */,
+				3F1BD90A1CDD063D00291614 /* Profile View */,
 				3F1D9CA61CD953AF00BB18D2 /* Login/SignUp */,
 				3FE5BB411CD30A8F00662815 /* Upload Post */,
 				3FE5BB421CD30A9C00662815 /* Home Feed */,
@@ -509,12 +526,15 @@
 				3FE5BB371CD1C21B00662815 /* CoursesTableViewController.swift in Sources */,
 				3F94A4231CDAB9AD00BD72A0 /* BackPackBrain.swift in Sources */,
 				3F1D9C9F1CD8977900BB18D2 /* BeginLogInViewController.swift in Sources */,
+				3F1BD9031CDD00FB00291614 /* ProfileViewController.swift in Sources */,
 				3F94A4201CDAB27500BD72A0 /* BackPackTableViewCell.swift in Sources */,
 				3F94A4291CDBDE1A00BD72A0 /* MatchesTableViewCell.swift in Sources */,
 				3F1B4AAD1CB45FD30068FC01 /* Post.swift in Sources */,
 				3FE5BB351CD1C1B800662815 /* SearchTableViewController.swift in Sources */,
 				3F94A42B1CDC0A7300BD72A0 /* ImagePopoverViewController.swift in Sources */,
 				3FE5BB331CD1C19300662815 /* FindClassTextbooksTableViewController.swift in Sources */,
+				3F1BD9091CDD062E00291614 /* ProfilePostsTableViewController.swift in Sources */,
+				3F1BD9071CDD061300291614 /* ProfilePostsTableViewCell.swift in Sources */,
 				3F01EB191CD3F8890081032C /* UserProfileViewController.swift in Sources */,
 				3F5BD8111CD085E0009B4052 /* UploadPostViewController.swift in Sources */,
 				3F94A4251CDBD60300BD72A0 /* BackPackTabViewController.swift in Sources */,

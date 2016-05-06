@@ -37,9 +37,7 @@ class Book: PFObject, PFSubclassing
     }
     
     override class func query() -> PFQuery? {
-        let query = PFQuery(className: Book.parseClassName())
-        //query.includeKey("user")
-        
+        let query = PFQuery(className: Book.parseClassName()) 
         query.orderByDescending("createdAt")
         return query
     }
@@ -72,9 +70,6 @@ class Book: PFObject, PFSubclassing
         {
             let fullName = a
             let fullNameArr = fullName.characters.split{$0 == " "}.map(String.init)
-            // or simply:
-            // let fullNameArr = fullName.characters.split{" "}.map(String.init)
-            
             self.authorFN = fullNameArr[0] // First
             self.authorLN = fullNameArr[1] // Last
         }
@@ -91,9 +86,6 @@ class Book: PFObject, PFSubclassing
         {
             self.bookYear = y
         }
-        
-        
-        
     }
     
     class func parseClassName() -> String {

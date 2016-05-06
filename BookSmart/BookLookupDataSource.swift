@@ -27,6 +27,4 @@ class BookLookupDataSource: NSObject
         let title = BookLookup(book: bookDict[index])
         return title
     }
-    
-    
 }

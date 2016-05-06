@@ -28,7 +28,7 @@ class SideMenuViewController: UITableViewController {
         var cell = tableView.dequeueReusableCellWithIdentifier("slideoutMenuCell", forIndexPath: indexPath) as UITableViewCell
         
         cell.textLabel?.text = MenuArray[indexPath.row]
-        
+        cell.textLabel?.font = UIFont(name:"Avenir", size:20)
         return cell
     }
     

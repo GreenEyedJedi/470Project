@@ -18,9 +18,7 @@ class SendMessageViewController: UIViewController, UITextViewDelegate, MFMailCom
     var post : Post?
     
     @IBOutlet weak var subjectTextField: UITextField!
-    
     @IBOutlet weak var messageTextView: UITextView!
-    
     @IBAction func sendMessageButton(sender: AnyObject)
     {
         let mailComposeViewController = configuredMailComposeViewController()
@@ -41,12 +39,8 @@ class SendMessageViewController: UIViewController, UITextViewDelegate, MFMailCom
         {
             self.subjectTextField.text = "RE: \(p["PostTitle"] as! String)"
         }
-        
-        
     }
-    
- 
-    
+
     func getUserAndSellerAndPost(user : PFUser?, seller: PFObject?, post : Post?)
     {
         if let u = user

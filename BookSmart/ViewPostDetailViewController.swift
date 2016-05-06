@@ -13,37 +13,27 @@ class ViewPostDetailViewController: UIViewController, UIPopoverPresentationContr
 {
     var post : Post?
     var book : Book?
-    //var user : PFUser?
     var seller : PFObject?
     
     @IBOutlet weak var postTitleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var postImageView: UIImageView!
-    
     @IBOutlet weak var sellerProfilePictureImageView: UIImageView!
     @IBOutlet weak var sellerUsernameLabel: UILabel!
     @IBOutlet weak var datePostedLabel: UILabel!
     @IBOutlet weak var numberOfViewsLabel: UILabel!
-    
     @IBOutlet weak var postDescriptionLabel: UILabel!
-    
     @IBOutlet weak var departmentAndCourseLabel: UILabel!
     @IBOutlet weak var professorLabel: UILabel!
-    
     @IBOutlet weak var bookTitleLabel: UILabel!
     @IBOutlet weak var bookAuthorLabel: UILabel!
-    
     @IBOutlet weak var bookDescriptionTextView: UITextView!
-    
     @IBOutlet weak var bookInformationLabel: UILabel!
     @IBOutlet weak var bookStockImageView: UIImageView!
-    
     @IBOutlet weak var bookConditionLabel: UILabel!
     @IBOutlet weak var bookPageNumLabel: UILabel!
     @IBOutlet weak var bookYearLabel: UILabel!
-    
     @IBOutlet weak var messageSellerButton: UIButton!
-
     @IBOutlet weak var backPackIt: UIButton!
     @IBAction func backPackItButton(sender: AnyObject)
     {
@@ -54,7 +44,6 @@ class ViewPostDetailViewController: UIViewController, UIPopoverPresentationContr
     }
     
     @IBOutlet weak var removeBackPackButton: UIButton!
-    
     @IBAction func removeBackPackAction(sender: AnyObject)
     {
         if let post = self.post
@@ -62,10 +51,8 @@ class ViewPostDetailViewController: UIViewController, UIPopoverPresentationContr
             removeFromBackPack(post)
         }
     }
-    
     private var viewingFromBackPackFlag : Bool = false
-    
-    
+
     func removeFromBackPack(post: Post)
     {
         var refreshAlert = UIAlertController(title: "Remove from BackPack?", message: "Are you sure you want to remove this post from your BackPack?", preferredStyle: UIAlertControllerStyle.Alert)
@@ -99,20 +86,13 @@ class ViewPostDetailViewController: UIViewController, UIPopoverPresentationContr
                         
                     }
                 }
-                
             }
-            
-            //var postToBackPack = PFObject(className:"Posts")
-            
         }))
         
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
             return
         }))
-        
         presentViewController(refreshAlert, animated: true, completion: nil)
-        
-        
     }
     
     func savePostToBackPack(post: Post)
@@ -147,8 +127,6 @@ class ViewPostDetailViewController: UIViewController, UIPopoverPresentationContr
                 }
 
             }
-            
-            //var postToBackPack = PFObject(className:"Posts")
 
         }))
         
@@ -213,22 +191,17 @@ class ViewPostDetailViewController: UIViewController, UIPopoverPresentationContr
         var Storyboard = UIStoryboard(name: "Main", bundle: nil)
         let VC : ImagePopoverViewController = Storyboard.instantiateViewControllerWithIdentifier("imagePopover") as! ImagePopoverViewController
         VC.preferredContentSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: 400)
-        
         let navController = UINavigationController(rootViewController: VC)
         navController.modalPresentationStyle = UIModalPresentationStyle.Popover
-        
         let popOver = navController.popoverPresentationController
         popOver?.delegate = self
         popOver?.sourceView = self.postImageView
         popOver?.permittedArrowDirections = UIPopoverArrowDirection.Left
-        
         if let pic = self.bookStockImageView
         {
             VC.useImage(pic)
         }
-        
         navController.popoverPresentationController?.sourceView = self.view
-        
         self.presentViewController(navController, animated: true, completion: nil)
         
     }
@@ -263,7 +236,6 @@ class ViewPostDetailViewController: UIViewController, UIPopoverPresentationContr
                                         self.removeBackPackButton.hidden = true
                                         
                                     }
-                                  
                                 }
                             }
                         }
@@ -274,12 +246,8 @@ class ViewPostDetailViewController: UIViewController, UIPopoverPresentationContr
                 
             }
         }
-       
-        
     }
-    
-    
-    
+ 
     func postToView(post: Post)
     {
         self.post = post
@@ -291,7 +259,6 @@ class ViewPostDetailViewController: UIViewController, UIPopoverPresentationContr
     {
         self.post = post
         self.viewingFromBackPackFlag = true
-        
         print("postToViewFromBackPack called!")
     }
     
@@ -337,7 +304,6 @@ class ViewPostDetailViewController: UIViewController, UIPopoverPresentationContr
                             
                         }
                     }
-                    
                     // retrieve userObject from post
                     if let userObject = post["UserObject"] as? PFObject
                     {
@@ -361,7 +327,6 @@ class ViewPostDetailViewController: UIViewController, UIPopoverPresentationContr
                             
                         }
                     }
-                    
                     // retrieve courseObject from post
                     if let courseObject = post["CourseObject"] as? PFObject{
                         courseObject.fetchIfNeededInBackgroundWithBlock{
@@ -382,9 +347,7 @@ class ViewPostDetailViewController: UIViewController, UIPopoverPresentationContr
                             
                         }
                     }
-                    
-                    
-                    
+
                     // set post details
                     self.postTitleLabel.text = post["PostTitle"] as? String
                     
@@ -412,10 +375,7 @@ class ViewPostDetailViewController: UIViewController, UIPopoverPresentationContr
                     {
                         self.bookConditionLabel.text = "Condition: \(cond)"
                     }
-                    
-//                    let date = post["createdAt"] as! NSDate
-//                    print("THE DATE IS = \(date)")
-                    
+
                     if let datePosted = post.updatedAt
                     {
                         print("DATE POSTED = \(datePosted)")
@@ -424,13 +384,8 @@ class ViewPostDetailViewController: UIViewController, UIPopoverPresentationContr
                         let date = dateFormatter.stringFromDate(datePosted)
                         self.datePostedLabel.text = "Posted on: \(date)"
                     }
-                    
-                    
-                    
-                    
                 }
-                
-                
+
         }
     }
     
@@ -445,6 +400,15 @@ class ViewPostDetailViewController: UIViewController, UIPopoverPresentationContr
                 let detailedVC = segue.destinationViewController as! SendMessageViewController
                 
                 detailedVC.getUserAndSellerAndPost(user, seller: seller, post: post)
+            }
+        }
+        if segue.identifier == "viewProfileInfo"
+        {
+            if let seller = self.seller
+            {
+                let detailedVC = segue.destinationViewController as! ProfileViewController
+                detailedVC.useSeller(seller)
+                
             }
         }
     }

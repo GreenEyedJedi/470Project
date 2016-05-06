@@ -33,6 +33,8 @@ class PostViewController : PFQueryTableViewController
     {
         var cell:HomeViewFeedCell? = tableView.dequeueReusableCellWithIdentifier("feedCell", forIndexPath: indexPath) as? HomeViewFeedCell
 
+        cell?.selectionStyle = UITableViewCellSelectionStyle.None
+        
         // set viewPostDetailButton tag to indexPath.row
         cell?.viewPostDetailButton.tag = indexPath.row
         cell?.backPackItButton.tag = indexPath.row

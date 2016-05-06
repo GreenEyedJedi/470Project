@@ -25,7 +25,7 @@ class UploadPostViewController: UIViewController
     
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
+    
     
     
     @IBAction func uploadPostButton(sender: AnyObject)
@@ -39,7 +39,8 @@ class UploadPostViewController: UIViewController
             
             var postToParse = PFObject(className:"Posts")
             var bookToParse = PFObject(className: "Book")
-           
+            var userToParse = PFObject(className: "User")
+            
             var courseQuery = PFQuery(className: "Courses")
             if let courseID = self.post?.courseID
             {
@@ -55,6 +56,7 @@ class UploadPostViewController: UIViewController
                     
                 }
             }
+            
             
             postToParse["UserID"] = PFUser.currentUser()?.objectId
             postToParse["PostTitle"] = self.post?.postTitle
@@ -78,11 +80,20 @@ class UploadPostViewController: UIViewController
             postToParse["PostImage"] = self.post?.postImage
             
             
-            PFObject.saveAllInBackground([postToParse, bookToParse], block: {
+           
+            
+            
+            PFObject.saveAllInBackground([postToParse, bookToParse, userToParse], block: {
                 (success: Bool, error: NSError?) -> Void in
                 
                 if (success) {
                     dispatch_async(dispatch_get_main_queue()) {
+                        // add post to user's Posts made relation
+                        userToParse = PFUser.currentUser()!
+                        let relation = userToParse.relationForKey("Posts")
+                        relation.addObject(postToParse)
+                        userToParse.saveInBackground()
+                        // go home
                         var Storyboard = UIStoryboard(name: "Main", bundle: nil)
                         var HomeVC : UIViewController = Storyboard.instantiateViewControllerWithIdentifier("HomeNavVC")
                         self.revealViewController().setFrontViewController(HomeVC, animated: true)
@@ -137,27 +148,27 @@ class UploadPostViewController: UIViewController
             
             // retrieve courseObject from post
             print("CourseObject before unwrap = \(p["CourseObject"] as? PFObject)")
-//            
-//            if let courseObject = post["CourseObject"] as? PFObject{
-//                print("CourseObject = \(courseObject)")
-//                courseObject.fetchIfNeededInBackgroundWithBlock{
-//                    (courseObject: PFObject?, error: NSError?) -> Void in
-//                    
-//                    if let course = courseObject
-//                    {
-//                        if let pFName = course["PFName"] as? String, pLNAme = course["PLName"] as? String
-//                        {
-//                            self.professorLabel.text = "Dr. \(pFName) \(pLNAme)"
-//                        }
-//                        
-//                        if let dept = course["Department"] as? String, courseNo = course["CourseNo"] as? String
-//                        {
-//                            self.deptAndCourseLabel.text = "\(dept) \(courseNo)"
-//                        }
-//                    }
-//                    
-//                }
-//            }
+            //
+            //            if let courseObject = post["CourseObject"] as? PFObject{
+            //                print("CourseObject = \(courseObject)")
+            //                courseObject.fetchIfNeededInBackgroundWithBlock{
+            //                    (courseObject: PFObject?, error: NSError?) -> Void in
+            //
+            //                    if let course = courseObject
+            //                    {
+            //                        if let pFName = course["PFName"] as? String, pLNAme = course["PLName"] as? String
+            //                        {
+            //                            self.professorLabel.text = "Dr. \(pFName) \(pLNAme)"
+            //                        }
+            //
+            //                        if let dept = course["Department"] as? String, courseNo = course["CourseNo"] as? String
+            //                        {
+            //                            self.deptAndCourseLabel.text = "\(dept) \(courseNo)"
+            //                        }
+            //                    }
+            //
+            //                }
+            //            }
             var courseQuery = PFQuery(className: "Courses")
             if let courseID = p.courseID
             {
