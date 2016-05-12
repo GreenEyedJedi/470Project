@@ -10,6 +10,7 @@ import UIKit
 
 class BookLookupDataSource: NSObject
 {
+    // basic DataSource class from Project 3
     var bookDict: [AnyObject]
     
     init(dataSource: [AnyObject]) {

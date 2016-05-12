@@ -11,6 +11,7 @@ import Parse
 
 class Book: PFObject, PFSubclassing
 {
+    // Variables for pushing to Parse Database. Must be of @NSManaged datatype or Parse will throw an error.
     @NSManaged var bookTitle : String?
     @NSManaged var bookISBN : String?
     @NSManaged var bookNumOfPages : NSNumber?
@@ -20,13 +21,17 @@ class Book: PFObject, PFSubclassing
     @NSManaged var stockImage : PFFile?
     @NSManaged var bookYear : String?
     
+    // override initalize function.
     override class func initialize() {
+        // register the class as a subclass to the Book class in Parse
+        // do it in the background once
         var onceToken: dispatch_once_t = 0
         dispatch_once(&onceToken) {
             self.registerSubclass()
         }
     }
     
+    // get the Book objects ISBN number. Return a String if ISBN != nil. Else, return nil.
     func getBookISBN() -> String?
     {
         if let isbn = bookISBN
@@ -36,12 +41,15 @@ class Book: PFObject, PFSubclassing
         return nil
     }
     
+    // Mandatory function call for PFSubclassing delegate
+    // return all books in a PFQuery
     override class func query() -> PFQuery? {
         let query = PFQuery(className: Book.parseClassName()) 
         query.orderByDescending("createdAt")
         return query
     }
     
+    // basic initalizer used in creating a book for a given post.
     init(title : String?, isbn : String?, pageNum : NSNumber?, desc : String?, author : String?, image : UIImageView?, year: String?)
     {
         super.init()
@@ -88,6 +96,7 @@ class Book: PFObject, PFSubclassing
         }
     }
     
+    // helper function for class func query()
     class func parseClassName() -> String {
         return "Book"
     }

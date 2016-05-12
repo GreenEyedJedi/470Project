@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 
+// Designed to save JSON data from Google Books API ISBN lookup URL.
 class BookLookup : NSObject
 {
     let book : AnyObject

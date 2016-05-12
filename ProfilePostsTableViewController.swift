@@ -31,8 +31,8 @@ class ProfilePostsTableViewController: PFQueryTableViewController
     
     override func queryForTable() -> PFQuery {
         //var query = PFQuery()
-        
         let user = PFUser.currentUser()
+        
         
         let postsRelation = user!.relationForKey("Posts")
         

@@ -12,6 +12,7 @@ import ParseUI
 
 class Post: PFObject, PFSubclassing
 {
+    // Variables for pushing to Parse Database. Must be of @NSManaged datatype or Parse will throw an error.
     @NSManaged var postImage : PFFile
     @NSManaged var postTitle: String?
     @NSManaged var postPrice : NSNumber?
@@ -22,9 +23,12 @@ class Post: PFObject, PFSubclassing
     @NSManaged var courseObj : PFObject?
     @NSManaged var courseID : NSNumber?
     
+    // override the class initalize function.
     override class func initialize()
     {
         var onceToken: dispatch_once_t = 0
+        // register the class as a subclass to the Post class in Parse
+        // do it in the background once
         dispatch_once(&onceToken) {
             self.registerSubclass()
         }
@@ -39,6 +43,17 @@ class Post: PFObject, PFSubclassing
         return query
     }
     
+    // Mandatory function call for PFSubclassing delegate
+    // return all books in a PFQuery
+    class func query(seller: PFObject)
+    {
+        let query = PFQuery(className: Post.parseClassName())
+        //query.whereKey("UserObject", containedIn: seller.objectId)
+        
+        
+    }
+    
+    // init function for creating a post
     init(PostTitle: String?, User : PFUser?, Condition: String?, Book : PFObject?, Course : NSNumber?, Description: String?, Image: UIImageView?, Price: NSNumber?)
     {
         super.init()
@@ -90,11 +105,13 @@ class Post: PFObject, PFSubclassing
         }
     }
     
+    // helper function that returns
     class func parseClassName() -> String
     {
         return "Posts"
     }
     
+    // set the book functon for a given post
     func setBookObject(book: Book?)
     {
         if let b = book
@@ -108,6 +125,7 @@ class Post: PFObject, PFSubclassing
         super.init()
     }
     
+    // get the Post's title 
     func getPostTitle() -> String?
     {
         if let title = self.postTitle

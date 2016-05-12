@@ -324,7 +324,7 @@ class ViewPostDetailViewController: UIViewController, UIPopoverPresentationContr
                             }
                             
                             self.seller = userObject
-                            
+                            print("SELLER VIEWED IS: \(self.seller)")
                         }
                     }
                     // retrieve courseObject from post

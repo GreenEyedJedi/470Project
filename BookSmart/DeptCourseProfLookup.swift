@@ -9,10 +9,14 @@
 import UIKit
 import Parse
 
+// Designed to call the Parse database that holds SonomaState's Department data and Course data that
+// also holds Professor information.
 class DeptCourseProfLookup
 {
-    // array and query for loadDepartmentData()
+    // array for loadDepartmentData()
     var departmentArray: [String] = [String]()
+    
+    // query for loadDepartmentData()
     var departmentQuery = PFQuery(className: "Departments")
     func loadDepartmentData()
     {
@@ -98,6 +102,7 @@ class DeptCourseProfLookup
         }
     }
     
+    // lookup CourseID for a given department, course number, and professor's last name
     func findCourseID(department: String, course: String, profLastName: String) -> NSNumber
     {
         do{

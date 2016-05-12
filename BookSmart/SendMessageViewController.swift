@@ -58,14 +58,7 @@ class SendMessageViewController: UIViewController, UITextViewDelegate, MFMailCom
         
         print("Message Info: user = \(self.user), seller = \(self.seller), and post = \(self.post)")
     }
-    //
-    //    func retrieveSellerInformation()
-    //    {
-    //        if let seller = self.seller
-    //        {
-    //
-    //        }
-    //    }
+
     
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         

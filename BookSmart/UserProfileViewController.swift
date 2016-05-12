@@ -50,10 +50,10 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
                         currentUser["ProfilePicture"] = picture
                     }
                     
-                    currentUser["Username"] = self.usernameTextField.text
+                    currentUser["username"] = self.usernameTextField.text
                     currentUser["FName"] = self.firstNameTextField.text
                     currentUser["LName"] = self.lastNameTextField.text
-                    currentUser["Email"] = self.emailTextField.text
+                    currentUser["email"] = self.emailTextField.text
                     if self.checkPasswordFields()
                     {
                         currentUser.password = self.passwordUpdateTextField.text

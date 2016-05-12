@@ -12,6 +12,7 @@ import ParseUI
 
 class User : PFObject, PFSubclassing
 {
+    // Variables for pushing to Parse Database. Must be of @NSManaged datatype or Parse will throw an error.
     @NSManaged var username : String?
     @NSManaged var email : String?
     @NSManaged var firstName : String?
@@ -19,13 +20,17 @@ class User : PFObject, PFSubclassing
     @NSManaged var password : String?
     @NSManaged var profilePicture : PFFile?
     
+    // override class initalize function.
     override class func initialize() {
         var onceToken: dispatch_once_t = 0
+        // register the class as a subclass to the Post class in Parse
+        // do it in the background once
         dispatch_once(&onceToken) {
             self.registerSubclass()
         }
     }
     
+    // initializer during User Sign Up
     init(userName: String?, emailAddress: String?, pw: String?)
     {
         super.init()
@@ -44,6 +49,7 @@ class User : PFObject, PFSubclassing
         }
     }
     
+    // complete, more detailed initalizer
     init(userName: String?, emailAddress: String?, pw: String?, fName: String?, lName: String?, profilePic: UIImageView?)
     {
         super.init()
@@ -85,6 +91,7 @@ class User : PFObject, PFSubclassing
         return query
     }
     
+    // helper function for query() -> PFQuery?
     class func parseClassName() -> String {
         return "User"
     }
