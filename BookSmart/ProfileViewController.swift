@@ -41,7 +41,7 @@ class ProfileViewController: UIViewController
     {
         if let user = self.user
         {
-            if let username = user["Username"] as? String
+            if let username = user["username"] as? String
             {
                 self.usernameLabel.text = username
             }

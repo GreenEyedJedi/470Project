@@ -89,18 +89,19 @@ class MatchesTableViewController: PFQueryTableViewController
         let user = PFUser.currentUser()
         let userID = user?.objectId
         
+        //
         var getPosts = PFQuery(className: "Posts")
         var getMatches = PFQuery(className: "Matches")
      
         getMatches.whereKey("UserObjectID", equalTo: userID!)
 //        getMatches.whereKey("PostObjects", equalTo: PFObject(withoutDataWithClassName: "Posts", objectId: nil))
-        getMatches.whereKey("PostObjects", matchesQuery: getPosts)
+        //getMatches.whereKey("PostObjects", matchesQuery: getPosts)
         
         return getMatches
 
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, var object: PFObject?) -> PFTableViewCell?
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell?
     {
         var tcell:MatchesTableViewCell? = tableView.dequeueReusableCellWithIdentifier("matchCell", forIndexPath: indexPath) as? MatchesTableViewCell
         
@@ -110,7 +111,9 @@ class MatchesTableViewController: PFQueryTableViewController
         if let cell = tcell
         {
 
-            cell.postObject = object!["PostObject"] as! Post
+            let postObjectFromMatch = object?["PostObject"] as! PFObject
+            print("postObjectFromMatch = \(postObjectFromMatch)")
+            cell.postObject = postObjectFromMatch as! Post
             
             print(cell.postObject)
             
