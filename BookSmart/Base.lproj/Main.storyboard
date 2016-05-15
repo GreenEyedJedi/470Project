@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Khm-gD-aI7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Khm-gD-aI7">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -680,7 +680,7 @@
                         <viewControllerLayoutGuide type="bottom" id="L7e-cM-aFN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LCn-fQ-X8d">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageupload" translatesAutoresizingMaskIntoConstraints="NO" id="Ce7-ng-nCq">
@@ -1988,7 +1988,7 @@
                         <viewControllerLayoutGuide type="bottom" id="q0F-JZ-5lO"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vRO-JP-VTk">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z0e-8Q-dDS">
@@ -5158,18 +5158,220 @@
         <scene sceneID="Jcq-U5-fe6">
             <objects>
                 <tableViewController id="Lr2-9l-NpJ" customClass="PostBrowseTableViewController" customModule="BookSmart" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="eOb-Ya-U5i">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="eOb-Ya-U5i">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="LV1-pd-VFW" customClass="BackPackTableViewCell" customModule="BookSmart" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="browsePostCell" rowHeight="100" id="tAf-tT-Ha0" customClass="BackPackTableViewCell" customModule="BookSmart" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LV1-pd-VFW" id="dZu-qL-fBl">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tAf-tT-Ha0" id="tHo-Lb-jZ0">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s9T-IF-2Zj">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="62" id="HFx-2H-VrR"/>
+                                                <constraint firstAttribute="height" constant="62" id="jUm-eB-9xk"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="jUm-eB-9xk"/>
+                                                    <exclude reference="HFx-2H-VrR"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="jUm-eB-9xk"/>
+                                                    <include reference="HFx-2H-VrR"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dept + Course" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMt-IC-GXH">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="161" id="YOS-VO-9yK"/>
+                                                <constraint firstAttribute="height" constant="12" id="xhf-aX-rY8"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="12"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="xhf-aX-rY8"/>
+                                                    <exclude reference="YOS-VO-9yK"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="xhf-aX-rY8"/>
+                                                    <include reference="YOS-VO-9yK"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Professor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RjR-Yh-cEh">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="9" id="ErQ-YS-Ewp"/>
+                                                <constraint firstAttribute="width" constant="161" id="eg9-as-yct"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="12"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="ErQ-YS-Ewp"/>
+                                                    <exclude reference="eg9-as-yct"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="ErQ-YS-Ewp"/>
+                                                    <include reference="eg9-as-yct"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAq-y0-gFM">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="314" id="Ha5-0N-pX8"/>
+                                                <constraint firstAttribute="height" constant="17" id="XA0-1r-AXt"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="XA0-1r-AXt"/>
+                                                    <exclude reference="Ha5-0N-pX8"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="XA0-1r-AXt"/>
+                                                    <include reference="Ha5-0N-pX8"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCV-GW-ikY">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="e9y-b4-Qax"/>
+                                                <constraint firstAttribute="width" constant="93" id="uNw-Ul-2UU"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="uNw-Ul-2UU"/>
+                                                    <exclude reference="e9y-b4-Qax"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="uNw-Ul-2UU"/>
+                                                    <include reference="e9y-b4-Qax"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Book Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMa-fm-ais">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="PJM-hG-QHO"/>
+                                                <constraint firstAttribute="width" constant="314" id="fdd-Sj-BdK"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="fdd-Sj-BdK"/>
+                                                    <exclude reference="PJM-hG-QHO"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="fdd-Sj-BdK"/>
+                                                    <include reference="PJM-hG-QHO"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="GAq-y0-gFM" firstAttribute="leading" secondItem="s9T-IF-2Zj" secondAttribute="trailing" constant="8" id="6qM-JV-7vG"/>
+                                        <constraint firstItem="OMa-fm-ais" firstAttribute="leading" secondItem="s9T-IF-2Zj" secondAttribute="trailing" constant="8" id="8IQ-mg-ruv"/>
+                                        <constraint firstItem="RCV-GW-ikY" firstAttribute="top" secondItem="OMa-fm-ais" secondAttribute="bottom" constant="21" id="BUs-3r-Th3"/>
+                                        <constraint firstItem="GAq-y0-gFM" firstAttribute="top" secondItem="OMa-fm-ais" secondAttribute="bottom" constant="-2" id="Jiq-UC-Ad4"/>
+                                        <constraint firstItem="RCV-GW-ikY" firstAttribute="leading" secondItem="RjR-Yh-cEh" secondAttribute="trailing" constant="27" id="KEK-yr-IDi"/>
+                                        <constraint firstItem="SMt-IC-GXH" firstAttribute="top" secondItem="GAq-y0-gFM" secondAttribute="bottom" constant="3" id="QFy-SG-41n"/>
+                                        <constraint firstItem="RjR-Yh-cEh" firstAttribute="top" secondItem="SMt-IC-GXH" secondAttribute="bottom" constant="2" id="aUc-j7-uJE"/>
+                                        <constraint firstItem="OMa-fm-ais" firstAttribute="top" secondItem="tHo-Lb-jZ0" secondAttribute="topMargin" constant="-8" id="bSD-23-uH3"/>
+                                        <constraint firstItem="s9T-IF-2Zj" firstAttribute="top" secondItem="tHo-Lb-jZ0" secondAttribute="topMargin" constant="-4" id="j6i-wa-Kpa"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="s9T-IF-2Zj" secondAttribute="leading" id="lH6-aO-gjA"/>
+                                        <constraint firstItem="SMt-IC-GXH" firstAttribute="leading" secondItem="s9T-IF-2Zj" secondAttribute="trailing" constant="8" id="re5-wG-jBm"/>
+                                        <constraint firstItem="RjR-Yh-cEh" firstAttribute="leading" secondItem="s9T-IF-2Zj" secondAttribute="trailing" constant="8" id="saD-tm-Cax"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="s9T-IF-2Zj"/>
+                                            <exclude reference="SMt-IC-GXH"/>
+                                            <exclude reference="RjR-Yh-cEh"/>
+                                            <exclude reference="GAq-y0-gFM"/>
+                                            <exclude reference="RCV-GW-ikY"/>
+                                            <exclude reference="OMa-fm-ais"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="Jiq-UC-Ad4"/>
+                                            <exclude reference="6qM-JV-7vG"/>
+                                            <exclude reference="KEK-yr-IDi"/>
+                                            <exclude reference="BUs-3r-Th3"/>
+                                            <exclude reference="bSD-23-uH3"/>
+                                            <exclude reference="8IQ-mg-ruv"/>
+                                            <exclude reference="re5-wG-jBm"/>
+                                            <exclude reference="QFy-SG-41n"/>
+                                            <exclude reference="aUc-j7-uJE"/>
+                                            <exclude reference="saD-tm-Cax"/>
+                                            <exclude reference="j6i-wa-Kpa"/>
+                                            <exclude reference="lH6-aO-gjA"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="s9T-IF-2Zj"/>
+                                            <include reference="SMt-IC-GXH"/>
+                                            <include reference="RjR-Yh-cEh"/>
+                                            <include reference="GAq-y0-gFM"/>
+                                            <include reference="RCV-GW-ikY"/>
+                                            <include reference="OMa-fm-ais"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="Jiq-UC-Ad4"/>
+                                            <include reference="6qM-JV-7vG"/>
+                                            <include reference="KEK-yr-IDi"/>
+                                            <include reference="BUs-3r-Th3"/>
+                                            <include reference="bSD-23-uH3"/>
+                                            <include reference="8IQ-mg-ruv"/>
+                                            <include reference="re5-wG-jBm"/>
+                                            <include reference="QFy-SG-41n"/>
+                                            <include reference="aUc-j7-uJE"/>
+                                            <include reference="saD-tm-Cax"/>
+                                            <include reference="j6i-wa-Kpa"/>
+                                            <include reference="lH6-aO-gjA"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="authorLabel" destination="GAq-y0-gFM" id="3Kw-qB-p4m"/>
+                                    <outlet property="bookTitleLabel" destination="OMa-fm-ais" id="Y6E-FS-9O1"/>
+                                    <outlet property="deptAndCourseLabel" destination="SMt-IC-GXH" id="EhI-4r-dxF"/>
+                                    <outlet property="postImageView" destination="s9T-IF-2Zj" id="09y-VM-izP"/>
+                                    <outlet property="priceLabel" destination="RCV-GW-ikY" id="oxC-u9-1ch"/>
+                                    <outlet property="professorLabel" destination="RjR-Yh-cEh" id="kMb-e2-ImV"/>
+                                    <segue destination="cxT-Dl-ew9" kind="show" identifier="browseViewPost" id="fU4-RS-IMm"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -5274,6 +5476,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="QMc-ci-D2i" kind="show" identifier="profToBook" id="BrE-dI-0Kd"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -5284,7 +5489,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sYc-Dn-JcT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1383" y="2508"/>
+            <point key="canvasLocation" x="-1357" y="2392"/>
         </scene>
     </scenes>
     <resources>
@@ -5299,6 +5504,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="kkA-0o-XH1"/>
-        <segue reference="81a-tr-YSA"/>
+        <segue reference="BrE-dI-0Kd"/>
+        <segue reference="fU4-RS-IMm"/>
     </inferredMetricsTieBreakers>
 </document>

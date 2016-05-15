@@ -87,7 +87,6 @@ class BackPackViewController: PFQueryTableViewController
             print(cell.postObject)
             
             var imageFromParse = cell.postObject.objectForKey("PostImage") as? PFFile
-            
             imageFromParse!.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
                 var image: UIImage! = UIImage(data: imageData!)!
                 cell.postImageView.image = image
